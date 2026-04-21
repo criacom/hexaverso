@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#E8499F">
+<title>HEXAVERSO ★ Em construção</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/hexaverso.css">
+<style>
+  .wip {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .wip::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg, transparent 0, transparent 30px,
+      rgba(232,73,159,0.08) 30px, rgba(232,73,159,0.08) 60px
+    );
+    pointer-events: none;
+  }
+  .wip__content { position: relative; z-index: 1; max-width: 420px; }
+  .wip__tag {
+    display: inline-block;
+    background: var(--pink); color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.15em;
+    padding: 4px 10px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    margin-bottom: 20px;
+    transform: rotate(-2deg);
+  }
+  .wip__title {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 12vw, 72px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    margin-bottom: 18px;
+  }
+  .wip__body {
+    font-size: 15px; line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .wip__btn {
+    display: inline-block;
+    background: var(--ink); color: var(--lime);
+    font-family: var(--font-display);
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 12px 18px;
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--pink);
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar__brand"><a href="../index.html">HEXAVERSO</a></span>
+  <span class="topbar__meta">pesquisa<span class="topbar__blink"></span></span>
+</div>
+
+<nav class="nav" aria-label="Navegação principal">
+  <ul class="nav__list">
+    <li class="nav__item"><a href="../index.html">◆ quick play</a></li>
+    <li class="nav__item"><a href="../jogadores/index.html">▲ jogadores</a></li>
+    <li class="nav__item"><a href="../mestres/index.html">◇ mestres</a></li>
+    <li class="nav__item"><a href="../downloads/index.html">▸ downloads</a></li>
+    <li class="nav__item"><a href="../pesquisa/index.html">✺ pesquisa</a></li>
+  </ul>
+</nav>
+
+<section class="wip">
+  <div class="wip__content">
+    <span class="wip__tag">◆ em construção ◆</span>
+    <h1 class="wip__title">para<br>pesquisadores</h1>
+    <p class="wip__body">
+      Linha de base, fichas padronizadas de registro, protocolo de aplicação, publicações relacionadas e canal direto com o CRIACOM para aplicadores e pesquisadores.
+    </p>
+    <a href="../index.html" class="wip__btn">← voltar ao quick play</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__nav">
+    <a href="../index.html">quick play</a>
+    <a href="../jogadores/index.html">jogadores</a>
+    <a href="../mestres/index.html">mestres</a>
+    <a href="../downloads/index.html">downloads</a>
+    <a href="../pesquisa/index.html">pesquisa</a>
+  </div>
+  <div class="footer__body">
+    HEXAVERSO © 2026 · Neves Filho et al. / UEL-CNPq<br>
+    Licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+  </div>
+</footer>
+
+</body>
+</html>

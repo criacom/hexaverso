@@ -1,0 +1,253 @@
+/* ============================================================
+   HEXAVERSO · Design system compartilhado
+   Todas as páginas importam este arquivo.
+   Tokens + reset + componentes comuns (topbar, marquee, nav, footer)
+   ============================================================ */
+
+:root {
+  /* Paleta */
+  --pink: #E8499F;
+  --pink-deep: #D2287F;
+  --lime: #B8E63C;
+  --lime-deep: #9FC82A;
+  --ink: #0B0B0B;
+  --ink-soft: #1a1a1a;
+  --cream: #F5E6D0;
+  --cream-halftone: #EFD9B6;
+  --paper: #FFFFFF;
+  --blue: #4DA3D8;
+  --red: #E8493F;
+
+  /* Tipografia */
+  --font-display: 'Archivo Black', 'Helvetica Neue', Impact, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+
+  /* Estilos de base */
+  --border-heavy: 3px solid var(--ink);
+  --border-thick: 2px solid var(--ink);
+  --shadow-hard: 6px 6px 0 var(--ink);
+  --shadow-hard-sm: 3px 3px 0 var(--ink);
+
+  /* Layout */
+  --page-padding: 20px;
+  --max-content: 640px;
+}
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+::selection { background: var(--pink); color: var(--ink); }
+
+/* ============================================================
+   TOPBAR — HUD compartilhado
+   ============================================================ */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--ink); color: var(--cream);
+  border-bottom: var(--border-heavy);
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.05em;
+  padding: 8px 14px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar__brand {
+  color: var(--pink); font-weight: 700;
+  display: flex; align-items: center; gap: 6px;
+}
+.topbar__brand a {
+  color: var(--pink);
+}
+.topbar__meta { color: var(--lime); }
+.topbar__blink {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--lime);
+  border-radius: 50%;
+  margin-left: 6px;
+  animation: blink 1.3s infinite;
+  vertical-align: middle;
+}
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  70%, 100% { opacity: 0.15; }
+}
+
+/* ============================================================
+   NAV — barra de navegação entre páginas
+   ============================================================ */
+.nav {
+  background: var(--cream);
+  border-bottom: var(--border-heavy);
+  padding: 10px var(--page-padding);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav__list {
+  display: inline-flex;
+  gap: 4px;
+  list-style: none;
+}
+.nav__item a {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  transition: transform 80ms;
+}
+.nav__item a:active {
+  transform: translate(1px, 1px);
+}
+.nav__item--active a {
+  background: var(--ink);
+  color: var(--lime);
+  box-shadow: 3px 3px 0 var(--pink);
+}
+.nav__item a:hover:not(.nav__item--active a) {
+  background: var(--lime);
+}
+
+/* ============================================================
+   MARQUEE — texto rolante (pode aparecer em várias páginas)
+   ============================================================ */
+.marquee-hero {
+  display: flex;
+  overflow: hidden;
+  background: var(--lime);
+  border-top: var(--border-heavy);
+  border-bottom: var(--border-heavy);
+  padding: 14px 0;
+  position: relative;
+}
+.marquee-hero__track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0;
+  animation: marquee-scroll 28s linear infinite;
+  white-space: nowrap;
+}
+.marquee-hero__track span {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 5vw, 28px);
+  color: var(--ink);
+  padding: 0 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.marquee-hero__track .mq-star {
+  color: var(--pink);
+  font-size: clamp(22px, 5.5vw, 32px);
+  padding: 0 10px;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   SECTION base
+   ============================================================ */
+section {
+  padding: 50px var(--page-padding);
+  position: relative;
+}
+section + section { border-top: var(--border-heavy); }
+
+.sec-head { margin-bottom: 26px; }
+.sec-head__kicker {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--pink-deep); text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.sec-head__kicker::before { content: "▍"; color: var(--pink); }
+.sec-head__kicker::after {
+  content: ""; flex: 1; height: 2px; background: var(--ink);
+}
+.sec-head__title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 10vw, 56px);
+  line-height: 0.92;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+}
+.sec-head__subtitle {
+  font-size: 14px; margin-top: 10px; line-height: 1.5;
+  color: var(--ink-soft); max-width: 520px;
+}
+
+/* ============================================================
+   FOOTER compartilhado
+   ============================================================ */
+.footer {
+  background: var(--ink);
+  color: var(--cream-halftone);
+  padding: 30px var(--page-padding);
+  border-top: 1px solid var(--cream-halftone);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+.footer__nav {
+  display: flex; flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.footer__nav a {
+  color: var(--lime);
+  padding: 4px 10px;
+  border: 1px solid var(--lime);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.footer__nav a:hover { background: var(--lime); color: var(--ink); }
+.footer__body {
+  text-align: center;
+  line-height: 1.7;
+}
+.footer__body a {
+  color: var(--lime);
+  border-bottom: 1px dotted var(--lime);
+}
+
+/* ============================================================
+   RESPONSIVE base
+   ============================================================ */
+@media (min-width: 720px) {
+  :root { --page-padding: 40px; --max-content: 720px; }
+  body > main > section,
+  body > section {
+    max-width: var(--max-content);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .topbar, .nav, .marquee-hero { max-width: none; }
+  .nav { padding-left: 40px; padding-right: 40px; }
+}

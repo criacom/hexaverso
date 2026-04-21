@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#B8E63C">
+<title>HEXAVERSO ★ Área dos Jogadores</title>
+<meta name="description" content="Vai jogar Hexaverso? Leia isso antes de sentar à mesa. Personagens, regras essenciais e o Companion Log.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/css/hexaverso.css">
+
+<style>
+/* ============================================================
+   PÁGINA JOGADORES · lime dominante
+   ============================================================ */
+
+/* HERO específico desta página — lime em vez de rosa */
+.hero-pj {
+  position: relative;
+  background: var(--lime);
+  padding: 54px var(--page-padding) 48px;
+  border-bottom: var(--border-heavy);
+  overflow: hidden;
+}
+.hero-pj::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(11,11,11,0.08) 1px, transparent 1.5px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+.hero-pj > * { position: relative; z-index: 1; }
+.hero-pj__tag {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em;
+  color: var(--ink); text-transform: uppercase;
+  display: inline-block;
+  border: var(--border-thick); padding: 4px 10px;
+  background: var(--pink); color: var(--paper);
+  margin-bottom: 20px;
+}
+.hero-pj__title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 15vw, 110px);
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  text-transform: lowercase;
+  margin: 0;
+}
+.hero-pj__subtitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px solid var(--ink);
+  max-width: 440px;
+}
+
+/* Bloco de boas-vindas direto */
+.intro {
+  background: var(--paper);
+}
+.intro__lead {
+  font-size: 17px; line-height: 1.55;
+  margin-bottom: 16px;
+}
+.intro__lead strong { background: var(--lime); padding: 0 3px; }
+.intro__body { font-size: 15px; line-height: 1.6; margin-bottom: 12px; }
+
+.intro__callout {
+  margin-top: 22px;
+  background: var(--ink); color: var(--cream);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-hard);
+  padding: 18px;
+  font-family: var(--font-mono); font-size: 13px;
+  line-height: 1.65;
+}
+.intro__callout strong {
+  color: var(--lime);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* O QUE LEVAR — checklist */
+.kit {
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.kit::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(11,11,11,0.1) 1px, transparent 1.5px);
+  background-size: 10px 10px;
+  pointer-events: none; opacity: 0.5;
+}
+.kit > * { position: relative; z-index: 1; }
+.kit__list {
+  display: grid; gap: 10px; margin-top: 8px;
+}
+.kit-item {
+  background: var(--paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.kit-item__icon {
+  width: 44px; height: 44px;
+  background: var(--lime); border: var(--border-thick);
+  display: grid; place-items: center;
+  font-size: 22px;
+  box-shadow: var(--shadow-hard-sm);
+}
+.kit-item__name {
+  font-family: var(--font-display);
+  font-size: 17px; line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 3px;
+}
+.kit-item__desc { font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
+
+/* REGRA BÁSICA — bloco explicando d6 roll under */
+.rule {
+  background: var(--pink); color: var(--ink);
+  position: relative;
+}
+.rule::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(11,11,11,0.12) 1px, transparent 1.5px);
+  background-size: 10px 10px;
+  pointer-events: none;
+}
+.rule > * { position: relative; z-index: 1; }
+
+.rule-card {
+  background: var(--paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-hard);
+  padding: 18px;
+  margin-bottom: 14px;
+}
+.rule-card__num {
+  font-family: var(--font-mono); font-size: 10px;
+  background: var(--ink); color: var(--lime);
+  padding: 2px 8px;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.rule-card__title {
+  font-family: var(--font-display);
+  font-size: 22px; line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.rule-card__body { font-size: 14px; line-height: 1.55; }
+.rule-card__body strong { background: var(--lime); padding: 0 3px; }
+
+.dice-visual {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 14px;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px dashed var(--ink);
+  font-family: var(--font-mono); font-size: 12px;
+}
+.dice-visual__face {
+  background: var(--pink);
+  color: var(--paper);
+  border: var(--border-thick);
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: var(--shadow-hard-sm);
+}
+.dice-visual__face--half { background: var(--lime); color: var(--ink); }
+.dice-visual__face--fail { background: var(--paper); color: var(--ink); }
+
+/* PERSONAGENS — grid escolha */
+.chars-pj {
+  background: var(--paper);
+  padding-left: 0; padding-right: 0;
+}
+.chars-pj .sec-head { padding: 0 var(--page-padding); }
+
+.chars-pj__scroller {
+  display: flex; gap: 14px;
+  padding: 10px var(--page-padding) 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.chars-pj__scroller::-webkit-scrollbar { display: none; }
+
+.char-pj {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  border: var(--border-heavy);
+  background: var(--paper);
+  box-shadow: var(--shadow-hard);
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.char-pj__image {
+  width: 100%; aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-bottom: var(--border-thick);
+  position: relative;
+  background: var(--cream);
+}
+.char-pj__image--lime { background: var(--lime); }
+.char-pj__image img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+.char-pj__badge {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--ink); color: var(--lime);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 3px 7px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--lime);
+}
+.char-pj__body { padding: 14px; }
+.char-pj__name {
+  font-family: var(--font-display);
+  font-size: 28px; line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+.char-pj__vertex {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  color: var(--pink-deep);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px; margin-bottom: 8px;
+  display: inline-block;
+}
+.char-pj__hint {
+  font-size: 12.5px; line-height: 1.4;
+  color: var(--ink-soft);
+}
+.char-pj__hint strong { color: var(--ink); }
+
+.chars-pj__nav {
+  display: flex; gap: 10px;
+  justify-content: center;
+  padding: 8px var(--page-padding) 0;
+}
+.chars-pj__btn {
+  background: var(--ink); color: var(--lime);
+  border: var(--border-thick); border-color: var(--ink);
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 20px;
+  box-shadow: var(--shadow-hard-sm);
+  transition: transform 80ms;
+}
+.chars-pj__btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+.chars-pj__hint {
+  padding: 12px var(--page-padding) 0;
+  font-family: var(--font-mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-soft); opacity: 0.6;
+  text-align: center;
+}
+
+/* COMPANION LOG — preview */
+.cl-preview {
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.cl-preview::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, transparent 0, transparent 3px,
+    rgba(255,255,255,0.02) 3px, rgba(255,255,255,0.02) 4px
+  );
+}
+.cl-preview > * { position: relative; z-index: 1; }
+.cl-preview .sec-head__title { color: var(--cream); }
+.cl-preview .sec-head__subtitle { color: var(--cream-halftone); }
+.cl-preview .sec-head__kicker { color: var(--lime); }
+.cl-preview .sec-head__kicker::after { background: var(--cream); }
+
+.cl-card {
+  background: var(--cream);
+  color: var(--ink);
+  border: var(--border-heavy);
+  box-shadow: 6px 6px 0 var(--lime);
+  padding: 18px;
+  margin-bottom: 14px;
+}
+.cl-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px; line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.cl-card p { font-size: 13.5px; line-height: 1.55; }
+.cl-card strong { background: var(--lime); padding: 0 3px; }
+
+.cl-quests {
+  margin-top: 14px;
+  display: grid; gap: 8px;
+}
+.cl-quest {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  font-family: var(--font-mono); font-size: 12px;
+}
+.cl-quest__icon {
+  width: 30px; height: 30px;
+  background: var(--lime);
+  display: grid; place-items: center;
+  font-size: 15px;
+  border: 2px solid var(--ink);
+}
+.cl-quest__xp {
+  background: var(--pink); color: var(--ink);
+  padding: 3px 8px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ESPÍRITO DE MESA — combinados */
+.spirit {
+  background: var(--lime);
+  position: relative;
+}
+.spirit::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(11,11,11,0.15) 1px, transparent 1.5px);
+  background-size: 9px 9px;
+  pointer-events: none; opacity: 0.6;
+}
+.spirit > * { position: relative; z-index: 1; }
+.spirit__list {
+  display: grid; gap: 10px; margin-top: 10px;
+}
+.spirit-item {
+  background: var(--paper);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 14px;
+  align-items: flex-start;
+}
+.spirit-item__icon {
+  font-size: 22px;
+  color: var(--pink);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.spirit-item__body {
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.spirit-item__body strong { font-weight: 700; }
+
+/* CTA para o quick-play completo */
+.cta-pj {
+  background: var(--ink); color: var(--cream);
+  text-align: center;
+  padding: 60px var(--page-padding);
+}
+.cta-pj__title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 10vw, 54px);
+  line-height: 0.9;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+  margin-bottom: 18px;
+  color: var(--cream);
+}
+.cta-pj__title span { color: var(--lime); }
+.cta-pj__body {
+  font-family: var(--font-mono); font-size: 13px;
+  line-height: 1.6;
+  max-width: 420px; margin: 0 auto 24px;
+  color: var(--cream-halftone);
+}
+.cta-pj__btn {
+  display: inline-block;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border: 3px solid var(--lime);
+  box-shadow: 6px 6px 0 var(--pink);
+  letter-spacing: 0.02em;
+  margin: 0 4px 8px 0;
+}
+.cta-pj__btn:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--pink); }
+.cta-pj__btn--outline {
+  background: transparent; color: var(--lime);
+  box-shadow: 6px 6px 0 var(--lime-deep);
+}
+
+/* Responsive */
+@media (min-width: 720px) {
+  .kit__list { grid-template-columns: 1fr 1fr; }
+  .char-pj { flex-basis: 290px; }
+  .spirit__list { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="topbar__brand"><a href="../index.html">HEXAVERSO</a></span>
+  <span class="topbar__meta">área dos jogadores<span class="topbar__blink"></span></span>
+</div>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Navegação principal">
+  <ul class="nav__list">
+    <li class="nav__item"><a href="../index.html">◆ quick play</a></li>
+    <li class="nav__item nav__item--active"><a href="./index.html">▲ jogadores</a></li>
+    <li class="nav__item"><a href="../mestres/index.html">◇ mestres</a></li>
+    <li class="nav__item"><a href="../downloads/index.html">▸ downloads</a></li>
+    <li class="nav__item"><a href="../pesquisa/index.html">✺ pesquisa</a></li>
+  </ul>
+</nav>
+
+<!-- MARQUEE -->
+<div class="marquee-hero" aria-hidden="true">
+  <div class="marquee-hero__track">
+    <span>JOGADORES</span><span class="mq-star">★</span>
+    <span>Nixx</span><span class="mq-star">★</span>
+    <span>Elan</span><span class="mq-star">★</span>
+    <span>Micca</span><span class="mq-star">★</span>
+    <span>Poppy</span><span class="mq-star">★</span>
+    <span>Bree</span><span class="mq-star">★</span>
+    <span>Sr. Waggu</span><span class="mq-star">★</span>
+    <span>Companion Log</span><span class="mq-star">★</span>
+    <span>JOGADORES</span><span class="mq-star">★</span>
+    <span>Nixx</span><span class="mq-star">★</span>
+    <span>Elan</span><span class="mq-star">★</span>
+    <span>Micca</span><span class="mq-star">★</span>
+    <span>Poppy</span><span class="mq-star">★</span>
+    <span>Bree</span><span class="mq-star">★</span>
+    <span>Sr. Waggu</span><span class="mq-star">★</span>
+    <span>Companion Log</span><span class="mq-star">★</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero-pj">
+  <span class="hero-pj__tag">▲ para quem vai jogar</span>
+  <h1 class="hero-pj__title">antes<br>da mesa.</h1>
+  <p class="hero-pj__subtitle">
+    leitura rápida · 5 min · sem spoilers
+  </p>
+</header>
+
+<main>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="sec-head">
+    <div class="sec-head__kicker">bem-vinde</div>
+    <h2 class="sec-head__title">você foi<br>convocado.</h2>
+  </div>
+
+  <p class="intro__lead">
+    Se está lendo isso, alguém te convidou para jogar Hexaverso. <strong>Ótimo.</strong> Esta página existe para te deixar pronto para a primeira sessão — sem te encher de regra, sem te dar spoiler, e sem exigir que você leia um manual inteiro.
+  </p>
+  <p class="intro__body">
+    Hexaverso é um RPG de mesa onde vocês vão interpretar ratos de laboratório que acordam em forma antropomorfizada numa cidade chamada <strong>Cidade Cinza</strong>. Mundo cansado, facções em atrito, relógio correndo. Vocês não lutam ondas de inimigos — vocês <strong>coordenam decisões</strong> num mundo que reage ao que fazem.
+  </p>
+  <p class="intro__body">
+    A mesa tem <strong>seis jogadores</strong> (um para cada personagem) e <strong>duas pessoas mestrando</strong>: uma conduz a ficção, a outra observa o grupo. Você vai interagir principalmente com a primeira.
+  </p>
+
+  <div class="intro__callout">
+    <strong>◆ a promessa do jogo</strong>
+    Você vai se divertir. E no caminho — sem perceber na hora — vai aprender coisas sobre comportamento individual (Hexaflex) e comportamento coletivo (metacontingência) que ficam. É de propósito. Foi assim que o jogo foi desenhado.
+  </div>
+</section>
+
+<!-- O QUE LEVAR -->
+<section class="kit">
+  <div class="sec-head">
+    <div class="sec-head__kicker">o que levar</div>
+    <h2 class="sec-head__title">kit básico<br>do jogador</h2>
+    <p class="sec-head__subtitle">
+      Coisa pouca. O mestre leva o resto.
+    </p>
+  </div>
+
+  <div class="kit__list">
+    <div class="kit-item">
+      <div class="kit-item__icon">⚀</div>
+      <div>
+        <div class="kit-item__name">um d6</div>
+        <div class="kit-item__desc">Dado de seis faces comum. Se não tiver, o mestre tem.</div>
+      </div>
+    </div>
+    <div class="kit-item">
+      <div class="kit-item__icon">✎</div>
+      <div>
+        <div class="kit-item__name">caneta</div>
+        <div class="kit-item__desc">Sua arma principal no Companion Log.</div>
+      </div>
+    </div>
+    <div class="kit-item">
+      <div class="kit-item__icon">📓</div>
+      <div>
+        <div class="kit-item__name">caderno pessoal</div>
+        <div class="kit-item__desc">Seu Companion Log. Qualquer caderno serve — vai virar relíquia no fim.</div>
+      </div>
+    </div>
+    <div class="kit-item">
+      <div class="kit-item__icon">☉</div>
+      <div>
+        <div class="kit-item__name">boa fé</div>
+        <div class="kit-item__desc">Espaço aberto para o personagem, respeito aos outros na mesa, topar o jogo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGRA BÁSICA -->
+<section class="rule">
+  <div class="sec-head">
+    <div class="sec-head__kicker">mecânica</div>
+    <h2 class="sec-head__title">a única<br>regra que importa</h2>
+    <p class="sec-head__subtitle" style="color: var(--ink);">
+      Hexaverso é sistema <strong style="background:var(--lime); padding:0 4px;">1d6 roll-under</strong>. Decore isso e você joga a sessão inteira.
+    </p>
+  </div>
+
+  <div class="rule-card">
+    <span class="rule-card__num">◆ 01</span>
+    <h3 class="rule-card__title">a mestra pede um teste</h3>
+    <p class="rule-card__body">
+      Quando sua ação é incerta, arriscada, ou pode mudar a cena — a mestra pede um teste. Ela escolhe um dos três atributos: <strong>Percepção</strong>, <strong>Coragem</strong> ou <strong>Curiosidade</strong>. Cada um do seu personagem vai de 1 a 6.
+    </p>
+  </div>
+
+  <div class="rule-card">
+    <span class="rule-card__num">◆ 02</span>
+    <h3 class="rule-card__title">você rola 1d6</h3>
+    <p class="rule-card__body">
+      Um único dado. Compare o resultado com o valor do seu atributo. <strong>Precisa rolar abaixo</strong> do atributo (isso é "roll-under"). Se seu atributo é 5 e você tira 3, passou fácil. Se tirou 6, deu ruim.
+    </p>
+    <div class="dice-visual">
+      <div class="dice-visual__face">&lt;</div>
+      <div>dado <strong>menor</strong> que atributo · sucesso</div>
+      <div class="dice-visual__face dice-visual__face--half">=</div>
+      <div>dado <strong>igual</strong> ao atributo · meio acerto, com custo</div>
+      <div class="dice-visual__face dice-visual__face--fail">&gt;</div>
+      <div>dado <strong>maior</strong> · falha, a cena avança errada</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <span class="rule-card__num">◆ 03</span>
+    <h3 class="rule-card__title">a cena segue</h3>
+    <p class="rule-card__body">
+      Falha não trava a história — empurra ela pra outro lado. Sucesso não acaba a tensão — abre a próxima. Você sempre tem algo a fazer na cena seguinte. Isso é o jogo.
+    </p>
+  </div>
+</section>
+
+<!-- PERSONAGENS -->
+<section class="chars-pj">
+  <div class="sec-head">
+    <div class="sec-head__kicker">escolha ou receba</div>
+    <h2 class="sec-head__title">os seis<br>personagens</h2>
+    <p class="sec-head__subtitle">
+      Cada um representa um vértice da flexibilidade psicológica. Não precisa entender o conceito antes — basta jogar. O conceito aparece depois.
+    </p>
+  </div>
+
+  <div class="chars-pj__wrap">
+    <div class="chars-pj__scroller" id="pjCharsScroller">
+
+      <article class="char-pj">
+        <div class="char-pj__image">
+          <div class="char-pj__badge">desfusão</div>
+          <img src="../assets/images/nixx.jpg" alt="Nixx">
+        </div>
+        <div class="char-pj__body">
+          <h3 class="char-pj__name">Nixx</h3>
+          <span class="char-pj__vertex">explorador · camundongo</span>
+          <p class="char-pj__hint">
+            <strong>Para quem curte:</strong> pensar rápido, improvisar, questionar a própria cabeça. Nixx não leva pensamento a sério demais — sabe que pensamento não é fato.
+          </p>
+        </div>
+      </article>
+
+      <article class="char-pj">
+        <div class="char-pj__image char-pj__image--lime">
+          <div class="char-pj__badge">valores</div>
+          <img src="../assets/images/elan.jpg" alt="Elan">
+        </div>
+        <div class="char-pj__body">
+          <h3 class="char-pj__name">Elan</h3>
+          <span class="char-pj__vertex">pensador · wistar</span>
+          <p class="char-pj__hint">
+            <strong>Para quem curte:</strong> ter uma bússola interna, agir pelo que importa mesmo sob pressão. Elan faz escolhas duras alinhadas com o que acredita.
+          </p>
+        </div>
+      </article>
+
+      <article class="char-pj">
+        <div class="char-pj__image">
+          <div class="char-pj__badge">ação comprometida</div>
+          <img src="../assets/images/micca.jpg" alt="Micca">
+        </div>
+        <div class="char-pj__body">
+          <h3 class="char-pj__name">Micca</h3>
+          <span class="char-pj__vertex">independente · long evans</span>
+          <p class="char-pj__hint">
+            <strong>Para quem curte:</strong> agir antes de pensar demais, mover as coisas, levar. Micca é a primeira a entrar na cena e a última a recuar.
+          </p>
+        </div>
+      </article>
+
+      <article class="char-pj">
+        <div class="char-pj__image">
+          <div class="char-pj__badge">aceitação</div>
+          <img src="../assets/images/poppy.jpg" alt="Poppy">
+        </div>
+        <div class="char-pj__body">
+          <h3 class="char-pj__name">Poppy</h3>
+          <span class="char-pj__vertex">colaboradora · sprague-dawley</span>
+          <p class="char-pj__hint">
+            <strong>Para quem curte:</strong> cuidar dos outros sem sufocar, aceitar o difícil sem desistir, mediar. Poppy topa o incontrolável sem paralisar.
+          </p>
+        </div>
+      </article>
+
+      <article class="char-pj">
+        <div class="char-pj__image">
+          <div class="char-pj__badge">momento presente</div>
+          <img src="../assets/images/bree.jpg" alt="Bree">
+        </div>
+        <div class="char-pj__body">
+          <h3 class="char-pj__name">Bree</h3>
+          <span class="char-pj__vertex">cuidador · zucker</span>
+          <p class="char-pj__hint">
+            <strong>Para quem curte:</strong> estar inteiro onde está, notar o que os outros não notam, cuidar com presença. Bree vê o que acontece agora — antes, depois, vai ver também.
+          </p>
+        </div>
+      </article>
+
+      <article class="char-pj">
+        <div class="char-pj__image">
+          <div class="char-pj__badge">eu-como-contexto</div>
+          <img src="../assets/images/waggu.jpg" alt="Sr. Waggu">
+        </div>
+        <div class="char-pj__body">
+          <h3 class="char-pj__name">Sr. Waggu</h3>
+          <span class="char-pj__vertex">visionário · long evans</span>
+          <p class="char-pj__hint">
+            <strong>Para quem curte:</strong> olhar o todo, dar perspectiva, lembrar dos outros quem eles são quando esquecem. Waggu é o rato mais velho da mesa — e parece ter vivido mais do que deveria.
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="chars-pj__nav">
+      <button class="chars-pj__btn" onclick="document.getElementById('pjCharsScroller').scrollBy({left:-280,behavior:'smooth'})" aria-label="Anterior">‹</button>
+      <button class="chars-pj__btn" onclick="document.getElementById('pjCharsScroller').scrollBy({left:280,behavior:'smooth'})" aria-label="Próximo">›</button>
+    </div>
+  </div>
+
+  <p class="chars-pj__hint">arraste ou use as setas · o mestre pode atribuir um personagem, ou deixar escolherem</p>
+</section>
+
+<!-- COMPANION LOG -->
+<section class="cl-preview">
+  <div class="sec-head">
+    <div class="sec-head__kicker">o seu caderno</div>
+    <h2 class="sec-head__title">companion log</h2>
+    <p class="sec-head__subtitle">
+      Metade jogo, metade diário. Totalmente seu.
+    </p>
+  </div>
+
+  <div class="cl-card">
+    <h3>um caderno físico,<br>qualquer caderno</h3>
+    <p>
+      O Companion Log é seu caderno pessoal durante toda a campanha. Dentro dele você registra o que acha importante: momentos da sessão, pensamentos do seu personagem, reflexões suas fora da mesa, dúvidas, observações. <strong>Não precisa ser bonito. Não precisa ser longo. Precisa ser seu.</strong>
+    </p>
+  </div>
+
+  <div class="cl-card">
+    <h3>faça as quests,<br>ganhe achievements</h3>
+    <p>
+      Além da sessão, o jogo te propõe <strong>pequenas missões entre mesas</strong> — leituras curtas, reflexões, pesquisas por conta própria. Cada uma concluída desbloqueia um achievement, que vira bônus in-game na próxima sessão: boosts temporários em stats, itens secretos, acesso a cenas ocultas.
+    </p>
+
+    <div class="cl-quests">
+      <div class="cl-quest">
+        <span class="cl-quest__icon">📖</span>
+        <span>ler texto breve indicado pelo mestre</span>
+        <span class="cl-quest__xp">+5 xp</span>
+      </div>
+      <div class="cl-quest">
+        <span class="cl-quest__icon">✍</span>
+        <span>escrever reflexão no log</span>
+        <span class="cl-quest__xp">+5 xp</span>
+      </div>
+      <div class="cl-quest">
+        <span class="cl-quest__icon">◈</span>
+        <span>pesquisar sozinho um tema</span>
+        <span class="cl-quest__xp">+8 xp</span>
+      </div>
+      <div class="cl-quest">
+        <span class="cl-quest__icon">⬢</span>
+        <span>quest do seu vértice hexaflex</span>
+        <span class="cl-quest__xp">+10 xp</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cl-card">
+    <h3>no fim,<br>vira relíquia</h3>
+    <p>
+      Quando a campanha acabar, os personagens ficam no Hexaverso — mas o seu caderno fica com você. É o rastro da aventura do seu lado do espelho. Folheie daqui a um ano e você vai lembrar de coisa que ainda nem sabe que aprendeu.
+    </p>
+  </div>
+</section>
+
+<!-- ESPÍRITO DE MESA -->
+<section class="spirit">
+  <div class="sec-head">
+    <div class="sec-head__kicker">combinados</div>
+    <h2 class="sec-head__title">espírito<br>de mesa</h2>
+    <p class="sec-head__subtitle">
+      Isto não é regra — é combinado. Ajuda o jogo a funcionar pra todo mundo.
+    </p>
+  </div>
+
+  <div class="spirit__list">
+    <div class="spirit-item">
+      <div class="spirit-item__icon">◆</div>
+      <div class="spirit-item__body">
+        <strong>Diga sim antes de dizer não.</strong> Se a mestra descreve algo que parece estranho, topa primeiro, entende depois.
+      </div>
+    </div>
+    <div class="spirit-item">
+      <div class="spirit-item__icon">◆</div>
+      <div class="spirit-item__body">
+        <strong>Falhar é parte do jogo.</strong> Um dado ruim não é castigo — é oportunidade narrativa.
+      </div>
+    </div>
+    <div class="spirit-item">
+      <div class="spirit-item__icon">◆</div>
+      <div class="spirit-item__body">
+        <strong>Dividam o palco.</strong> Se você falou muito numa cena, dê espaço para outro personagem na próxima.
+      </div>
+    </div>
+    <div class="spirit-item">
+      <div class="spirit-item__icon">◆</div>
+      <div class="spirit-item__body">
+        <strong>Pergunte quando ficar confuso.</strong> Ninguém decorou o manual. Mestra responde na hora.
+      </div>
+    </div>
+    <div class="spirit-item">
+      <div class="spirit-item__icon">◆</div>
+      <div class="spirit-item__body">
+        <strong>Respeite o limite do outro.</strong> Se alguém sinaliza desconforto com uma cena, pause. A história pode mudar de rumo.
+      </div>
+    </div>
+    <div class="spirit-item">
+      <div class="spirit-item__icon">◆</div>
+      <div class="spirit-item__body">
+        <strong>Deixe o mundo reagir.</strong> Suas escolhas importam mesmo quando não parece. O mestre-auxiliar está anotando.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-pj">
+  <h2 class="cta-pj__title">agora sim<br><span>bora jogar.</span></h2>
+  <p class="cta-pj__body">
+    Se quer entender mais do sistema antes da sessão, a versão quick-play tem tudo. Se só quer chegar e jogar, está pronto.
+  </p>
+  <a href="../index.html" class="cta-pj__btn">◆ quick play guide</a>
+  <a href="../downloads/index.html" class="cta-pj__btn cta-pj__btn--outline">▸ downloads</a>
+</section>
+
+</main>
+
+<!-- FOOTER compartilhado -->
+<footer class="footer">
+  <div class="footer__nav">
+    <a href="../index.html">quick play</a>
+    <a href="./index.html">jogadores</a>
+    <a href="../mestres/index.html">mestres</a>
+    <a href="../downloads/index.html">downloads</a>
+    <a href="../pesquisa/index.html">pesquisa</a>
+  </div>
+  <div class="footer__body">
+    HEXAVERSO © 2026 · Neves Filho et al. / UEL-CNPq<br>
+    Processo 408699/2023-0 · Chamada Universal CNPq/MCTI n. 10/2023<br>
+    Licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+  </div>
+</footer>
+
+</body>
+</html>
