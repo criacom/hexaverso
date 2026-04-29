@@ -2,67 +2,595 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#E8499F">
-<title>HEXAVERSO ★ Em construção</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0B0B0B">
+<title>HEXAVERSO ★ Área dos Mestres</title>
+<meta name="description" content="Guia prático dos mestres do Hexaverso: mestre principal e mestre-auxiliar. Como conduzir, observar, registrar e operar o Medidor de Integridade.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../assets/css/hexaverso.css">
+
 <style>
-  .wip {
-    min-height: 70vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 60px 20px;
-    background: var(--cream);
-    position: relative;
-    overflow: hidden;
-  }
-  .wip::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      45deg, transparent 0, transparent 30px,
-      rgba(232,73,159,0.08) 30px, rgba(232,73,159,0.08) 60px
-    );
-    pointer-events: none;
-  }
-  .wip__content { position: relative; z-index: 1; max-width: 420px; }
-  .wip__tag {
-    display: inline-block;
-    background: var(--pink); color: var(--paper);
-    font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.15em;
-    padding: 4px 10px;
-    border: 2px solid var(--ink);
-    box-shadow: 3px 3px 0 var(--ink);
-    margin-bottom: 20px;
-    transform: rotate(-2deg);
-  }
-  .wip__title {
-    font-family: var(--font-display);
-    font-size: clamp(44px, 12vw, 72px);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    text-transform: lowercase;
-    margin-bottom: 18px;
-  }
-  .wip__body {
-    font-size: 15px; line-height: 1.6;
-    margin-bottom: 24px;
-  }
-  .wip__btn {
-    display: inline-block;
-    background: var(--ink); color: var(--lime);
-    font-family: var(--font-display);
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 12px 18px;
-    border: 3px solid var(--ink);
-    box-shadow: 5px 5px 0 var(--pink);
-    letter-spacing: 0.03em;
-  }
+/* ============================================================
+   PÁGINA MESTRES · preto dominante · narrativo-imersivo
+   ============================================================ */
+
+.hero-m {
+  position: relative;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 60px var(--page-padding) 54px;
+  border-bottom: var(--border-heavy);
+  overflow: hidden;
+}
+.hero-m::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent 0, transparent 3px,
+    rgba(184, 230, 60, 0.025) 3px, rgba(184, 230, 60, 0.025) 4px
+  );
+  pointer-events: none;
+}
+.hero-m > * { position: relative; z-index: 1; }
+
+.hero-m__tag {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.15em;
+  color: var(--ink); text-transform: uppercase;
+  display: inline-block;
+  border: 2px solid var(--lime);
+  padding: 4px 10px; background: var(--lime);
+  margin-bottom: 22px;
+}
+.hero-m__title {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 15vw, 120px);
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  color: var(--cream);
+  text-transform: lowercase;
+  margin: 0;
+}
+.hero-m__title em {
+  font-style: normal; color: var(--pink);
+}
+.hero-m__subtitle {
+  font-family: var(--font-mono);
+  font-size: 13px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--cream-halftone);
+  margin-top: 18px; padding-top: 16px;
+  border-top: 2px solid var(--lime);
+  max-width: 460px;
+}
+.hero-m__subtitle strong { color: var(--lime); letter-spacing: 0.02em; }
+
+/* TL;DR */
+.tldr {
+  background: var(--cream);
+  padding: 40px var(--page-padding);
+}
+.tldr__title {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--pink-deep);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.tldr__title::before { content: "▍"; color: var(--pink); }
+.tldr__title::after { content: ""; flex: 1; height: 2px; background: var(--ink); }
+.tldr__list {
+  list-style: none;
+  display: grid; grid-template-columns: 1fr; gap: 6px;
+  font-family: var(--font-mono); font-size: 12.5px;
+}
+.tldr__list a {
+  display: block; padding: 8px 12px;
+  background: var(--paper); border: 2px solid var(--ink);
+  transition: transform 80ms; letter-spacing: 0.02em;
+}
+.tldr__list a:hover { background: var(--lime); }
+.tldr__list a:active { transform: translate(1px, 1px); }
+.tldr__list .tldr__num { color: var(--pink); font-weight: 700; margin-right: 8px; }
+
+/* Narrative section */
+.m-narrative { background: var(--paper); color: var(--ink); }
+.m-narrative__lead {
+  font-size: 17px; line-height: 1.65; margin-bottom: 16px;
+}
+.m-narrative__lead strong { background: var(--lime); padding: 0 3px; }
+.m-narrative p {
+  font-size: 15px; line-height: 1.65; margin-bottom: 14px;
+}
+.m-narrative p strong { color: var(--pink-deep); }
+
+.divisor {
+  text-align: center; padding: 24px 0;
+  font-family: var(--font-display); font-size: 22px;
+  letter-spacing: 0.3em; color: var(--pink); opacity: 0.7;
+}
+
+/* FLOW timeline */
+.flow {
+  background: var(--ink); color: var(--cream);
+  position: relative;
+}
+.flow::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, transparent 0, transparent 3px,
+    rgba(255,255,255,0.02) 3px, rgba(255,255,255,0.02) 4px
+  );
+}
+.flow > * { position: relative; z-index: 1; }
+.flow .sec-head__title { color: var(--cream); }
+.flow .sec-head__subtitle { color: var(--cream-halftone); }
+.flow .sec-head__kicker { color: var(--lime); }
+.flow .sec-head__kicker::after { background: var(--cream); }
+
+.flow__steps {
+  display: grid; gap: 0;
+  margin-top: 10px; position: relative;
+  padding-left: 32px;
+  counter-reset: flow-counter;
+}
+.flow__steps::before {
+  content: ""; position: absolute;
+  top: 18px; bottom: 18px; left: 12px;
+  width: 2px; background: var(--lime);
+}
+.flow-step { position: relative; padding: 14px 0 26px; }
+.flow-step::before {
+  content: counter(flow-counter);
+  counter-increment: flow-counter;
+  position: absolute;
+  left: -32px; top: 16px;
+  width: 26px; height: 26px;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--font-display); font-size: 14px;
+  display: grid; place-items: center;
+  border: 2px solid var(--ink);
+  box-shadow: 0 0 0 2px var(--lime);
+}
+.flow-step__title {
+  font-family: var(--font-display); font-size: 22px;
+  line-height: 1; text-transform: lowercase;
+  letter-spacing: -0.02em;
+  color: var(--lime); margin-bottom: 8px;
+}
+.flow-step__body {
+  font-size: 14px; line-height: 1.55;
+  color: var(--cream-halftone);
+}
+.flow-step__body strong { color: var(--cream); }
+
+/* CHECKLIST */
+.preptask {
+  background: var(--lime); position: relative;
+}
+.preptask::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(11,11,11,0.15) 1px, transparent 1.5px);
+  background-size: 9px 9px; pointer-events: none; opacity: 0.5;
+}
+.preptask > * { position: relative; z-index: 1; }
+
+.prep-cols { display: grid; gap: 20px; }
+.prep-col {
+  background: var(--paper); border: var(--border-heavy);
+  box-shadow: var(--shadow-hard); padding: 18px;
+}
+.prep-col__role {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 8px; display: inline-block; margin-bottom: 10px;
+}
+.prep-col--mp .prep-col__role { background: var(--pink); color: var(--paper); }
+.prep-col--ma .prep-col__role { background: var(--ink); color: var(--lime); }
+.prep-col__title {
+  font-family: var(--font-display); font-size: 22px;
+  line-height: 1; text-transform: lowercase;
+  letter-spacing: -0.02em; margin-bottom: 14px;
+}
+.prep-col ul { list-style: none; padding: 0; }
+.prep-col li {
+  font-size: 13.5px; line-height: 1.5;
+  padding-left: 22px; position: relative; margin-bottom: 8px;
+}
+.prep-col li::before {
+  content: "☐"; position: absolute; left: 0; top: 0;
+  font-family: var(--font-mono); font-weight: 700;
+  color: var(--pink); font-size: 15px;
+}
+
+/* MP */
+.mp { background: var(--paper); color: var(--ink); }
+.mp__badge {
+  display: inline-block;
+  background: var(--pink); color: var(--paper);
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 5px 12px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-bottom: 18px;
+  transform: rotate(-1.5deg);
+}
+.mp__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 11vw, 64px);
+  line-height: 0.92; text-transform: lowercase;
+  letter-spacing: -0.03em; margin-bottom: 14px;
+}
+.mp__title em {
+  font-style: normal;
+  background: var(--pink); color: var(--paper);
+  padding: 0 6px;
+}
+
+.subheading {
+  font-family: var(--font-display);
+  font-size: 22px; line-height: 1;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+  margin: 28px 0 12px;
+}
+.ma .subheading { color: var(--lime); }
+
+/* vértices */
+.vertices { display: grid; gap: 10px; margin: 22px 0; }
+.vertex {
+  background: var(--paper); border: var(--border-heavy);
+  box-shadow: var(--shadow-hard-sm);
+  padding: 14px 16px;
+  display: grid; grid-template-columns: 36px 1fr;
+  gap: 14px; align-items: flex-start;
+}
+.vertex__icon {
+  width: 36px; height: 36px;
+  background: var(--pink); color: var(--paper);
+  font-family: var(--font-display); font-size: 18px;
+  display: grid; place-items: center;
+  border: 2px solid var(--ink);
+}
+.vertex__name {
+  font-family: var(--font-display); font-size: 16px;
+  line-height: 1; text-transform: lowercase;
+  letter-spacing: -0.01em; margin-bottom: 2px;
+}
+.vertex__char {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--pink-deep); text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 6px;
+}
+.vertex__how {
+  font-size: 12.5px; line-height: 1.5; color: var(--ink-soft);
+}
+.vertex__how strong { color: var(--ink); }
+
+/* example */
+.example {
+  background: var(--cream); border: 2px dashed var(--ink);
+  padding: 16px; margin: 18px 0; position: relative;
+}
+.example__tag {
+  position: absolute; top: -11px; left: 14px;
+  background: var(--pink); color: var(--paper);
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.12em; padding: 2px 8px;
+  text-transform: uppercase;
+}
+.example p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; }
+.example p:last-child { margin-bottom: 0; }
+.example strong { color: var(--pink-deep); }
+.example em { color: var(--ink); font-style: italic; }
+
+/* attributes */
+.attr-guide { display: grid; gap: 10px; margin: 18px 0; }
+.attr-guide-card {
+  background: var(--ink); color: var(--cream);
+  padding: 14px 16px;
+  border: var(--border-heavy); box-shadow: var(--shadow-hard-sm);
+}
+.attr-guide-card__head {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+}
+.attr-guide-card__icon {
+  width: 32px; height: 32px;
+  background: var(--lime); color: var(--ink);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 16px;
+  border: 2px solid var(--cream);
+}
+.attr-guide-card__name {
+  font-family: var(--font-display); font-size: 18px;
+  color: var(--lime); text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.attr-guide-card__when {
+  font-size: 13px; line-height: 1.5;
+  color: var(--cream-halftone);
+}
+.attr-guide-card__when strong {
+  color: var(--pink);
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  display: block; margin-top: 4px; margin-bottom: 2px;
+}
+
+.rule-quote {
+  background: var(--ink); color: var(--cream);
+  border: var(--border-heavy); padding: 18px;
+  margin: 20px 0; box-shadow: 6px 6px 0 var(--pink);
+  font-family: var(--font-mono); font-size: 13.5px;
+  line-height: 1.65;
+}
+.rule-quote strong {
+  color: var(--lime);
+  font-family: var(--font-display); font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.02em;
+  display: block; margin-bottom: 8px;
+}
+
+/* NPCs */
+.npcs { display: grid; gap: 14px; margin-top: 18px; }
+.npc-card {
+  background: var(--paper); border: var(--border-heavy);
+  box-shadow: var(--shadow-hard-sm); padding: 16px;
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 14px; align-items: flex-start;
+}
+.npc-card__img {
+  width: 80px; height: 100px;
+  background: var(--cream); border: 2px solid var(--ink);
+  overflow: hidden; position: relative;
+}
+.npc-card__img img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+.npc-card__img--icon {
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 36px;
+  color: var(--pink); background: var(--ink);
+}
+.npc-card__name {
+  font-family: var(--font-display); font-size: 20px;
+  line-height: 1; text-transform: uppercase;
+  letter-spacing: -0.01em; margin-bottom: 3px;
+}
+.npc-card__role {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--pink-deep); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 8px;
+  padding-bottom: 6px; border-bottom: 2px solid var(--ink);
+}
+.npc-card__use {
+  font-size: 12.5px; line-height: 1.5; color: var(--ink-soft);
+}
+.npc-card__use strong { color: var(--ink); }
+
+/* MA */
+.ma {
+  background: var(--ink); color: var(--cream);
+  position: relative; overflow: hidden;
+}
+.ma::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, transparent 0, transparent 3px,
+    rgba(184,230,60,0.02) 3px, rgba(184,230,60,0.02) 4px
+  );
+}
+.ma > * { position: relative; z-index: 1; }
+
+.ma__badge {
+  display: inline-block;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 5px 12px;
+  border: 2px solid var(--lime);
+  box-shadow: 3px 3px 0 var(--pink);
+  margin-bottom: 18px;
+  transform: rotate(1.5deg);
+}
+.ma__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 11vw, 64px);
+  line-height: 0.92; text-transform: lowercase;
+  letter-spacing: -0.03em; margin-bottom: 14px;
+  color: var(--cream);
+}
+.ma__title em { font-style: normal; color: var(--lime); }
+.ma p { color: var(--cream-halftone); font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+.ma p strong { color: var(--lime); }
+
+.ma__term {
+  background: #0a1410;
+  border: 2px solid var(--lime); padding: 14px;
+  margin: 18px 0;
+  font-family: var(--font-mono); font-size: 12px;
+  line-height: 1.65; color: #c4e877;
+  box-shadow: 0 0 30px rgba(184, 230, 60, 0.12) inset;
+}
+.ma__term__line { display: block; }
+.ma__term__line::before { content: "› "; color: var(--lime); font-weight: 700; }
+.ma__term__line--muted { opacity: 0.55; }
+.ma__term__line--highlight {
+  color: var(--cream);
+  background: rgba(184, 230, 60, 0.1);
+  padding: 2px 4px; margin-left: -4px;
+}
+
+/* Scale */
+.scale {
+  margin: 22px 0;
+  background: var(--paper); border: var(--border-heavy);
+  padding: 18px 14px;
+  box-shadow: 6px 6px 0 var(--lime);
+  color: var(--ink);
+}
+.scale__title {
+  font-family: var(--font-display); font-size: 18px;
+  text-transform: lowercase; letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.scale__list { list-style: none; padding: 0; display: grid; gap: 6px; }
+.scale__list li {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 10px; align-items: center; padding: 6px 8px;
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.4;
+}
+.scale__val {
+  font-family: var(--font-display); font-size: 20px;
+  padding: 4px; text-align: center;
+  background: var(--ink); color: var(--lime);
+  border: 2px solid var(--ink); line-height: 1;
+}
+.scale__val--pos3 { background: var(--lime); color: var(--ink); }
+.scale__val--pos2 { background: #d0f070; color: var(--ink); }
+.scale__val--pos1 { background: #e6f8a0; color: var(--ink); }
+.scale__val--zero { background: var(--cream-halftone); color: var(--ink); }
+.scale__val--neg1 { background: #fbbca0; color: var(--ink); }
+.scale__val--neg2 { background: #f08b6b; color: var(--paper); }
+.scale__val--neg3 { background: var(--red); color: var(--paper); }
+
+/* Sheet preview */
+.sheet {
+  background: var(--cream); color: var(--ink);
+  border: var(--border-heavy);
+  box-shadow: 6px 6px 0 var(--pink);
+  padding: 16px; margin: 20px 0;
+  font-family: var(--font-mono); font-size: 12px;
+  line-height: 1.65;
+}
+.sheet__header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 10px; margin-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+  font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sheet__header strong { color: var(--pink-deep); }
+.sheet__row {
+  display: block; padding: 6px 0;
+  border-bottom: 1px dashed var(--ink-soft);
+}
+.sheet__row:last-child { border-bottom: none; }
+.sheet__row strong {
+  color: var(--pink-deep);
+  display: block; margin-bottom: 2px;
+  font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sheet__row span {
+  display: block; color: var(--ink);
+  font-family: var(--font-body); font-size: 13px;
+  font-weight: 500; line-height: 1.5;
+  font-style: italic;
+}
+
+/* follow-up tips */
+.followup-tips { display: grid; gap: 10px; margin: 18px 0; }
+.followup-tip {
+  background: var(--ink-soft); color: var(--cream);
+  border: 2px solid var(--lime);
+  padding: 12px 14px;
+  font-size: 13px; line-height: 1.55;
+}
+.followup-tip strong {
+  color: var(--lime);
+  font-family: var(--font-display); font-size: 14px;
+  text-transform: lowercase; letter-spacing: -0.01em;
+  display: block; margin-bottom: 4px;
+}
+
+/* tools */
+.tools {
+  background: var(--pink); color: var(--ink);
+  position: relative; overflow: hidden;
+}
+.tools::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(11,11,11,0.18) 1px, transparent 1.5px);
+  background-size: 8px 8px; pointer-events: none;
+}
+.tools > * { position: relative; z-index: 1; }
+.tools__grid { display: grid; gap: 10px; margin-top: 16px; }
+.tool-card {
+  background: var(--paper); border: var(--border-heavy);
+  box-shadow: var(--shadow-hard-sm); padding: 14px 16px;
+  display: grid; grid-template-columns: 40px 1fr auto;
+  gap: 14px; align-items: center;
+}
+.tool-card__icon {
+  width: 40px; height: 40px;
+  background: var(--ink); color: var(--lime);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 18px;
+  border: 2px solid var(--ink);
+}
+.tool-card__name {
+  font-family: var(--font-display); font-size: 16px;
+  line-height: 1; text-transform: lowercase;
+  letter-spacing: -0.01em; margin-bottom: 2px;
+}
+.tool-card__hint {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--ink-soft); line-height: 1.4;
+}
+.tool-card__arrow {
+  font-family: var(--font-display); font-size: 22px; color: var(--pink);
+}
+
+/* CTA */
+.cta-m {
+  background: var(--ink); color: var(--cream);
+  text-align: center; padding: 60px var(--page-padding);
+}
+.cta-m__title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 10vw, 54px);
+  line-height: 0.9; text-transform: lowercase;
+  letter-spacing: -0.03em; margin-bottom: 18px;
+  color: var(--cream);
+}
+.cta-m__title span { color: var(--pink); }
+.cta-m__body {
+  font-family: var(--font-mono); font-size: 13px;
+  line-height: 1.6; max-width: 440px;
+  margin: 0 auto 24px; color: var(--cream-halftone);
+}
+.cta-m__btn {
+  display: inline-block;
+  background: var(--pink); color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 16px; text-transform: uppercase;
+  padding: 12px 20px;
+  border: 3px solid var(--pink);
+  box-shadow: 6px 6px 0 var(--lime);
+  letter-spacing: 0.02em;
+  margin: 0 4px 8px 0;
+}
+.cta-m__btn:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--lime); }
+.cta-m__btn--outline {
+  background: transparent; color: var(--pink);
+  box-shadow: 6px 6px 0 var(--pink-deep);
+}
+
+@media (min-width: 720px) {
+  .tldr__list { grid-template-columns: 1fr 1fr; }
+  .prep-cols { grid-template-columns: 1fr 1fr; }
+  .vertices { grid-template-columns: 1fr 1fr; }
+  .attr-guide { grid-template-columns: repeat(3, 1fr); }
+  .tools__grid { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
+
 <body>
 
 <div class="topbar">
@@ -74,33 +602,624 @@
   <ul class="nav__list">
     <li class="nav__item"><a href="../index.html">◆ quick play</a></li>
     <li class="nav__item"><a href="../jogadores/index.html">▲ jogadores</a></li>
-    <li class="nav__item"><a href="../mestres/index.html">◇ mestres</a></li>
+    <li class="nav__item nav__item--active"><a href="./index.html">◇ mestres</a></li>
     <li class="nav__item"><a href="../downloads/index.html">▸ downloads</a></li>
     <li class="nav__item"><a href="../pesquisa/index.html">✺ pesquisa</a></li>
   </ul>
 </nav>
 
-<section class="wip">
-  <div class="wip__content">
-    <span class="wip__tag">◆ em construção ◆</span>
-    <h1 class="wip__title">área dos<br>mestres</h1>
-    <p class="wip__body">
-      Esta é a próxima página a ser construída. Vai conter: regras detalhadas dos dois mestres, operação do Medidor de Integridade, preparação pré-sessão, exemplos comentados e as fichas técnicas.
-    </p>
-    <a href="../index.html" class="wip__btn">← voltar ao quick play</a>
+<div class="marquee-hero" aria-hidden="true">
+  <div class="marquee-hero__track">
+    <span>MESTRES</span><span class="mq-star">★</span>
+    <span>Mestre Principal</span><span class="mq-star">★</span>
+    <span>Mestre-Auxiliar</span><span class="mq-star">★</span>
+    <span>O Estagiário</span><span class="mq-star">★</span>
+    <span>Medidor de Integridade</span><span class="mq-star">★</span>
+    <span>Hexaflex</span><span class="mq-star">★</span>
+    <span>Metacontingência</span><span class="mq-star">★</span>
+    <span>MESTRES</span><span class="mq-star">★</span>
+    <span>Mestre Principal</span><span class="mq-star">★</span>
+    <span>Mestre-Auxiliar</span><span class="mq-star">★</span>
+    <span>O Estagiário</span><span class="mq-star">★</span>
+    <span>Medidor de Integridade</span><span class="mq-star">★</span>
+    <span>Hexaflex</span><span class="mq-star">★</span>
+    <span>Metacontingência</span><span class="mq-star">★</span>
+  </div>
+</div>
+
+<header class="hero-m">
+  <span class="hero-m__tag">◇ guia prático dos dois mestres</span>
+  <h1 class="hero-m__title">vocês<br>são <em>dois</em>.</h1>
+  <p class="hero-m__subtitle">
+    mestrar hexaverso é trabalho de <strong>dupla</strong>. uma conduz a ficção. a outra observa o grupo. este guia é para as duas.
+  </p>
+</header>
+
+<main>
+
+<section class="tldr">
+  <h2 class="tldr__title">o que tem nesta página</h2>
+  <ul class="tldr__list">
+    <li><a href="#abertura"><span class="tldr__num">01</span>abertura · o que é mestrar aqui</a></li>
+    <li><a href="#fluxo"><span class="tldr__num">02</span>fluxo de uma sessão</a></li>
+    <li><a href="#preparar"><span class="tldr__num">03</span>checklist pré-sessão</a></li>
+    <li><a href="#mp"><span class="tldr__num">04</span>mestre principal</a></li>
+    <li><a href="#ma"><span class="tldr__num">05</span>mestre-auxiliar · o estagiário</a></li>
+    <li><a href="#followup"><span class="tldr__num">06</span>follow-up</a></li>
+    <li><a href="#tools"><span class="tldr__num">07</span>ferramentas</a></li>
+  </ul>
+</section>
+
+<!-- 01 ABERTURA -->
+<section class="m-narrative" id="abertura">
+  <div class="sec-head">
+    <div class="sec-head__kicker">abertura</div>
+    <h2 class="sec-head__title">o que é mestrar<br>hexaverso</h2>
+  </div>
+
+  <p class="m-narrative__lead">
+    Mestrar Hexaverso não é apresentar um mapa e esperar que os jogadores se movam. É regular atmosfera, dar ritmo ao estranho, decidir quando apertar e quando aliviar, <strong>e fazer com que o mundo responda sem transformar a campanha em sermão.</strong>
+  </p>
+
+  <p>
+    Vocês são <strong>dois</strong>. Essa é a primeira coisa a entender — e talvez a mais libertadora. O mestre principal conduz a ficção, interpreta NPCs, apresenta perigos, descreve consequências e decide quando a ficção exige teste. O mestre-auxiliar observa os jogadores, registra o que o grupo está produzindo como unidade, opera o Medidor de Integridade e organiza as devolutivas ao final.
+  </p>
+
+  <p>
+    Essa divisão não enfraquece a mestria — ela a torna mais precisa. O principal não deve tentar preencher fichas durante a cena; o auxiliar não deve disputar o foco narrativo. Antes da sessão, vocês alinham os momentos críticos prováveis. Durante a sessão, se comunicam com sinais breves. Depois da sessão, cruzam narrativa e registro para o follow-up. É coreografia.
+  </p>
+
+  <p>
+    Uma boa forma de pensar: <strong>o mestre principal é narrador; o mestre-auxiliar é cientista comportamental.</strong> Os dois servem à mesma mesa, mas a partir de bancadas diferentes. Se apenas um trabalho acontece bem, o jogo funciona de modo reduzido. Quando os dois trabalhos acontecem juntos, o Hexaverso se torna o que ele pretende ser: narrativa + tecnologia comportamental + aprendizagem incorporada.
+  </p>
+
+  <div class="rule-quote">
+    <strong>◆ regra zero da dupla</strong>
+    Não tentem fazer o trabalho um do outro. Principal cuida da ficção. Auxiliar cuida da observação. Os dois cuidam um do outro.
   </div>
 </section>
+
+<!-- 02 FLUXO -->
+<section class="flow" id="fluxo">
+  <div class="sec-head">
+    <div class="sec-head__kicker">fluxo de uma sessão</div>
+    <h2 class="sec-head__title">como uma<br>sessão acontece</h2>
+    <p class="sec-head__subtitle">
+      Toda sessão tem uma forma. Quando vocês sabem a forma, param de improvisar o que não precisa ser improvisado — e sobra mais atenção para o que importa.
+    </p>
+  </div>
+
+  <div class="flow__steps">
+
+    <div class="flow-step">
+      <h3 class="flow-step__title">setup · antes da mesa</h3>
+      <p class="flow-step__body">
+        Mestre principal revisa o capítulo e lista 3 a 5 <strong>momentos críticos prováveis</strong> (cenas onde o grupo vai precisar coordenar algo). Mestre-auxiliar prepara a ficha de registro do capítulo e confirma o valor de abertura do Medidor. Os dois alinham por 5 minutos.
+      </p>
+    </div>
+
+    <div class="flow-step">
+      <h3 class="flow-step__title">abertura · primeiros 10 min</h3>
+      <p class="flow-step__body">
+        Principal faz a ponte com a sessão anterior e estabelece onde o grupo está — fisicamente, emocionalmente, socialmente. Introduz o <strong>gancho inicial</strong>: algo pequeno, imediato, que os personagens notam no ambiente. Auxiliar observa em silêncio nesta fase.
+      </p>
+    </div>
+
+    <div class="flow-step">
+      <h3 class="flow-step__title">cenas · o jogo em si</h3>
+      <p class="flow-step__body">
+        Cenas se sucedem em blocos de 15 a 30 minutos. Principal alterna pressão e respiração. Quando a ação é incerta e pode mudar a cena, pede teste (1d6 roll-under). Quando a cena se resolve pela ficção, narra direto. Auxiliar registra <strong>quando o grupo produz algo como unidade</strong> — não cada rolagem.
+      </p>
+    </div>
+
+    <div class="flow-step">
+      <h3 class="flow-step__title">clímax · o momento crítico</h3>
+      <p class="flow-step__body">
+        Toda sessão tem pelo menos um momento onde o grupo precisa coordenar uma resposta difícil. Principal cria a situação; auxiliar registra o culturante emergente. <strong>Este é o momento em que o Medidor geralmente se move.</strong>
+      </p>
+    </div>
+
+    <div class="flow-step">
+      <h3 class="flow-step__title">fechamento · o mundo responde</h3>
+      <p class="flow-step__body">
+        Principal fecha com uma consequência que o grupo sente — não uma mensagem moral, uma reação do mundo. Descoberta, cliffhanger, vitória com custo, retorno de um NPC. Abre espaço para anotações nos <strong>Companion Logs</strong>.
+      </p>
+    </div>
+
+    <div class="flow-step">
+      <h3 class="flow-step__title">follow-up · depois</h3>
+      <p class="flow-step__body">
+        Auxiliar consolida o registro. Nos capítulos marcados, conduz uma discussão gamificada com o grupo para generalizar o que foi aprendido. Entrega novas <strong>quests</strong> aos jogadores para serem feitas entre sessões.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 CHECKLIST -->
+<section class="preptask" id="preparar">
+  <div class="sec-head">
+    <div class="sec-head__kicker">checklist pré-sessão</div>
+    <h2 class="sec-head__title">o que levar<br>o que preparar</h2>
+    <p class="sec-head__subtitle">
+      Os dois chegam preparados de jeitos diferentes. Cada um com o seu kit.
+    </p>
+  </div>
+
+  <div class="prep-cols">
+    <div class="prep-col prep-col--mp">
+      <span class="prep-col__role">◆ mestre principal</span>
+      <h3 class="prep-col__title">bancada<br>do narrador</h3>
+      <ul>
+        <li>Capítulo da sessão revisado</li>
+        <li>3 a 5 momentos críticos identificados</li>
+        <li>NPCs principais com voz/gesto ensaiado</li>
+        <li>Cenário principal e dois de reserva</li>
+        <li>Relógio dramático (quanto tempo até X?)</li>
+        <li>Ficha de sessão do mestre principal</li>
+        <li>Um d6 de mesa (ainda que jogadores tragam os seus)</li>
+        <li>Bloco para notas rápidas</li>
+      </ul>
+    </div>
+
+    <div class="prep-col prep-col--ma">
+      <span class="prep-col__role">◇ mestre-auxiliar</span>
+      <h3 class="prep-col__title">bancada<br>do observador</h3>
+      <ul>
+        <li>Ficha de registro do capítulo impressa</li>
+        <li>Valor de abertura do Medidor confirmado</li>
+        <li>Escala de impacto (-3 a +3) à vista</li>
+        <li>Quests personalizadas para cada jogador</li>
+        <li>Canetas de cores diferentes</li>
+        <li>Caderno de Follow-up unificado</li>
+        <li>Combinado silencioso com o principal (sinal para pausa ou intervenção)</li>
+        <li>Postura discreta — observação não compete com ficção</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MP -->
+<section class="mp" id="mp">
+  <span class="mp__badge">◆ bloco do mestre principal</span>
+  <h2 class="mp__title">conduzir <em>ficção</em><br>que ensina.</h2>
+
+  <p>
+    Seu trabalho é fazer o mundo parecer vivo. Não um tabuleiro imóvel com encontros programados — uma sociedade. Se o grupo protege um bairro, isso circula. Se humilha alguém pequeno, isso retorna. Se ajuda oficinas, equipamentos melhoram; se ignora sofrimento, outro agente preenche esse espaço. <strong>O mundo reage.</strong>
+  </p>
+
+  <p>
+    Você não precisa explicar que uma escolha foi cruel. Basta fazer a cidade reagir. Punições melhores empurram a história para um lugar mais difícil em vez de simplesmente desligá-la. Tempo perdido, barulho, inimigo extra, rota fechada, desconfiança social, queda de moral. Isso funciona melhor do que castigos que travam a mesa.
+  </p>
+
+  <h3 class="subheading">os seis vértices · como convocar cada um</h3>
+
+  <p>
+    Cada personagem representa um processo do Hexaflex. Seu trabalho como principal é desenhar cenas que <strong>convocam</strong> esses processos — não forçar o jogador a atuar o conceito, mas criar situações onde o conceito apareça naturalmente.
+  </p>
+
+  <div class="vertices">
+    <div class="vertex">
+      <span class="vertex__icon">◉</span>
+      <div>
+        <div class="vertex__name">desfusão</div>
+        <div class="vertex__char">nixx · camundongo</div>
+        <div class="vertex__how">Cene situações onde o personagem acredita em algo falso sobre si ou sobre o mundo. <strong>Convoque questionando:</strong> "isso é mesmo verdade, ou só o que sua cabeça está dizendo agora?"</div>
+      </div>
+    </div>
+
+    <div class="vertex">
+      <span class="vertex__icon">◈</span>
+      <div>
+        <div class="vertex__name">valores</div>
+        <div class="vertex__char">elan · wistar</div>
+        <div class="vertex__how">Apresente escolhas onde o certo e o fácil divergem. <strong>Convoque perguntando:</strong> "o que você quer ser quando essa cena terminar?"</div>
+      </div>
+    </div>
+
+    <div class="vertex">
+      <span class="vertex__icon">▲</span>
+      <div>
+        <div class="vertex__name">ação comprometida</div>
+        <div class="vertex__char">micca · long evans</div>
+        <div class="vertex__how">Coloque o personagem entre a inércia e a coisa certa difícil. <strong>Convoque direto:</strong> "o tempo está passando. o que você faz?"</div>
+      </div>
+    </div>
+
+    <div class="vertex">
+      <span class="vertex__icon">⬡</span>
+      <div>
+        <div class="vertex__name">aceitação</div>
+        <div class="vertex__char">poppy · sprague-dawley</div>
+        <div class="vertex__how">Traga algo incontrolável. Um dano que não pode ser evitado. <strong>Convoque descrevendo:</strong> "isso dói, não há como consertar. o que você faz de dentro dessa dor?"</div>
+      </div>
+    </div>
+
+    <div class="vertex">
+      <span class="vertex__icon">◎</span>
+      <div>
+        <div class="vertex__name">momento presente</div>
+        <div class="vertex__char">bree · zucker</div>
+        <div class="vertex__how">Crie um detalhe importante no ambiente que só aparece para quem está presente agora. <strong>Convoque com um zoom:</strong> "você ouve algo. o que é?"</div>
+      </div>
+    </div>
+
+    <div class="vertex">
+      <span class="vertex__icon">✺</span>
+      <div>
+        <div class="vertex__name">eu-como-contexto</div>
+        <div class="vertex__char">sr. waggu · long evans</div>
+        <div class="vertex__how">Apresente uma cena pesada onde um personagem se confunde com o próprio sofrimento. <strong>Convoque com perspectiva:</strong> "você é tudo isso que sente — ou só está vivendo isso agora?"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <span class="example__tag">exemplo</span>
+    <p><strong>Cena:</strong> No Mercado Velho, um grupo da milícia começa a cercar um saruê chamado Flik, com intenção clara de humilhá-lo na frente da plateia.</p>
+    <p><strong>O que convocar:</strong> esta cena convoca <em>ação comprometida</em> (Micca) de forma mais direta. Mas pode convocar <em>valores</em> (Elan — o que importa defender?), <em>aceitação</em> (Poppy — a violência vai acontecer, como estar ali?), e <em>desfusão</em> (Nixx — "não adianta, são muitos" é pensamento ou fato?).</p>
+    <p><strong>A cena boa não obriga</strong> um vértice específico. Ela dá espaço para vários. O auxiliar depois registra quais apareceram.</p>
+  </div>
+
+  <h3 class="subheading">quando pedir teste — quando narrar direto</h3>
+
+  <p>
+    Regra simples: <strong>só peça teste quando o resultado puder mudar a cena.</strong> Se a ação é trivial (abrir uma porta destrancada, caminhar pela rua), narre direto. Se a ação não pode falhar (o personagem respira, olha para cima), narre direto. Teste é para <strong>momentos onde a incerteza importa</strong>.
+  </p>
+
+  <p>
+    Dentro dos momentos que importam, escolha o atributo pelo <strong>tipo de desafio</strong> — não pelo que o jogador diz que está fazendo:
+  </p>
+
+  <div class="attr-guide">
+    <div class="attr-guide-card">
+      <div class="attr-guide-card__head">
+        <span class="attr-guide-card__icon">◎</span>
+        <span class="attr-guide-card__name">Percepção</span>
+      </div>
+      <div class="attr-guide-card__when">
+        <strong>use quando:</strong>
+        a cena exige leitura fina do que está acontecendo — sinais sutis, riscos velados, pessoas sendo excluídas antes da agressão aberta, intenções por trás da fala.
+      </div>
+    </div>
+
+    <div class="attr-guide-card">
+      <div class="attr-guide-card__head">
+        <span class="attr-guide-card__icon">▲</span>
+        <span class="attr-guide-card__name">Coragem</span>
+      </div>
+      <div class="attr-guide-card__when">
+        <strong>use quando:</strong>
+        a cena exige agir apesar do medo — interpor-se, falar na frente de muitos, encarar um superior, defender alguém, romper um silêncio custoso.
+      </div>
+    </div>
+
+    <div class="attr-guide-card">
+      <div class="attr-guide-card__head">
+        <span class="attr-guide-card__icon">✺</span>
+        <span class="attr-guide-card__name">Curiosidade</span>
+      </div>
+      <div class="attr-guide-card__when">
+        <strong>use quando:</strong>
+        a cena exige criatividade — saída não-violenta, solução improvisada, abordagem inédita, invenção de uma terceira via que não estava no menu óbvio.
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-quote">
+    <strong>◆ lembrete</strong>
+    falha mecânica (dado maior que atributo) não é falha ficcional. O personagem <em>tentou</em>. A cena avança pelo lado errado. Isso é conteúdo — não bloqueio.
+  </div>
+
+  <h3 class="subheading">npcs essenciais</h3>
+
+  <div class="npcs">
+    <div class="npc-card">
+      <div class="npc-card__img">
+        <img src="../assets/images/flik.jpg" alt="Flik">
+      </div>
+      <div>
+        <h4 class="npc-card__name">Flik</h4>
+        <div class="npc-card__role">saruê · aliado recorrente</div>
+        <div class="npc-card__use">
+          <strong>Como usar:</strong> aparece em situações de humilhação pública como alguém que está sendo alvo — e por isso, oportunidade óbvia para o grupo se articular. Se o grupo protege, volta nos capítulos seguintes trazendo informações úteis. Se o grupo abandona, aparece marcado, desconfiado.
+        </div>
+      </div>
+    </div>
+
+    <div class="npc-card">
+      <div class="npc-card__img npc-card__img--icon">V</div>
+      <div>
+        <h4 class="npc-card__name">Viktor</h4>
+        <div class="npc-card__role">hamster anão · companheiro nostálgico</div>
+        <div class="npc-card__use">
+          <strong>Como usar:</strong> Viktor carrega saudade do mundo antigo e idealização do futuro. Use-o para trazer perguntas sobre o que os personagens abandonaram e o que sustentam. Ele evita conflito — o que pressiona o grupo a decidir por ele nos momentos agudos.
+        </div>
+      </div>
+    </div>
+
+    <div class="npc-card">
+      <div class="npc-card__img">
+        <img src="../assets/images/datarattus.jpg" alt="Data-Rattus">
+      </div>
+      <div>
+        <h4 class="npc-card__name">Data-Rattus</h4>
+        <div class="npc-card__role">mascote tecnológico · dados corrompidos</div>
+        <div class="npc-card__use">
+          <strong>Como usar:</strong> Data-Rattus oferece informação sempre ambígua. "Chance de sucesso: moderada. Chance de constrangimento: excelente." Serve para dar pistas sem resolver, permitir humor, e lembrar o grupo de que <em>saber</em> não é o mesmo que <em>entender</em>.
+        </div>
+      </div>
+    </div>
+
+    <div class="npc-card">
+      <div class="npc-card__img npc-card__img--icon">U</div>
+      <div>
+        <h4 class="npc-card__name">Unhudo</h4>
+        <div class="npc-card__role">predador institucional · antagonista</div>
+        <div class="npc-card__use">
+          <strong>Como usar:</strong> nunca grite, nunca gesticule. Unhudo é mais ameaçador quando parece razoável. Ele administra medo e chama isso de ordem. Cobra proteção, vende segurança, financia violência e oferece ao grupo opções tóxicas que parecem racionais. <em>Frase típica: "Não confunda medo comigo. Eu apenas administro o que já existe."</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divisor">◆ · ◆ · ◆</div>
+
+<!-- 05 MA -->
+<section class="ma" id="ma">
+  <span class="ma__badge">◇ bloco do mestre-auxiliar</span>
+  <h2 class="ma__title">observar <em>cultura</em><br>em ato.</h2>
+
+  <p>
+    Seu trabalho não é narrar no lugar do principal nem julgar moralmente os jogadores. É <strong>observar a qualidade processual da interação entre eles</strong> e registrar de modo fidedigno. Você presta atenção em cooperação, omissão, proteção de terceiros, reparação de erro, fragmentação interna, escalada coercitiva desnecessária, apoio a vulneráveis, persistência sob pressão.
+  </p>
+
+  <p>
+    Você também é um personagem: <strong>o Estagiário</strong>. O único humano que testemunhou a fenda dimensional e que consegue observar o Hexaverso através de um computador antigo na biblioteca da universidade. Ninguém acreditou nele. Então ele parou de contar e começou a anotar — como faria um estagiário bem treinado num laboratório de ciência do comportamento.
+  </p>
+
+  <div class="ma__term">
+    <span class="ma__term__line ma__term__line--muted">biblio-04 · terminal desativado · 2017</span>
+    <span class="ma__term__line ma__term__line--muted">connecting to hexaverso://shard.01</span>
+    <span class="ma__term__line">sessão em andamento. grupo visível.</span>
+    <span class="ma__term__line ma__term__line--highlight">>> observando em silêncio.</span>
+  </div>
+
+  <h3 class="subheading">como identificar uma cce em cena</h3>
+
+  <p>
+    CCE = <strong>Contingência Comportamental Entrelaçada</strong>. Em linguagem de mesa: é quando diferentes jogadores emitem respostas complementares que se encaixam funcionalmente e juntas produzem um efeito comum. Nenhuma resposta isolada define a potência da cena. O que importa é a articulação entre elas.
+  </p>
+
+  <div class="example">
+    <span class="example__tag">cce em cena</span>
+    <p><strong>Cena:</strong> três milicianos cercam Flik no beco do Mercado Velho.</p>
+    <p><strong>Respostas:</strong> Micca se interpõe · Poppy fala alto para a plateia · Bree observa quem está quem no grupo hostil · Elan sustenta postura firme · Nixx planeja rota de saída se precisar · Waggu acalma um dos milicianos mais jovens.</p>
+    <p><strong>Isso é uma CCE.</strong> Seis respostas diferentes que juntas produzem algo que nenhuma delas produziria sozinha: uma contenção coordenada de violência sem escalada.</p>
+  </div>
+
+  <p>
+    Sua tarefa é <strong>nomear o produto agregado</strong> (o efeito que a coordenação produziu no mundo) e identificar o <strong>culturante predominante</strong> (o tipo de padrão coletivo que emergiu). No exemplo acima: produto agregado = "humilhação pública interrompida com contenção protetiva"; culturante = "defesa de terceiro + cooperação orientada por valores".
+  </p>
+
+  <h3 class="subheading">operar o medidor de integridade</h3>
+
+  <p>
+    O Medidor é uma variável <strong>oculta</strong>, de uso exclusivo seu. Ele representa o estado sociocultural do mundo — o quanto o mundo permanece íntegro, cooperativo, reparável, estável. Não é uma barra moral. Um grupo brilhante individualmente pode ter baixa integridade se resolve tudo por humilhação, coerção ou fragmentação.
+  </p>
+
+  <p>
+    O índice começa alto e é atualizado <strong>com parcimônia</strong>. Não muda a cada fala. Muda quando a coordenação do grupo produz um efeito social relevante — tipicamente no clímax de cada cena importante.
+  </p>
+
+  <div class="scale">
+    <h4 class="scale__title">escala prática do medidor</h4>
+    <ul class="scale__list">
+      <li><span class="scale__val scale__val--pos3">+3</span><span>efeito fortemente protetivo, cooperativo ou reparador</span></li>
+      <li><span class="scale__val scale__val--pos2">+2</span><span>efeito claramente favorável ao tecido social</span></li>
+      <li><span class="scale__val scale__val--pos1">+1</span><span>efeito levemente favorável</span></li>
+      <li><span class="scale__val scale__val--zero">0</span><span>efeito misto, ambíguo ou sem mudança relevante</span></li>
+      <li><span class="scale__val scale__val--neg1">−1</span><span>efeito levemente deletério</span></li>
+      <li><span class="scale__val scale__val--neg2">−2</span><span>efeito claramente deletério</span></li>
+      <li><span class="scale__val scale__val--neg3">−3</span><span>efeito fortemente coercitivo, excludente ou escalatório</span></li>
+    </ul>
+  </div>
+
+  <div class="rule-quote" style="background: var(--paper); color: var(--ink); border-color: var(--ink);">
+    <strong style="color: var(--pink-deep);">◇ regra de ouro do índice</strong>
+    Quando houver dúvida entre dois valores, prefira <em>justificar melhor o registro</em> em vez de forçar uma pontuação. O comentário breve do mestre-auxiliar também é dado.
+  </div>
+
+  <p>
+    <strong>Três princípios operacionais</strong> que evitam erros comuns:
+  </p>
+
+  <p>
+    <strong>(1)</strong> O índice reflete o produto agregado da cena inteira — não apenas a primeira resposta emitida. Se o grupo começa mal e repara no meio, o saldo funcional muda.
+  </p>
+
+  <p>
+    <strong>(2)</strong> Soluções eficazes no curto prazo podem ser culturalmente ruins se dependem de humilhação, coerção ou exclusão. Sucesso tático não é integridade.
+  </p>
+
+  <p>
+    <strong>(3)</strong> O mesmo ato topograficamente parecido pode ter impacto diferente conforme o entrelaçamento em que ocorre. "Proteger alguém" vale diferente se o grupo coordenou ou se apenas um agiu sozinho.
+  </p>
+
+  <h3 class="subheading">ficha de registro · preview</h3>
+
+  <p>
+    Sua ferramenta principal. Uma ficha por cena crítica. O registro precisa ser <strong>fidedigno</strong> — não o mais bonito nem o que confirma sua hipótese favorita. É o que descreve com precisão suficiente o que aconteceu, para que outra pessoa possa compreender a lógica da classificação.
+  </p>
+
+  <div class="sheet">
+    <div class="sheet__header">
+      <span><strong>sessão</strong> 03 · cena 04</span>
+      <span>◇ mestre-auxiliar</span>
+    </div>
+    <div class="sheet__row">
+      <strong>cce observada</strong>
+      <span>micca interpõe · poppy mobiliza plateia · bree lê o grupo hostil · elan sustenta postura</span>
+    </div>
+    <div class="sheet__row">
+      <strong>falas-chave</strong>
+      <span>poppy: "já tem gente que viu. vão embora enquanto dá."</span>
+    </div>
+    <div class="sheet__row">
+      <strong>produto agregado</strong>
+      <span>humilhação pública interrompida com contenção protetiva. vínculo com flik aberto.</span>
+    </div>
+    <div class="sheet__row">
+      <strong>culturante predominante</strong>
+      <span>defesa de terceiro + cooperação orientada por valores (dt+cv)</span>
+    </div>
+    <div class="sheet__row">
+      <strong>vértices hexaflex observáveis</strong>
+      <span>ação comprometida · presença · valores</span>
+    </div>
+    <div class="sheet__row">
+      <strong>impacto no índice</strong>
+      <span>+2 · justificativa: coordenação sustentada sem escalada, reparação do vínculo social no bairro</span>
+    </div>
+  </div>
+
+  <p style="font-family: var(--font-mono); font-size: 12px; color: var(--cream-halftone); font-style: italic;">
+    Ficha completa disponível para download em <a href="../downloads/index.html" style="color: var(--lime); border-bottom: 1px dotted var(--lime);">/downloads</a>.
+  </p>
+</section>
+
+<!-- 06 FOLLOW-UP -->
+<section class="m-narrative" id="followup">
+  <div class="sec-head">
+    <div class="sec-head__kicker">follow-up</div>
+    <h2 class="sec-head__title">fechar a sessão,<br>abrir a próxima</h2>
+    <p class="sec-head__subtitle">
+      O follow-up não é avaliação. É um espaço organizado para transformar o que aconteceu na mesa em algo que atravessa.
+    </p>
+  </div>
+
+  <p>
+    Ao final de cada capítulo (e em pontos marcados da campanha), o mestre-auxiliar conduz uma <strong>discussão gamificada</strong> com o grupo. Não é sermão, não é aula. É um espaço curto e estruturado onde vocês pegam as cenas da sessão e pensam com o grupo no que aquilo significa <strong>para fora da ficção</strong>.
+  </p>
+
+  <p>
+    O follow-up tem três funções: <strong>reconstruir</strong> o que aconteceu (para fixar), <strong>generalizar</strong> (conectar com a vida de fora), e <strong>consequenciar</strong> (entregar quests novas baseadas no que cada jogador precisa desenvolver).
+  </p>
+
+  <div class="followup-tips">
+    <div class="followup-tip">
+      <strong>◆ comece pelo vínculo, não pela avaliação</strong>
+      "Qual foi o momento em que vocês mais sentiram o grupo funcionando junto?" — pergunta que abre memória afetiva e cria espaço para o resto.
+    </div>
+    <div class="followup-tip">
+      <strong>◆ puxe o concreto antes do abstrato</strong>
+      "Quando a Micca se interpôs, o que vocês olharam antes de decidir o próximo passo?" — concreto convoca observação; abstrato convoca chavão.
+    </div>
+    <div class="followup-tip">
+      <strong>◆ conecte com fora da mesa sem forçar</strong>
+      "Alguma coisa parecida com isso já aconteceu na escola de vocês, em casa, em algum lugar?" — generalização voluntária; quem não quiser responder não precisa.
+    </div>
+    <div class="followup-tip">
+      <strong>◆ entregue as quests</strong>
+      Cada jogador recebe 1 ou 2 quests para a semana, alinhadas ao vértice do seu personagem. Lembre dos achievements e bônus que desbloqueiam.
+    </div>
+    <div class="followup-tip">
+      <strong>◆ termine antes do grupo cansar</strong>
+      15 a 25 minutos é o ideal. Follow-up longo vira aula. Aula vira desengajamento. Vocês não querem isso.
+    </div>
+  </div>
+</section>
+
+<!-- 07 FERRAMENTAS -->
+<section class="tools" id="tools">
+  <div class="sec-head">
+    <div class="sec-head__kicker">ferramentas</div>
+    <h2 class="sec-head__title">o kit<br>dos mestres</h2>
+    <p class="sec-head__subtitle" style="color: var(--ink);">
+      As fichas, cadernos e referências que vocês vão usar. Tudo no /downloads.
+    </p>
+  </div>
+
+  <div class="tools__grid">
+    <a href="../downloads/index.html" class="tool-card">
+      <span class="tool-card__icon">◆</span>
+      <div>
+        <div class="tool-card__name">ficha do mestre principal</div>
+        <div class="tool-card__hint">momentos críticos · npcs · relógios · notas</div>
+      </div>
+      <span class="tool-card__arrow">→</span>
+    </a>
+
+    <a href="../downloads/index.html" class="tool-card">
+      <span class="tool-card__icon">◇</span>
+      <div>
+        <div class="tool-card__name">ficha do mestre-auxiliar</div>
+        <div class="tool-card__hint">cces · culturantes · medidor · impacto</div>
+      </div>
+      <span class="tool-card__arrow">→</span>
+    </a>
+
+    <a href="../downloads/index.html" class="tool-card">
+      <span class="tool-card__icon">⬢</span>
+      <div>
+        <div class="tool-card__name">ficha individual hexaflex</div>
+        <div class="tool-card__hint">uma por jogador · acompanhamento longitudinal</div>
+      </div>
+      <span class="tool-card__arrow">→</span>
+    </a>
+
+    <a href="../downloads/index.html" class="tool-card">
+      <span class="tool-card__icon">◈</span>
+      <div>
+        <div class="tool-card__name">caderno de follow-up</div>
+        <div class="tool-card__hint">roteiros de discussão · banco de quests</div>
+      </div>
+      <span class="tool-card__arrow">→</span>
+    </a>
+
+    <a href="../downloads/index.html" class="tool-card">
+      <span class="tool-card__icon">✎</span>
+      <div>
+        <div class="tool-card__name">manual completo</div>
+        <div class="tool-card__hint">campanha de 11 sessões · pdf integral</div>
+      </div>
+      <span class="tool-card__arrow">→</span>
+    </a>
+
+    <a href="../downloads/index.html" class="tool-card">
+      <span class="tool-card__icon">★</span>
+      <div>
+        <div class="tool-card__name">arte oficial</div>
+        <div class="tool-card__hint">cartas · totens · fichas de npc · alta</div>
+      </div>
+      <span class="tool-card__arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<section class="cta-m">
+  <h2 class="cta-m__title">agora<br><span>sentem à mesa.</span></h2>
+  <p class="cta-m__body">
+    Este guia não substitui jogar. Ele te prepara para a primeira sessão. Depois vocês voltam aqui com dúvidas específicas, e o guia começa a fazer sentido de verdade.
+  </p>
+  <a href="../index.html" class="cta-m__btn">◆ quick play</a>
+  <a href="../downloads/index.html" class="cta-m__btn cta-m__btn--outline">▸ downloads</a>
+</section>
+
+</main>
 
 <footer class="footer">
   <div class="footer__nav">
     <a href="../index.html">quick play</a>
     <a href="../jogadores/index.html">jogadores</a>
-    <a href="../mestres/index.html">mestres</a>
+    <a href="./index.html">mestres</a>
     <a href="../downloads/index.html">downloads</a>
     <a href="../pesquisa/index.html">pesquisa</a>
   </div>
   <div class="footer__body">
     HEXAVERSO © 2026 · Neves Filho et al. / UEL-CNPq<br>
+    Processo 408699/2023-0 · Chamada Universal CNPq/MCTI n. 10/2023<br>
     Licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
   </div>
 </footer>
