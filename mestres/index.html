@@ -282,10 +282,17 @@
   letter-spacing: 0.12em; padding: 2px 8px;
   text-transform: uppercase;
 }
-.example p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; }
+.example p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; color: var(--ink); }
 .example p:last-child { margin-bottom: 0; }
 .example strong { color: var(--pink-deep); }
 .example em { color: var(--ink); font-style: italic; }
+
+/* Override para boxes .example dentro da seção MA (fundo preto):
+   força texto escuro no box creme para garantir contraste */
+.ma .example { background: var(--cream); }
+.ma .example p { color: var(--ink) !important; }
+.ma .example strong { color: var(--pink-deep) !important; }
+.ma .example em { color: var(--ink-soft) !important; }
 
 /* attributes */
 .attr-guide { display: grid; gap: 10px; margin: 18px 0; }
@@ -928,7 +935,9 @@
     </div>
 
     <div class="npc-card">
-      <div class="npc-card__img npc-card__img--icon">V</div>
+      <div class="npc-card__img">
+        <img src="../assets/images/viktor.jpg" alt="Viktor, hamster anão robusto com óculos rosa e colete amarelo listrado">
+      </div>
       <div>
         <h4 class="npc-card__name">Viktor</h4>
         <div class="npc-card__role">hamster anão · companheiro nostálgico</div>
@@ -952,7 +961,9 @@
     </div>
 
     <div class="npc-card">
-      <div class="npc-card__img npc-card__img--icon">U</div>
+      <div class="npc-card__img">
+        <img src="../assets/images/unhudo.jpg" alt="Unhudo, figura sombria com chapéu de palha e garras longas, sem rosto visível">
+      </div>
       <div>
         <h4 class="npc-card__name">Unhudo</h4>
         <div class="npc-card__role">predador institucional · antagonista</div>
