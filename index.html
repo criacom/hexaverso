@@ -406,7 +406,7 @@ section + section { border-top: var(--border-heavy); }
   font-size: 28px; line-height: 1.05;
   text-transform: lowercase;
   letter-spacing: -0.02em;
-  margin: 20px 0;
+  margin: 20px auto;
 }
 .cidade__quote span { background: var(--ink); color: var(--lime); padding: 0 6px; }
 .cidade__body { font-size: 14.5px; line-height: 1.6; }
@@ -626,7 +626,7 @@ section + section { border-top: var(--border-heavy); }
   background: var(--paper); color: var(--ink);
   border: 2px dashed var(--pink);
   padding: 14px 12px 12px;
-  margin: 14px 0;
+  margin: 14px auto;
   font-family: var(--font-mono);
   font-size: 11.5px; line-height: 1.6;
   position: relative;
@@ -645,7 +645,7 @@ section + section { border-top: var(--border-heavy); }
   background: var(--ink);
   border: 1px solid var(--cream-halftone);
   padding: 12px;
-  margin: 14px 0;
+  margin: 14px auto;
   font-family: var(--font-mono);
   font-size: 11px;
 }
@@ -745,12 +745,13 @@ section + section { border-top: var(--border-heavy); }
 .bgd > * { position: relative; z-index: 1; }
 
 .bgd__stamp {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   background: var(--ink); color: var(--lime);
   font-family: var(--font-mono); font-size: 10px;
   letter-spacing: 0.15em; text-transform: uppercase;
   padding: 4px 10px;
-  margin-bottom: 14px;
+  margin: 0 auto 14px;
   transform: rotate(-1.5deg);
   box-shadow: 3px 3px 0 var(--pink);
 }
@@ -886,7 +887,7 @@ section + section { border-top: var(--border-heavy); }
 .term {
   background: #0a1410;
   border: 2px solid var(--lime);
-  margin: 14px 0 18px;
+  margin: 14px auto 18px;
   position: relative;
   box-shadow: 0 0 0 1px var(--ink), 0 0 30px rgba(184, 230, 60, 0.2) inset;
 }
@@ -1028,7 +1029,7 @@ section + section { border-top: var(--border-heavy); }
 .plot__body strong { color: var(--pink-deep); }
 
 .plot__scene {
-  margin: 24px 0;
+  margin: 24px auto;
   padding: 18px;
   background: var(--ink);
   color: var(--cream);
@@ -1247,7 +1248,8 @@ section + section { border-top: var(--border-heavy); }
 .dados > * { position: relative; z-index: 1; }
 
 .dados__stamp {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   background: var(--pink);
   color: var(--paper);
   font-family: var(--font-mono);
@@ -1256,7 +1258,7 @@ section + section { border-top: var(--border-heavy); }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 5px 11px;
-  margin-bottom: 14px;
+  margin: 0 auto 14px;
   transform: rotate(-2deg);
   box-shadow: 3px 3px 0 var(--ink);
   border: 2px solid var(--ink);
@@ -1294,7 +1296,7 @@ section + section { border-top: var(--border-heavy); }
   border: var(--border-heavy);
   box-shadow: var(--shadow-hard);
   padding: 18px 16px 16px;
-  margin: 22px 0;
+  margin: 22px auto;
   position: relative;
 }
 .dados__checklist__tag {
