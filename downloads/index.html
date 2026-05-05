@@ -2,105 +2,850 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#E8499F">
-<title>HEXAVERSO ★ Em construção</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#F5E6D0">
+<title>HEXAVERSO ★ Downloads · Beta 1.0</title>
+<meta name="description" content="Baixe o material do Hexaverso Beta 1.0: manual completo, fichas do mestre-auxiliar, ficha individual Hexaflex, caderno de follow-up e instrumentos de pesquisa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/hexaverso.css">
+
 <style>
-  .wip {
-    min-height: 70vh;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 60px 20px;
-    background: var(--cream);
-    position: relative;
-    overflow: hidden;
-  }
-  .wip::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: repeating-linear-gradient(
-      45deg, transparent 0, transparent 30px,
-      rgba(232,73,159,0.08) 30px, rgba(232,73,159,0.08) 60px
-    );
-    pointer-events: none;
-  }
-  .wip__content { position: relative; z-index: 1; max-width: 420px; }
-  .wip__tag {
-    display: inline-block;
-    background: var(--pink); color: var(--paper);
-    font-family: var(--font-mono);
-    font-size: 10px; letter-spacing: 0.15em;
-    padding: 4px 10px;
-    border: 2px solid var(--ink);
-    box-shadow: 3px 3px 0 var(--ink);
-    margin-bottom: 20px;
-    transform: rotate(-2deg);
-  }
-  .wip__title {
-    font-family: var(--font-display);
-    font-size: clamp(44px, 12vw, 72px);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    text-transform: lowercase;
-    margin-bottom: 18px;
-  }
-  .wip__body {
-    font-size: 15px; line-height: 1.6;
-    margin-bottom: 24px;
-  }
-  .wip__btn {
-    display: inline-block;
-    background: var(--ink); color: var(--lime);
-    font-family: var(--font-display);
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: 12px 18px;
-    border: 3px solid var(--ink);
-    box-shadow: 5px 5px 0 var(--pink);
-    letter-spacing: 0.03em;
-  }
+/* ============================================================
+   DOWNLOADS · creme dominante · catálogo Beta 1.0
+   ============================================================ */
+body { background: var(--cream); }
+
+.hero-d {
+  position: relative; background: var(--cream);
+  padding: 54px var(--page-padding) 42px;
+  border-bottom: var(--border-heavy); overflow: hidden;
+}
+.hero-d::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(11,11,11,0.1) 1px, transparent 1.5px);
+  background-size: 10px 10px; pointer-events: none; opacity: 0.5;
+}
+.hero-d > * { position: relative; z-index: 1; }
+
+.hero-d__tag {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.15em; color: var(--paper);
+  text-transform: uppercase; display: inline-block;
+  background: var(--ink); padding: 5px 12px;
+  margin-bottom: 20px;
+}
+.hero-d__tag::before { content: "▸ "; color: var(--pink); }
+.hero-d__version {
+  display: inline-block;
+  background: var(--pink); color: var(--paper);
+  font-family: var(--font-mono); font-size: 10px;
+  font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 4px 10px;
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-left: 8px; transform: rotate(-1.5deg);
+  vertical-align: middle;
+}
+.hero-d__title {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 16vw, 118px);
+  line-height: 0.85; letter-spacing: -0.035em;
+  color: var(--ink); text-transform: lowercase; margin: 0;
+}
+.hero-d__title em { font-style: normal; color: var(--pink); }
+.hero-d__subtitle {
+  font-family: var(--font-mono); font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft); margin-top: 18px; padding-top: 14px;
+  border-top: 2px solid var(--ink); max-width: 500px;
+}
+.hero-d__subtitle strong { background: var(--lime); padding: 0 3px; letter-spacing: 0; }
+
+/* Faixa de status */
+.notice {
+  background: var(--ink); color: var(--cream);
+  padding: 16px var(--page-padding);
+  display: grid; grid-template-columns: 1fr; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px;
+  line-height: 1.5; border-bottom: var(--border-heavy);
+}
+.notice__cell { display: flex; align-items: flex-start; gap: 10px; }
+.notice__icon {
+  flex-shrink: 0; width: 28px; height: 28px;
+  background: var(--lime); color: var(--ink);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 14px;
+  border: 2px solid var(--ink);
+}
+.notice__text { flex: 1; }
+.notice__text strong {
+  color: var(--pink); text-transform: uppercase;
+  letter-spacing: 0.08em; display: block;
+  font-size: 10px; margin-bottom: 2px;
+}
+.notice__text a { color: var(--lime); border-bottom: 1px dotted var(--lime); }
+
+/* Categoria */
+.cat {
+  background: var(--cream); padding: 40px var(--page-padding);
+  border-top: 1px solid rgba(11,11,11,0.15);
+}
+.cat--dark { background: var(--ink); color: var(--cream); }
+.cat--alt  { background: #faefda; }
+.cat--pink { background: var(--pink); color: var(--ink); }
+
+.cat__head {
+  display: flex; align-items: flex-start; gap: 14px;
+  margin-bottom: 24px; padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.cat--dark .cat__head { border-bottom-color: var(--lime); }
+.cat--pink .cat__head { border-bottom-color: var(--ink); }
+
+.cat__head__num {
+  flex-shrink: 0; width: 48px; height: 48px;
+  background: var(--ink); color: var(--lime);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 18px;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--pink);
+}
+.cat--dark .cat__head__num { background: var(--lime); color: var(--ink); box-shadow: 4px 4px 0 var(--pink); }
+.cat--pink .cat__head__num { background: var(--ink); color: var(--lime); box-shadow: 4px 4px 0 var(--cream); }
+
+.cat__head__kicker {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--pink-deep); margin-bottom: 4px;
+}
+.cat--dark .cat__head__kicker { color: var(--pink); }
+.cat__head__title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 7vw, 36px);
+  line-height: 0.95; letter-spacing: -0.02em;
+  text-transform: lowercase; color: var(--ink);
+}
+.cat--dark .cat__head__title { color: var(--cream); }
+.cat__intro {
+  font-size: 14px; line-height: 1.6; max-width: 540px;
+  margin-bottom: 20px; color: var(--ink-soft);
+}
+.cat--dark .cat__intro { color: var(--cream-halftone); }
+.cat--dark .cat__intro strong { color: var(--lime); }
+.cat__intro strong { color: var(--ink); }
+
+/* Cards de download */
+.dl-grid { display: grid; gap: 14px; }
+
+.dl-card {
+  background: var(--paper); border: var(--border-heavy);
+  box-shadow: var(--shadow-hard); padding: 16px;
+  display: grid; grid-template-columns: 1fr; gap: 12px;
+  position: relative; color: var(--ink);
+  transition: transform 80ms, box-shadow 80ms;
+}
+a.dl-card:hover { background: #fffbf0; }
+a.dl-card:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.dl-card--coming { opacity: 0.82; cursor: not-allowed; }
+.dl-card--coming:active { transform: none; box-shadow: var(--shadow-hard); }
+
+/* Card destaque */
+.dl-card--hero {
+  background: var(--ink); color: var(--cream);
+  box-shadow: 8px 8px 0 var(--pink); padding: 24px 22px;
+}
+a.dl-card--hero:hover { background: var(--ink-soft); }
+.dl-card--hero .dl-card__name { color: var(--cream); font-size: 26px; }
+.dl-card--hero .dl-card__desc { color: var(--cream-halftone); font-size: 14px; }
+.dl-card--hero .dl-card__meta { border-top-color: var(--cream-halftone); }
+.dl-card--hero .dl-card__arrow { color: var(--lime); font-size: 26px; }
+.dl-card--hero .dl-card__icon { background: var(--lime); color: var(--ink); width: 64px; height: 64px; font-size: 26px; }
+
+.dl-card__top {
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.dl-card__icon {
+  width: 52px; height: 52px; background: var(--pink);
+  color: var(--paper); display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 22px;
+  border: 2px solid var(--ink); flex-shrink: 0;
+}
+.dl-card__icon--ink { background: var(--ink); color: var(--lime); }
+.dl-card__icon--lime { background: var(--lime); color: var(--ink); }
+.dl-card__body { flex: 1; min-width: 0; }
+.dl-card__name {
+  font-family: var(--font-display); font-size: 18px;
+  line-height: 1.05; letter-spacing: -0.02em;
+  text-transform: lowercase; margin-bottom: 4px;
+}
+.dl-card__desc { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); }
+.dl-card__meta {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding-top: 10px; border-top: 1px dashed rgba(11,11,11,0.25);
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.dl-card__format {
+  background: var(--ink); color: var(--lime);
+  padding: 3px 8px; font-weight: 700; letter-spacing: 0.08em;
+}
+.dl-card__size {
+  background: var(--cream); color: var(--ink);
+  padding: 3px 8px; border: 1px solid var(--ink);
+}
+.dl-card__status--ready {
+  background: var(--lime); color: var(--ink);
+  padding: 3px 8px; border: 1px solid var(--ink);
+  font-weight: 700;
+}
+.dl-card__status--coming {
+  background: #fff3cd; color: #997a00;
+  padding: 3px 8px; border: 1px dashed #997a00;
+  font-weight: 700;
+}
+.dl-card__arrow {
+  margin-left: auto; align-self: center;
+  font-family: var(--font-display); font-size: 20px;
+  color: var(--pink);
+}
+.dl-card--coming .dl-card__arrow { color: #997a00; }
+
+/* Cards de arte com preview */
+.dl-art {
+  background: var(--paper); border: var(--border-heavy);
+  box-shadow: var(--shadow-hard); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+a.dl-art:hover { background: #fffbf0; }
+.dl-art--coming { opacity: 0.82; cursor: not-allowed; }
+
+.dl-art__preview {
+  aspect-ratio: 3 / 2; background: var(--cream);
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden; position: relative;
+  display: grid; place-items: center;
+}
+.dl-art__preview img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+.dl-art__preview--icon {
+  font-family: var(--font-display); font-size: 64px; color: var(--pink);
+}
+.dl-art__body { padding: 14px; }
+.dl-art__name {
+  font-family: var(--font-display); font-size: 17px;
+  line-height: 1.05; letter-spacing: -0.01em;
+  text-transform: lowercase; margin-bottom: 4px;
+}
+.dl-art__desc {
+  font-size: 12px; line-height: 1.45; color: var(--ink-soft); margin-bottom: 10px;
+}
+.dl-art__meta {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.dl-art__format { background: var(--ink); color: var(--lime); padding: 2px 6px; font-weight: 700; }
+.dl-art__status--ready { background: var(--lime); color: var(--ink); padding: 2px 6px; border: 1px solid var(--ink); font-weight: 700; }
+.dl-art__status--coming { background: #fff3cd; color: #997a00; padding: 2px 6px; border: 1px dashed #997a00; font-weight: 700; }
+
+/* Pack/combo */
+.pack {
+  background: var(--paper); color: var(--ink);
+  border: var(--border-heavy); box-shadow: 6px 6px 0 var(--lime);
+  padding: 18px; margin-top: 20px;
+}
+.pack__label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--pink-deep); margin-bottom: 6px;
+}
+.pack__title {
+  font-family: var(--font-display); font-size: 20px;
+  line-height: 1; letter-spacing: -0.02em;
+  text-transform: lowercase; margin-bottom: 8px;
+}
+.pack__body { font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 12px; }
+.pack__btn {
+  display: inline-block; background: var(--ink); color: var(--lime);
+  font-family: var(--font-display); font-size: 15px;
+  text-transform: uppercase; padding: 10px 16px;
+  border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--pink);
+  letter-spacing: 0.03em;
+}
+
+/* How-to */
+.howto {
+  background: var(--cream); padding: 40px var(--page-padding);
+  border-top: var(--border-heavy); border-bottom: var(--border-heavy);
+  position: relative; overflow: hidden;
+}
+.howto::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, transparent 0, transparent 24px,
+    rgba(232,73,159,0.05) 24px, rgba(232,73,159,0.05) 25px
+  );
+  pointer-events: none;
+}
+.howto > * { position: relative; z-index: 1; }
+.howto__title {
+  font-family: var(--font-display); font-size: clamp(26px, 7vw, 38px);
+  line-height: 0.95; letter-spacing: -0.02em;
+  text-transform: lowercase; margin-bottom: 18px;
+}
+.howto__steps { display: grid; gap: 12px; counter-reset: howto; }
+.howto-step {
+  background: var(--paper); border: 2px solid var(--ink);
+  padding: 14px 16px 14px 56px; position: relative;
+  counter-increment: howto;
+}
+.howto-step::before {
+  content: counter(howto); position: absolute; left: 14px; top: 14px;
+  width: 32px; height: 32px; background: var(--pink); color: var(--paper);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 16px;
+  border: 2px solid var(--ink);
+}
+.howto-step strong {
+  font-family: var(--font-display); font-size: 15px;
+  display: block; margin-bottom: 3px;
+  text-transform: lowercase; letter-spacing: -0.01em;
+}
+.howto-step span { font-size: 13px; line-height: 1.5; color: var(--ink-soft); display: block; }
+
+/* CTA */
+.cta-d {
+  background: var(--ink); color: var(--cream);
+  text-align: center; padding: 56px var(--page-padding);
+}
+.cta-d__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 9vw, 48px);
+  line-height: 0.9; letter-spacing: -0.02em;
+  text-transform: lowercase; margin-bottom: 14px; color: var(--cream);
+}
+.cta-d__title span { color: var(--pink); }
+.cta-d__body {
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6;
+  max-width: 460px; margin: 0 auto 22px; color: var(--cream-halftone);
+}
+.cta-d__btn {
+  display: inline-block; background: var(--pink); color: var(--paper);
+  font-family: var(--font-display); font-size: 15px;
+  text-transform: uppercase; padding: 12px 18px;
+  border: 3px solid var(--pink); box-shadow: 6px 6px 0 var(--lime);
+  letter-spacing: 0.03em; margin: 0 4px 8px 0;
+}
+.cta-d__btn--outline {
+  background: transparent; color: var(--lime); border-color: var(--lime);
+  box-shadow: 6px 6px 0 var(--lime-deep);
+}
+
+@media (min-width: 720px) {
+  .notice { grid-template-columns: 1fr 1fr; }
+  .dl-grid--art { grid-template-columns: repeat(3, 1fr); }
+  .dl-grid { grid-template-columns: 1fr 1fr; }
+  .dl-card--hero { grid-column: 1 / -1; }
+}
 </style>
 </head>
+
 <body>
 
+<!-- TOPBAR -->
 <div class="topbar">
   <span class="topbar__brand"><a href="../index.html">HEXAVERSO</a></span>
-  <span class="topbar__meta">downloads<span class="topbar__blink"></span></span>
+  <span class="topbar__meta">downloads · beta 1.0<span class="topbar__blink"></span></span>
 </div>
 
+<!-- NAV -->
 <nav class="nav" aria-label="Navegação principal">
   <ul class="nav__list">
     <li class="nav__item"><a href="../index.html">◆ quick play</a></li>
     <li class="nav__item"><a href="../jogadores/index.html">▲ jogadores</a></li>
     <li class="nav__item"><a href="../mestres/index.html">◇ mestres</a></li>
-    <li class="nav__item"><a href="../downloads/index.html">▸ downloads</a></li>
+    <li class="nav__item nav__item--active"><a href="./index.html">▸ downloads</a></li>
     <li class="nav__item"><a href="../pesquisa/index.html">✺ pesquisa</a></li>
   </ul>
 </nav>
 
-<section class="wip">
-  <div class="wip__content">
-    <span class="wip__tag">◆ em construção ◆</span>
-    <h1 class="wip__title">downloads</h1>
-    <p class="wip__body">
-      Aqui ficará o material para download: manual completo em PDF, fichas imprimíveis, arte oficial em alta resolução para cartas, totens e fichas de NPC.
-    </p>
-    <a href="../index.html" class="wip__btn">← voltar ao quick play</a>
+<!-- HERO -->
+<header class="hero-d">
+  <span class="hero-d__tag">catálogo de material <span class="hero-d__version">beta 1.0</span></span>
+  <h1 class="hero-d__title">leve<br>o <em>jogo</em><br>pra casa.</h1>
+  <p class="hero-d__subtitle">
+    manual · fichas · instrumentos · <strong>tudo grátis</strong> · cc by 4.0
+  </p>
+</header>
+
+<!-- NOTICE -->
+<div class="notice">
+  <div class="notice__cell">
+    <div class="notice__icon">★</div>
+    <div class="notice__text">
+      <strong>licença CC BY 4.0</strong>
+      Todo o material é livre. Você pode usar, adaptar, imprimir, redistribuir — desde que atribua a autoria (UEL / CRIACOM / Neves Filho et al.).
+    </div>
+  </div>
+  <div class="notice__cell">
+    <div class="notice__icon">⚠</div>
+    <div class="notice__text">
+      <strong>beta 1.0</strong>
+      Esta é a primeira versão pública. Fichas de personagens e arte impressa estão em elaboração. Para material urgente, <a href="../pesquisa/index.html#contato">contate o CRIACOM</a>.
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- 01 MANUAL COMPLETO -->
+<section class="cat">
+  <div class="cat__head">
+    <div class="cat__head__num">01</div>
+    <div>
+      <div class="cat__head__kicker">o livro-base</div>
+      <h2 class="cat__head__title">manual completo</h2>
+    </div>
+  </div>
+  <p class="cat__intro">
+    O documento principal do Hexaverso. Traz a campanha completa de 10 sessões, descrição dos personagens, guia dos mestres, sistema, NPCs e todos os capítulos. <strong>Ponto de partida obrigatório.</strong>
+  </p>
+
+  <div class="dl-grid">
+    <a href="../assets/fichas/hexaverso-manual-aplicador-v3.docx" class="dl-card dl-card--hero">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">📖</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">hexaverso · manual v3 · aplicador</div>
+          <div class="dl-card__desc">Livro integral com toda a campanha, sistema, personagens, NPCs, mapa da Cidade Cinza e guias dos dois mestres. Versão aplicador com instruções e comentários técnicos para a equipe. Atualizado para v3.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__size">139 KB</span>
+        <span class="dl-card__status--ready">✓ disponível</span>
+      </div>
+    </a>
   </div>
 </section>
 
+<!-- 02 KIT DOS MESTRES -->
+<section class="cat cat--dark">
+  <div class="cat__head">
+    <div class="cat__head__num">02</div>
+    <div>
+      <div class="cat__head__kicker">para a mesa · mestres</div>
+      <h2 class="cat__head__title">kit dos mestres</h2>
+    </div>
+  </div>
+  <p class="cat__intro">
+    Material operacional para a <strong>dupla de mestres</strong>. Fichas de registro, ficha individual por jogador e o caderno de follow-up.
+  </p>
+
+  <div class="dl-grid">
+
+    <a href="../assets/fichas/hexaverso-fichas-mestre-auxiliar.docx" class="dl-card">
+      <div class="dl-card__top">
+        <div class="dl-card__icon dl-card__icon--ink">◇</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">fichas do mestre-auxiliar</div>
+          <div class="dl-card__desc">Caderno de fichas cap. 0–10. Modelo padronizado com 6 momentos críticos por capítulo, registro de CCEs, culturantes, produto agregado e Índice de Integralidade.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__size">102 KB</span>
+        <span class="dl-card__status--ready">✓ disponível</span>
+      </div>
+    </a>
+
+    <a href="../assets/fichas/hexaverso-ficha-individual-hexaflex-v2.docx" class="dl-card">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">⬢</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha individual hexaflex v2</div>
+          <div class="dl-card__desc">Uma por jogador. Registro individual de repertórios observáveis por sessão. Complementa a ficha de CCEs com escala 0–3 por vértice Hexaflex.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__size">38 KB</span>
+        <span class="dl-card__status--ready">✓ disponível</span>
+      </div>
+    </a>
+
+    <a href="../assets/fichas/hexaverso-caderno-followup-unificado.docx" class="dl-card">
+      <div class="dl-card__top">
+        <div class="dl-card__icon dl-card__icon--lime">◈</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">caderno de follow-up unificado</div>
+          <div class="dl-card__desc">Manual de devolutiva grupal, individual e final de campanha. Roteiros de discussão gamificados alinhados ao Hexaflex e à metacontingência. Inclui leitura do Índice de Integralidade e estratégias de modelagem de repertório.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__size">48 KB</span>
+        <span class="dl-card__status--ready">✓ disponível</span>
+      </div>
+    </a>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon dl-card__icon--ink">◆</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha do mestre principal</div>
+          <div class="dl-card__desc">Preparação de momentos críticos, relógios dramáticos e NPCs ativos por sessão.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 KIT DOS JOGADORES -->
+<section class="cat cat--alt">
+  <div class="cat__head">
+    <div class="cat__head__num">03</div>
+    <div>
+      <div class="cat__head__kicker">para a mesa · jogadores</div>
+      <h2 class="cat__head__title">kit dos jogadores</h2>
+    </div>
+  </div>
+  <p class="cat__intro">
+    Fichas individuais dos personagens, template do Companion Log e sistema de Selos e Pulsos de Pesquisa. <strong>Fichas de personagem em elaboração</strong> — o mestre pode imprimi-las diretamente do manual. O Companion Log já está disponível.
+  </p>
+
+  <div class="dl-grid">
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">◉</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha · nixx</div>
+          <div class="dl-card__desc">Camundongo · desfusão. Atributos, inventário inicial, background imprimível.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">◈</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha · elan</div>
+          <div class="dl-card__desc">Wistar · valores. Atributos, inventário inicial, background imprimível.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">▲</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha · micca</div>
+          <div class="dl-card__desc">Long Evans · ação comprometida.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">⬡</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha · poppy</div>
+          <div class="dl-card__desc">Sprague-Dawley · aceitação.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">◎</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha · bree</div>
+          <div class="dl-card__desc">Zucker · momento presente.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon">✺</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">ficha · sr. waggu</div>
+          <div class="dl-card__desc">Long Evans · eu-como-contexto.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+    <a href="../assets/fichas/hexaverso-companion-logs.docx" class="dl-card">
+      <div class="dl-card__top">
+        <div class="dl-card__icon dl-card__icon--lime">📓</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">companion log · fichas e conquistas</div>
+          <div class="dl-card__desc">Ficha de submissão do Companion Log, quadro de Selos e Pulsos de Pesquisa para a dupla de mestria. Sistema de engajamento extra-sessão com curadoria de referências bibliográficas por processo Hexaflex.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__size">30 KB</span>
+        <span class="dl-card__status--ready">✓ disponível</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- 04 MATERIAL CIENTÍFICO -->
+<section class="cat">
+  <div class="cat__head">
+    <div class="cat__head__num">04</div>
+    <div>
+      <div class="cat__head__kicker">pesquisa e aplicação</div>
+      <h2 class="cat__head__title">instrumentos de pesquisa</h2>
+    </div>
+  </div>
+  <p class="cat__intro">
+    Para aplicadores em contextos escolares, clínicos ou de pesquisa. Também descritos na <a href="../pesquisa/index.html" style="color:var(--pink-deep); border-bottom:1px dotted var(--pink);">área de pesquisa</a> com fundamentação teórica completa.
+  </p>
+
+  <div class="dl-grid">
+
+    <a href="../assets/fichas/hexaverso-avaliacao-monitoramento.docx" class="dl-card">
+      <div class="dl-card__top">
+        <div class="dl-card__icon dl-card__icon--ink">L</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">avaliação, monitoramento e fichas complementares</div>
+          <div class="dl-card__desc">Instrumentos de linha de base e avaliação final (Likert, abertos), questionários pós-sessão, fichas de observação ABC e orientações de fidelidade para o mestre-auxiliar. Quatro módulos integrados (versão revisada).</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">DOCX</span>
+        <span class="dl-card__size">51 KB</span>
+        <span class="dl-card__status--ready">✓ disponível</span>
+      </div>
+    </a>
+
+    <div class="dl-card dl-card--coming">
+      <div class="dl-card__top">
+        <div class="dl-card__icon dl-card__icon--ink">P</div>
+        <div class="dl-card__body">
+          <div class="dl-card__name">protocolo de aplicação</div>
+          <div class="dl-card__desc">Guia metodológico completo: recomendações, ética, critérios de inclusão/exclusão e orientações para contextos escolares.</div>
+        </div>
+        <span class="dl-card__arrow">→</span>
+      </div>
+      <div class="dl-card__meta">
+        <span class="dl-card__format">PDF</span>
+        <span class="dl-card__status--coming">em breve</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 05 ARTE OFICIAL -->
+<section class="cat cat--pink">
+  <div class="cat__head">
+    <div class="cat__head__num">05</div>
+    <div>
+      <div class="cat__head__kicker">para imprimir e expor</div>
+      <h2 class="cat__head__title">arte oficial</h2>
+    </div>
+  </div>
+  <p class="cat__intro">
+    Ilustrações originais de <strong>Amanda Galdino</strong> em alta resolução — em elaboração para versões futuras. Na Beta 1.0 o material visual está disponível no manual.
+  </p>
+
+  <div class="dl-grid dl-grid--art">
+
+    <a href="../assets/fichas/hexaverso-projeto-grafico.docx" class="dl-art">
+      <div class="dl-art__preview dl-art__preview--icon">★</div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">projeto gráfico · identidade visual</div>
+        <div class="dl-art__desc">Documento completo de identidade visual por Amanda Galdino (CNPq): cartas dos 6 personagens (frente/verso), cartas de NPCs e protocolo visual com mapa de habilidades por capítulo.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">DOCX</span>
+          <span class="dl-art__status--ready">✓ disponível · 2,4 MB</span>
+        </div>
+      </div>
+    </a>
+
+    <div class="dl-art dl-art--coming">
+      <div class="dl-art__preview">
+        <img src="../assets/images/group.jpg" alt="Os seis protagonistas do Hexaverso">
+      </div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">cartas · 6 personagens</div>
+        <div class="dl-art__desc">Arte individual dos seis ratos protagonistas em tamanho carta, pronta para imprimir.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">PNG + PDF</span>
+          <span class="dl-art__status--coming">em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-art dl-art--coming">
+      <div class="dl-art__preview">
+        <img src="../assets/images/medidor_azul.webp" alt="Medidor de Integridade azul">
+      </div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">medidor de integridade</div>
+        <div class="dl-art__desc">As três gemas (azul/verde/vermelho) + peça visual de mesa para o mestre-auxiliar.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">PNG</span>
+          <span class="dl-art__status--coming">em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-art dl-art--coming">
+      <div class="dl-art__preview dl-art__preview--icon">⬢</div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">totens / standees</div>
+        <div class="dl-art__desc">Personagens recortáveis para usar como miniaturas na mesa.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">PDF</span>
+          <span class="dl-art__status--coming">em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-art dl-art--coming">
+      <div class="dl-art__preview">
+        <img src="../assets/images/flik.jpg" alt="Flik, NPC saruê aliado">
+      </div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">fichas de npc</div>
+        <div class="dl-art__desc">Flik, Viktor, Data-Rattus, Unhudo — formato carta para apresentar na mesa.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">PDF</span>
+          <span class="dl-art__status--coming">em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-art dl-art--coming">
+      <div class="dl-art__preview dl-art__preview--icon">☉</div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">cenários</div>
+        <div class="dl-art__desc">Mercado Velho, Subsolo, Torre Unhudo e outros locais recorrentes.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">PNG</span>
+          <span class="dl-art__status--coming">em breve</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-art dl-art--coming">
+      <div class="dl-art__preview dl-art__preview--icon">★</div>
+      <div class="dl-art__body">
+        <div class="dl-art__name">logos e marcas</div>
+        <div class="dl-art__desc">Logo Hexaverso em variações + marcas CRIACOM e UEL.</div>
+        <div class="dl-art__meta">
+          <span class="dl-art__format">SVG + PNG</span>
+          <span class="dl-art__status--coming">em breve</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMO USAR -->
+<section class="howto">
+  <h2 class="howto__title">como usar esse material</h2>
+  <div class="howto__steps">
+    <div class="howto-step">
+      <strong>comece pelo manual</strong>
+      <span>Leia o capítulo correspondente ao seu papel antes de baixar as fichas. O manual tem tudo que você precisa para a primeira sessão.</span>
+    </div>
+    <div class="howto-step">
+      <strong>mestres · baixem o kit completo</strong>
+      <span>Mestre-auxiliar: fichas cap. 0–10 + ficha individual Hexaflex + caderno de follow-up. Mestre principal: ficha dedicada em breve — enquanto isso, use o bloco de notas da sessão descrito no manual.</span>
+    </div>
+    <div class="howto-step">
+      <strong>jogadores · qualquer caderno serve</strong>
+      <span>O Companion Log oficial está em elaboração. Por enquanto, qualquer caderno com capa personalizada já funciona — o mestre pode imprimir as fichas de personagem do manual.</span>
+    </div>
+    <div class="howto-step">
+      <strong>aplicadores · use os instrumentos</strong>
+      <span>Aplique a linha de base antes da campanha, registre com as fichas ao longo das sessões, aplique o questionário pós no final. Mande os dados pro CRIACOM.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-d">
+  <h2 class="cta-d__title">jogou?<br><span>manda dados.</span></h2>
+  <p class="cta-d__body">
+    Se você usou qualquer material em mesa real — com amigos, em aula, em pesquisa — queremos saber. Sua experiência orienta a Beta 2.0.
+  </p>
+  <a href="../pesquisa/index.html#convocacao" class="cta-d__btn">✺ enviar feedback ao CRIACOM</a>
+  <a href="../index.html" class="cta-d__btn cta-d__btn--outline">◆ voltar ao início</a>
+</section>
+
+</main>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer__nav">
     <a href="../index.html">quick play</a>
     <a href="../jogadores/index.html">jogadores</a>
     <a href="../mestres/index.html">mestres</a>
-    <a href="../downloads/index.html">downloads</a>
+    <a href="./index.html">downloads</a>
     <a href="../pesquisa/index.html">pesquisa</a>
   </div>
   <div class="footer__body">
     HEXAVERSO © 2026 · Neves Filho et al. / UEL-CNPq<br>
+    Processo 408699/2023-0 · Chamada Universal CNPq/MCTI n. 10/2023<br>
     Licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
   </div>
 </footer>
