@@ -324,6 +324,58 @@ body { background: var(--paper); }
   letter-spacing: 0.05em; text-transform: uppercase;
 }
 
+/* Figura científica */
+.fig-block {
+  margin: 24px 0;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 6px 6px 0 rgba(11,11,11,0.08);
+}
+.fig-block img {
+  width: 100%; display: block;
+  border-bottom: 1px solid #e0e0e0;
+}
+.fig-block__caption {
+  padding: 10px 14px;
+  font-family: var(--font-mono); font-size: 11px;
+  line-height: 1.55; color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+.fig-block__caption strong { color: var(--ink); }
+
+/* Grid de processos hexaflex */
+.hex-processes {
+  display: grid; gap: 10px; margin: 18px 0;
+  grid-template-columns: 1fr;
+}
+.hex-process {
+  border-left: 4px solid var(--pink);
+  padding: 10px 14px;
+  background: #fafafa;
+}
+.hex-process--open   { border-color: #4DA3D8; }
+.hex-process--aware  { border-color: #B8E63C; }
+.hex-process--active { border-color: var(--pink); }
+.hex-process__pillar {
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 4px;
+}
+.hex-process__name {
+  font-family: var(--font-display); font-size: 15px;
+  line-height: 1; text-transform: lowercase;
+  letter-spacing: -0.01em; margin-bottom: 4px;
+}
+.hex-process__desc {
+  font-size: 13px; line-height: 1.5; color: var(--ink-soft);
+}
+@media (min-width: 600px) {
+  .hex-processes { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .hex-processes { grid-template-columns: repeat(3, 1fr); }
+}
+
 .subheading-mono {
   font-family: var(--font-display);
   font-size: 20px;
@@ -443,6 +495,50 @@ body { background: var(--paper); }
     O <strong>Hexaflex</strong> é um modelo desenvolvido por Steven C. Hayes e colaboradores no âmbito da ACT. Organiza seis processos psicológicos interdependentes — aceitação, desfusão cognitiva, eu-como-contexto, contato com o momento presente, valores e ação comprometida — como componentes da flexibilidade psicológica. Cada um dos seis personagens jogáveis do Hexaverso foi desenhado para representar, operacionalmente, um desses processos.
   </p>
 
+  <figure class="fig-block">
+    <img src="../assets/images/hexaflex.png" alt="Diagrama do modelo Hexaflex — ACT: Flexibilidade Psicológica e seus seis processos organizados em três pilares (Aberto, Consciente, Ativamente Engajado) dentro dos eixos Contexto e Corpo">
+    <figcaption class="fig-block__caption">
+      <strong>Figura 1.</strong> Modelo Hexaflex expandido (versão brasileira). Os seis processos da flexibilidade psicológica organizados em três pilares — Aberto, Consciente e Ativamente Engajado — e ancorados nos eixos Corpo e Relacionamentos e Cultura. Adaptado de Perez &amp; Hayes (2025).
+    </figcaption>
+  </figure>
+
+  <p>
+    Os seis processos do Hexaflex estão organizados em <strong>três pilares funcionais</strong> (Perez &amp; Hayes, 2025). O pilar <strong>Aberto</strong> reúne aceitação e desfusão — processos que permitem ao indivíduo se relacionar de forma mais flexível com experiências internas difíceis, sem evitá-las ou ser dominado por elas. O pilar <strong>Consciente</strong> agrupa o eu-como-contexto e o contato com o momento presente — processos atencionais e perspectivos que ancoram o comportamento no aqui-e-agora. O pilar <strong>Ativamente Engajado</strong> compreende valores e ação comprometida — processos motivacionais que direcionam o comportamento para escolhas significativas.
+  </p>
+
+  <div class="hex-processes">
+    <div class="hex-process hex-process--open">
+      <div class="hex-process__pillar">◼ pilar aberto</div>
+      <div class="hex-process__name">Aceitação</div>
+      <div class="hex-process__desc">Abertura às próprias experiências — pensamentos, emoções, sensações — sem tentar controlá-las ou evitá-las quando isso é desnecessário ou ineficaz.</div>
+    </div>
+    <div class="hex-process hex-process--open">
+      <div class="hex-process__pillar">◼ pilar aberto</div>
+      <div class="hex-process__name">Desfusão Cognitiva</div>
+      <div class="hex-process__desc">Interagir com os próprios pensamentos de forma funcional, sem se fundir literalmente ao seu conteúdo — perceber o pensamento como pensamento, não como fato.</div>
+    </div>
+    <div class="hex-process hex-process--aware">
+      <div class="hex-process__pillar">◼ pilar consciente</div>
+      <div class="hex-process__name">Eu-como-Contexto</div>
+      <div class="hex-process__desc">Perspectiva do observador: notar os diferentes aspectos da própria experiência sem se identificar rigidamente com nenhum conteúdo ou narrativa sobre si mesmo.</div>
+    </div>
+    <div class="hex-process hex-process--aware">
+      <div class="hex-process__pillar">◼ pilar consciente</div>
+      <div class="hex-process__name">Momento Presente</div>
+      <div class="hex-process__desc">Atenção flexível e curiosa ao aqui-e-agora, capaz de flutuar entre diferentes aspectos da experiência sem ser capturada por ruminações passadas ou antecipações futuras.</div>
+    </div>
+    <div class="hex-process hex-process--active">
+      <div class="hex-process__pillar">◼ pilar ativamente engajado</div>
+      <div class="hex-process__name">Valores</div>
+      <div class="hex-process__desc">Qualidades de ação livremente escolhidas que dão sentido ao comportamento — não metas a alcançar, mas direções contínuas de vida: ser corajoso, cuidadoso, presente.</div>
+    </div>
+    <div class="hex-process hex-process--active">
+      <div class="hex-process__pillar">◼ pilar ativamente engajado</div>
+      <div class="hex-process__name">Ação Comprometida</div>
+      <div class="hex-process__desc">Construção de padrões de comportamento e hábitos alinhados aos valores escolhidos — agir de forma coerente mesmo diante de obstáculos internos ou externos.</div>
+    </div>
+  </div>
+
   <div class="theorist-grid">
     <div class="theorist">
       <div class="theorist__name">steven c. hayes</div>
@@ -452,10 +548,10 @@ body { background: var(--paper); }
       </div>
     </div>
     <div class="theorist">
-      <div class="theorist__name">kelly g. wilson</div>
-      <div class="theorist__years">· colaborador hayes</div>
+      <div class="theorist__name">will perez</div>
+      <div class="theorist__years">· colaborador hayes · brasil</div>
       <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> desenvolvimento aplicado do trabalho com valores e ação comprometida. Co-autor de obras fundacionais da ACT.
+        <strong>Contribuição central:</strong> difusão e desenvolvimento da ACT no contexto brasileiro, em colaboração direta com Steven C. Hayes. Referência central para a aproximação entre ACT e a tradição analítico-comportamental brasileira.
       </div>
     </div>
   </div>
@@ -468,14 +564,49 @@ body { background: var(--paper); }
     <strong>Saban, M.</strong> (2019). O que seria esse tal de "Hexaflex"? <em>comportese.com</em>. Disponível em: <a href="https://comportese.com" target="_blank" rel="noopener">comportese.com</a>. [introdução didática em português]
   </div>
 
+  <div class="ref-block">
+    <strong>▸ para saber mais</strong><br>
+    <strong>Perez, W. F., &amp; Hayes, S. C.</strong> (2025). Terapia de Aceitação e Compromisso (ACT): um guia rápido. <em>Perspectivas em Análise do Comportamento</em>, 005–017. <a href="https://doi.org/10.18761/PAC.ACT.00EN" target="_blank" rel="noopener">https://doi.org/10.18761/PAC.ACT.00EN</a>
+  </div>
+
   <h3 class="subheading-mono" style="margin-top: 28px;">a lente coletiva — metacontingência</h3>
 
   <p>
-    O conceito de <strong>metacontingência</strong>, formulado por Sigrid S. Glenn e colaboradores, oferece uma unidade de análise para o comportamento coletivo. Uma metacontingência descreve a relação funcional entre <strong>CCEs (Contingências Comportamentais Entrelaçadas)</strong> — padrões coordenados de resposta entre indivíduos — e seus <strong>produtos agregados</strong> — efeitos ambientais que as respostas isoladas não produziriam. Quando um produto agregado é selecionado por consequências culturais, emerge um <strong>culturante</strong>.
+    O conceito de <strong>metacontingência</strong>, formulado por Sigrid S. Glenn (1986; 1988), propõe uma unidade de análise para fenômenos sociais e culturais que vai além do comportamento individual. Uma metacontingência descreve a relação de contingência entre um <strong>culturante</strong> — composto por Contingências Comportamentais Entrelaçadas (CCEs) e seu produto agregado (PA) — e uma <strong>consequência cultural</strong>, que aumenta ou diminui a probabilidade futura desse padrão de interação (Angelo et al., 2024; Glenn et al., 2016). A metacontingência se insere no terceiro nível de seleção por consequências descrito por Skinner (1981): assim como a filogênese seleciona características físicas de espécies e a ontogênese seleciona operantes individuais, as metacontingências explicariam a variação e seleção de padrões culturais.
   </p>
 
+  <h4 class="subheading-mono" style="font-size:16px; margin: 20px 0 8px;">contingências comportamentais entrelaçadas (CCEs)</h4>
+
   <p>
-    No Hexaverso, a operação do Medidor de Integridade por parte do mestre-auxiliar é a tradução lúdica dessa lógica: o grupo de jogadores produz culturantes em cena, e o mundo ficcional (via consequências sentidas nas sessões seguintes) seleciona esses culturantes positivamente ou negativamente.
+    CCEs são um conjunto de contingências de reforçamento que ocorrem quando há interação social entre duas ou mais pessoas. O que as distingue de uma simples cadeia de respostas individuais é o <strong>entrelaçamento</strong>: o comportamento de cada pessoa funciona simultaneamente como consequência para o outro e como antecedente para a próxima resposta — tornando as contingências <em>interdependentes</em>. A Figura 1 abaixo ilustra esse entrelaçamento em um diálogo simples entre Pedro e Ana: a resposta de Pedro é antecedente para a resposta de Ana, que é ao mesmo tempo consequência de Pedro e antecedente para sua próxima fala.
+  </p>
+
+  <figure class="fig-block">
+    <img src="../assets/images/figura_1_cce_metacontingencias.png" alt="Figura 1 — Exemplo de contingências comportamentais entrelaçadas: diálogo entre Pedro e Ana mostrando antecedentes, respostas e consequências interdependentes">
+    <figcaption class="fig-block__caption">
+      <strong>Figura 1.</strong> Exemplo de contingências comportamentais entrelaçadas. O comportamento de cada participante funciona como antecedente, resposta e consequência de forma interdependente. Fonte: Angelo et al. (2024, p. 146).
+    </figcaption>
+  </figure>
+
+  <p>
+    CCEs podem envolver desde duas pessoas movendo um objeto pesado até centenas de trabalhadores numa linha de produção, legisladores implementando uma lei ou jogadores coordenando uma jogada. O que importa analiticamente não é o número de pessoas, mas o padrão de interdependência entre suas contingências. Esse padrão coordenado produz um efeito no ambiente que nenhum indivíduo isolado produziria: o <strong>produto agregado (PA)</strong>. O PA é o efeito direto do entrelaçamento — um carro produzido, um evento realizado, uma lei aprovada, uma partida ganha. Importante: o PA não precisa funcionar como reforçador para todos os indivíduos cujos comportamentos o compõem; cada um pode ter seus próprios reforçadores particulares ao longo do processo.
+  </p>
+
+  <h4 class="subheading-mono" style="font-size:16px; margin: 20px 0 8px;">o culturante e a consequência cultural</h4>
+
+  <p>
+    O conjunto formado pelas CCEs e pelo PA é chamado de <strong>culturante</strong> — a unidade básica da metacontingência. O culturante é selecionado (ou sofre variação) em função de uma <strong>consequência cultural</strong>: um evento externo ao culturante que retroage sobre ele, aumentando ou diminuindo a probabilidade de sua recorrência futura. Consequências culturais podem ter função análoga a reforçadores (aumentando a probabilidade do culturante) ou a punidores (reduzindo-a). Uma característica fundamental do culturante é que ele pode <em>persistir mesmo com a substituição de participantes</em>: quando um novo membro entra num grupo, as contingências às quais é exposto são semelhantes às que já existiam, moldando seu comportamento ao padrão anterior.
+  </p>
+
+  <figure class="fig-block">
+    <img src="../assets/images/figura_2_metacontingencia.png" alt="Figura 2 — Representação gráfica genérica de uma metacontingência: CCEs geram o Produto Agregado (PA), formando o Culturante, que produz uma Consequência Cultural que retroage sobre o Culturante">
+    <figcaption class="fig-block__caption">
+      <strong>Figura 2.</strong> Representação gráfica genérica de uma metacontingência. As CCEs (contingências comportamentais entrelaçadas) geram o Produto Agregado (PA). Juntos, formam o Culturante. A Consequência Cultural retroage sobre o Culturante, aumentando ou diminuindo sua probabilidade futura. Fonte: Angelo et al. (2024, p. 149).
+    </figcaption>
+  </figure>
+
+  <p>
+    No <strong>Hexaverso</strong>, essa lógica se traduz diretamente na mecânica de jogo. O grupo de jogadores produz CCEs a cada cena — escolhas coordenadas de proteção, mediação, escalada ou omissão. Essas interações geram um produto agregado narrativo (o desfecho da cena), que compõe um culturante observado e registrado pelo mestre-auxiliar. O Medidor de Integridade, operado de forma oculta, funciona como a consequência cultural: retroage sobre o culturante do grupo, tornando o mundo ficcional mais aberto ou mais hostil nas sessões seguintes — sem que os jogadores vejam o número, mas sentindo suas consequências na trama.
   </p>
 
   <div class="theorist-grid">
@@ -483,28 +614,29 @@ body { background: var(--paper); }
       <div class="theorist__name">sigrid s. glenn</div>
       <div class="theorist__years">1942– · unt</div>
       <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> proposição do conceito de metacontingência como unidade de análise do comportamento cultural; articulação entre seleção por consequências em níveis biológico, operante e cultural.
+        <strong>Contribuição central:</strong> proposição e refinamento do conceito de metacontingência (1986–2016), incluindo os termos CCE, produto agregado e culturante. Articulação entre seleção por consequências nos níveis biológico, operante e cultural.
       </div>
     </div>
     <div class="theorist">
       <div class="theorist__name">b. f. skinner</div>
       <div class="theorist__years">1904–1990</div>
       <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> base conceitual da seleção por consequências e da análise funcional do comportamento, sobre a qual se constrói toda a estrutura de observação do Hexaverso.
+        <strong>Contribuição central:</strong> modelo de seleção por consequências em três níveis (filogênese, ontogênese e cultura), base conceitual sobre a qual Glenn desenvolveu o conceito de metacontingência.
       </div>
     </div>
   </div>
 
   <div class="ref-block">
-    <strong>Glenn, S. S.</strong> (2004). Individual behavior, culture, and social change. <em>The Behavior Analyst</em>, 27(2), 133–151.
-  </div>
-
-  <div class="ref-block">
-    <strong>Angelo, E.</strong> (2024). Metacontingência: uma ferramenta conceitual para análises sociais e culturais. <em>Revista Brasileira de Análise do Comportamento (REBAC)</em>, v. 20. [introdução didática em português]
+    <strong>Glenn, S. S.</strong> (1988). Contingencies and metacontingencies: Toward a synthesis of behavior analysis and cultural materialism. <em>The Behavior Analyst</em>, 11(2), 161–179.
   </div>
 
   <div class="ref-block">
     <strong>Skinner, B. F.</strong> (1981). Selection by consequences. <em>Science</em>, 213(4507), 501–504.
+  </div>
+
+  <div class="ref-block">
+    <strong>▸ para saber mais</strong><br>
+    <strong>Angelo, H. V. B. R., Souza, V. P., Izbicki, S., &amp; Bissoli, E. B.</strong> (2024). Metacontingência: uma ferramenta conceitual para análises sociais e culturais. <em>Revista Brasileira de Análise do Comportamento (REBAC)</em>, 20(Supl. 1), 144–155. <a href="http://dx.doi.org/10.18542/REBAC.V20I0.16460" target="_blank" rel="noopener">doi:10.18542/REBAC.V20I0.16460</a> [introdução didática em português, com exemplos e figuras]
   </div>
 </section>
 
@@ -644,16 +776,16 @@ body { background: var(--paper); }
   <div class="team-grid">
     <div class="team-member">
       <div class="team-member__role">◆ coordenação</div>
-      <div class="team-member__name">Neves Filho et al.</div>
+      <div class="team-member__name">Prof. Dr. Hernando Borges Neves Filho</div>
       <div class="team-member__affiliation">
-        <span class="placeholder-note">PREENCHER</span> nome completo, titulação, afiliação e Lattes
+        Programa de Pós-Graduação em Análise do Comportamento<br>Universidade Estadual de Londrina (UEL)
       </div>
     </div>
     <div class="team-member">
-      <div class="team-member__role">◆ equipe de pesquisa</div>
-      <div class="team-member__name">[nomes da equipe]</div>
+      <div class="team-member__role">◆ mestrado · história e mecânicas</div>
+      <div class="team-member__name">Beatriz Landim Fabri</div>
       <div class="team-member__affiliation">
-        <span class="placeholder-note">PREENCHER</span> pesquisadores, bolsistas e colaboradores
+        Mestranda · Programa de Pós-Graduação em Análise do Comportamento — UEL.<br>Desenvolvedora da história e mecânicas do Hexaverso.
       </div>
     </div>
     <div class="team-member">
@@ -665,9 +797,6 @@ body { background: var(--paper); }
     </div>
   </div>
 
-  <p style="margin-top: 18px; font-size: 13px; color: var(--ink-soft); font-style: italic;">
-    Este projeto foi aprovado pelo Comitê de Ética em Pesquisa <span class="placeholder-note">PREENCHER CAAE</span> e segue as diretrizes da Resolução 466/12 do Conselho Nacional de Saúde.
-  </p>
 </section>
 
 <section class="r-section r-section--dark" id="citar">
@@ -704,11 +833,10 @@ body { background: var(--paper); }
 
 <section class="contact" id="contato">
   <div class="contact__label">◆ canal direto · criacom ◆</div>
-  <a href="mailto:contato@criacom.uel.br" class="contact__email">
-    contato@criacom.uel.br
-  </a>
+  <span class="contact__email" style="cursor:default;">
+    h e r n a n d o @ u e l . b r
+  </span>
   <p class="contact__body">
-    <span class="placeholder-note" style="background: rgba(255,243,205,0.15); color: var(--cream); border-color: var(--cream-halftone);">PREENCHER E-MAIL REAL</span><br><br>
     Para envio de dados de aplicação, dúvidas metodológicas, propostas de colaboração, pedido de material ou qualquer contato institucional. Respondemos em até 5 dias úteis.
   </p>
 </section>
