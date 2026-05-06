@@ -270,7 +270,7 @@ body { background: var(--paper); }
   letter-spacing: 0.2em; color: var(--pink);
   text-transform: uppercase; margin-bottom: 14px;
 }
-.contact__email {
+.contact__addr {
   display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(20px, 5vw, 32px);
@@ -281,12 +281,7 @@ body { background: var(--paper); }
   margin-bottom: 20px;
   text-transform: lowercase;
   letter-spacing: -0.01em;
-  transition: transform 80ms, box-shadow 80ms;
-}
-.contact__email:hover { background: rgba(184,230,60,0.08); }
-.contact__email:active {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0 var(--lime);
+  user-select: all;
 }
 .contact__body {
   font-family: var(--font-mono); font-size: 12px;
@@ -636,7 +631,7 @@ body { background: var(--paper); }
 
   <div class="ref-block">
     <strong>▸ para saber mais</strong><br>
-    <strong>Angelo, H. V. B. R., Souza, V. P., Izbicki, S., &amp; Bissoli, E. B.</strong> (2024). Metacontingência: uma ferramenta conceitual para análises sociais e culturais. <em>Revista Brasileira de Análise do Comportamento (REBAC)</em>, 20(Supl. 1), 144–155. <a href="http://dx.doi.org/10.18542/REBAC.V20I0.16460" target="_blank" rel="noopener">doi:10.18542/REBAC.V20I0.16460</a> [introdução didática em português, com exemplos e figuras]
+    <strong>Angelo, H. V. B. R., Souza, V. P., Izbicki, S., &amp; Bissoli, E. B.</strong> (2024). Metacontingência: uma ferramenta conceitual para análises sociais e culturais. <em>Revista Brasileira de Análise do Comportamento (REBAC)</em>, 20(Supl. 1), 144–155. <a href="https://doi.org/10.18542/REBAC.V20I0.16460" target="_blank" rel="noopener">doi:10.18542/REBAC.V20I0.16460</a> [introdução didática em português, com exemplos e figuras]
   </div>
 </section>
 
@@ -833,7 +828,7 @@ body { background: var(--paper); }
 
 <section class="contact" id="contato">
   <div class="contact__label">◆ canal direto · criacom ◆</div>
-  <span class="contact__email" style="cursor:default;">
+  <span class="contact__addr">
     h e r n a n d o @ u e l . b r
   </span>
   <p class="contact__body">
