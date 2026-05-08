@@ -261,34 +261,6 @@ body { background: var(--paper); }
 }
 .team-member__affiliation { font-size: 12px; line-height: 1.45; color: var(--ink-soft); }
 
-.contact {
-  background: var(--ink); color: var(--cream);
-  padding: 56px var(--page-padding); text-align: center;
-}
-.contact__label {
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.2em; color: var(--pink);
-  text-transform: uppercase; margin-bottom: 14px;
-}
-.contact__addr {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: clamp(20px, 5vw, 32px);
-  line-height: 1; color: var(--cream);
-  padding: 14px 22px;
-  border: 3px solid var(--lime);
-  box-shadow: 6px 6px 0 var(--lime);
-  margin-bottom: 20px;
-  text-transform: lowercase;
-  letter-spacing: -0.01em;
-  user-select: all;
-}
-.contact__body {
-  font-family: var(--font-mono); font-size: 12px;
-  line-height: 1.7; max-width: 480px; margin: 0 auto 16px;
-  color: var(--cream-halftone); letter-spacing: 0.02em;
-}
-
 .cta-r {
   background: var(--cream); color: var(--ink);
   text-align: center; padding: 48px var(--page-padding);
@@ -310,14 +282,6 @@ body { background: var(--paper); }
   letter-spacing: 0.03em; margin: 0 4px 8px 0;
 }
 .cta-r__btn:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--pink); }
-
-.placeholder-note {
-  display: inline-block;
-  background: #fff3cd; border: 1px dashed #997a00;
-  color: #997a00; padding: 2px 6px;
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.05em; text-transform: uppercase;
-}
 
 /* Figura científica */
 .fig-block {
@@ -443,7 +407,6 @@ body { background: var(--paper); }
     <li><a href="#convocacao">Convocação CRIACOM</a></li>
     <li><a href="#equipe">Equipe &amp; CRIACOM</a></li>
     <li><a href="#citar">Como citar</a></li>
-    <li><a href="#contato">Contato</a></li>
   </ol>
 </section>
 
@@ -727,7 +690,7 @@ body { background: var(--paper); }
   </div>
 
   <p style="margin-top: 20px; font-size: 13px; color: var(--ink-soft); font-family: var(--font-mono); line-height: 1.6;">
-    <span class="placeholder-note">PREENCHER</span> Os arquivos serão disponibilizados em versão final na área de downloads assim que concluída a diagramação. Em caso de urgência, <a href="#contato" style="color: var(--pink-deep); border-bottom: 1px dotted var(--pink);">contate o CRIACOM</a>.
+    Arquivos disponíveis na área de <a href="../downloads/index.html" style="color: var(--pink-deep); border-bottom: 1px dotted var(--pink);">downloads</a>. Em caso de dúvidas ou urgência, <a href="#contato" style="color: var(--pink-deep); border-bottom: 1px dotted var(--pink);">contate o CRIACOM</a>.
   </p>
 </section>
 
@@ -805,7 +768,7 @@ body { background: var(--paper); }
 
   <div class="citation-box">
     <span class="citation-box__tag">abnt</span>
-    <pre>NEVES FILHO, H. B. et al. <em>Hexaverso: RPG narrativo-comportamental</em>. Universidade Estadual de Londrina / CRIACOM, 2026. Financiamento CNPq/MCTI 10/2023, Processo 408699/2023-0. Licença CC BY 4.0. Disponível em: &lt;URL do site&gt;. Acesso em: [data].</pre>
+    <pre>NEVES FILHO, H. B. et al. <em>Hexaverso: RPG narrativo-comportamental</em>. Universidade Estadual de Londrina / CRIACOM, 2026. Financiamento CNPq/MCTI 10/2023, Processo 408699/2023-0. Licença CC BY 4.0.</pre>
   </div>
 
   <div class="citation-box">
@@ -816,24 +779,9 @@ body { background: var(--paper); }
   year         = {2026},
   institution  = {Universidade Estadual de Londrina, CRIACOM},
   note         = {CNPq/MCTI 10/2023, Processo 408699/2023-0},
-  howpublished = {\url{URL do site}},
   license      = {CC BY 4.0}
 }</pre>
   </div>
-
-  <p style="margin-top: 14px; font-family: var(--font-mono); font-size: 11px; color: var(--cream-halftone); line-height: 1.6;">
-    <span class="placeholder-note">PREENCHER</span> ao diagramar a versão final: (i) nome completo do coordenador e coautores, (ii) URL definitiva do site após publicação, (iii) eventual DOI se registrado.
-  </p>
-</section>
-
-<section class="contact" id="contato">
-  <div class="contact__label">◆ canal direto · criacom ◆</div>
-  <span class="contact__addr">
-    h e r n a n d o @ u e l . b r
-  </span>
-  <p class="contact__body">
-    Para envio de dados de aplicação, dúvidas metodológicas, propostas de colaboração, pedido de material ou qualquer contato institucional. Respondemos em até 5 dias úteis.
-  </p>
 </section>
 
 <section class="cta-r">
