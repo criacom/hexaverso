@@ -2,792 +2,349 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#FFFFFF">
-<title>HEXAVERSO ★ Pesquisa · CRIACOM</title>
-<meta name="description" content="Hexaverso como objeto e instrumento de pesquisa. Referenciais teóricos, instrumentos padronizados, convocação para aplicadores e canal direto com o CRIACOM.">
-
+<title>Hexaverso · Pesquisa Científica · UEL-CNPq</title>
+<meta name="description" content="Hexaverso: RPG narrativo-comportamental desenvolvido na UEL com financiamento CNPq. Referenciais teóricos, instrumentos e equipe de pesquisa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="../assets/css/hexaverso.css">
-
-<style>
-/* PÁGINA PESQUISA · branco sóbrio, científico */
-body { background: var(--paper); }
-
-.hero-r {
-  position: relative; background: var(--paper);
-  padding: 64px var(--page-padding) 48px;
-  border-bottom: 1px solid var(--ink);
-}
-.hero-r::before {
-  content: ""; position: absolute;
-  top: 0; left: var(--page-padding); right: var(--page-padding);
-  height: 4px; background: var(--pink);
-}
-.hero-r__kicker {
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--pink-deep); margin-bottom: 12px;
-}
-.hero-r__kicker::before { content: "§ "; color: var(--pink); }
-.hero-r__title {
-  font-family: var(--font-display);
-  font-size: clamp(42px, 11vw, 82px);
-  line-height: 0.92; letter-spacing: -0.02em;
-  color: var(--ink); text-transform: lowercase; margin: 0 0 20px;
-}
-.hero-r__title em { font-style: normal; color: var(--pink); }
-.hero-r__lede {
-  font-size: 16px; line-height: 1.65;
-  max-width: 580px; color: var(--ink-soft);
-  padding-top: 20px; border-top: 1px solid var(--ink-soft);
-}
-.hero-r__lede strong { color: var(--ink); }
-
-.meta-institucional {
-  background: var(--ink); color: var(--cream);
-  padding: 18px var(--page-padding);
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  border-bottom: 1px solid var(--ink);
-  display: grid; gap: 10px; grid-template-columns: 1fr;
-}
-.meta-institucional__cell { display: flex; flex-direction: column; gap: 4px; }
-.meta-institucional__label { color: var(--pink); }
-.meta-institucional__value { color: var(--cream); }
-
-.toc {
-  background: var(--paper); padding: 36px var(--page-padding);
-  border-bottom: 1px solid #e0e0e0;
-}
-.toc__title {
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--pink-deep); margin-bottom: 16px;
-  padding-bottom: 8px; border-bottom: 2px solid var(--ink);
-}
-.toc__list {
-  list-style: none; display: grid; gap: 4px;
-  font-family: var(--font-mono); font-size: 13px;
-  counter-reset: toc-counter;
-}
-.toc__list li { counter-increment: toc-counter; }
-.toc__list a {
-  display: block; padding: 8px 0 8px 40px;
-  position: relative; color: var(--ink);
-  border-bottom: 1px dotted #d0d0d0;
-  transition: background 80ms;
-}
-.toc__list a::before {
-  content: counter(toc-counter, decimal-leading-zero);
-  position: absolute; left: 0; top: 8px;
-  color: var(--pink); font-weight: 700;
-}
-.toc__list a:hover { background: #f7f7f7; padding-left: 46px; }
-
-.r-section {
-  background: var(--paper); color: var(--ink);
-  padding: 48px var(--page-padding);
-  border-top: 1px solid #e0e0e0;
-}
-.r-section--alt { background: #fafafa; }
-.r-section--dark { background: var(--ink); color: var(--cream); }
-
-.r-sec-head { margin-bottom: 28px; }
-.r-sec-head__num {
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.15em; color: var(--pink-deep);
-  text-transform: uppercase; margin-bottom: 6px;
-}
-.r-section--dark .r-sec-head__num { color: var(--pink); }
-.r-sec-head__num::before { content: "§ "; }
-.r-sec-head__title {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 7vw, 42px);
-  line-height: 0.95; letter-spacing: -0.02em;
-  text-transform: lowercase; margin-bottom: 4px;
-}
-.r-section--dark .r-sec-head__title { color: var(--cream); }
-.r-sec-head__subtitle {
-  font-size: 14px; line-height: 1.55;
-  color: var(--ink-soft); max-width: 560px; margin-top: 8px;
-}
-.r-section--dark .r-sec-head__subtitle { color: var(--cream-halftone); }
-
-.r-section p {
-  font-size: 15px; line-height: 1.7;
-  margin-bottom: 14px; max-width: 640px;
-}
-.r-section p strong { color: var(--pink-deep); }
-.r-section--dark p strong { color: var(--lime); }
-
-.ref-block {
-  background: #fafafa; border-left: 4px solid var(--pink);
-  padding: 14px 16px; margin: 14px 0;
-  font-family: var(--font-mono); font-size: 12px;
-  line-height: 1.6; color: var(--ink-soft);
-}
-.r-section--dark .ref-block { background: var(--ink-soft); color: var(--cream-halftone); }
-.ref-block strong { color: var(--ink); font-family: var(--font-body); font-weight: 700; }
-.r-section--dark .ref-block strong { color: var(--cream); }
-.ref-block em { font-style: italic; }
-.ref-block a { color: var(--pink-deep); border-bottom: 1px dotted var(--pink); }
-
-.theorist-grid { display: grid; gap: 14px; margin: 20px 0; }
-.theorist {
-  border: 2px solid var(--ink); padding: 16px; background: var(--paper);
-}
-.theorist__name {
-  font-family: var(--font-display); font-size: 18px;
-  line-height: 1; letter-spacing: -0.01em;
-  text-transform: lowercase; margin-bottom: 2px;
-}
-.theorist__years {
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.08em; color: var(--pink-deep);
-  text-transform: uppercase; margin-bottom: 10px;
-}
-.theorist__contrib {
-  font-size: 13px; line-height: 1.55; color: var(--ink-soft);
-}
-.theorist__contrib strong { color: var(--ink); }
-
-.instruments { display: grid; gap: 12px; margin-top: 8px; }
-.instrument {
-  background: var(--paper); border: 2px solid var(--ink); padding: 16px;
-  display: grid; grid-template-columns: 44px 1fr auto;
-  gap: 14px; align-items: center;
-}
-.instrument__icon {
-  width: 44px; height: 44px;
-  background: var(--ink); color: var(--pink);
-  display: grid; place-items: center;
-  font-family: var(--font-display); font-size: 18px;
-  border: 2px solid var(--ink);
-}
-.instrument__name {
-  font-family: var(--font-display); font-size: 16px;
-  line-height: 1.05; letter-spacing: -0.01em;
-  text-transform: lowercase; margin-bottom: 3px;
-}
-.instrument__desc { font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
-.instrument__link {
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--pink); white-space: nowrap;
-}
-
-.call {
-  background: var(--pink); color: var(--paper);
-  padding: 48px var(--page-padding);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-}
-.call__label {
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--paper); opacity: 0.85; margin-bottom: 12px;
-}
-.call__title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 9vw, 52px);
-  line-height: 0.95; letter-spacing: -0.02em;
-  text-transform: lowercase; margin-bottom: 16px;
-}
-.call__body {
-  font-size: 15px; line-height: 1.65;
-  max-width: 580px; margin-bottom: 14px;
-}
-.call__body strong {
-  background: var(--ink); color: var(--lime);
-  padding: 0 4px; font-weight: 700;
-}
-.call__checklist {
-  background: var(--paper); color: var(--ink);
-  border: 3px solid var(--ink);
-  padding: 16px 18px; margin-top: 20px; max-width: 580px;
-}
-.call__checklist h4 {
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--pink-deep); margin-bottom: 10px;
-}
-.call__checklist ul { list-style: none; padding: 0; }
-.call__checklist li {
-  font-size: 13px; line-height: 1.55;
-  padding-left: 22px; position: relative; margin-bottom: 6px;
-  color: var(--ink);
-}
-.call__checklist li::before {
-  content: "☐"; position: absolute; left: 0; top: 0;
-  color: var(--pink); font-weight: 700; font-size: 14px;
-}
-
-.citation-box {
-  background: var(--ink); color: var(--cream);
-  border: 2px solid var(--ink); padding: 14px 16px;
-  margin: 14px 0; font-family: var(--font-mono);
-  font-size: 12px; line-height: 1.6;
-  position: relative; overflow-x: auto;
-}
-.citation-box__tag {
-  position: absolute; top: -11px; left: 12px;
-  background: var(--pink); color: var(--paper);
-  font-size: 9px; letter-spacing: 0.12em;
-  padding: 2px 8px; text-transform: uppercase;
-}
-.citation-box pre {
-  white-space: pre-wrap; word-break: break-word;
-  font-family: inherit;
-}
-
-.team-grid { display: grid; gap: 12px; margin-top: 8px; }
-.team-member {
-  background: var(--paper); border: 2px solid var(--ink);
-  padding: 14px 16px;
-}
-.team-member__role {
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.12em; color: var(--pink-deep);
-  text-transform: uppercase; margin-bottom: 4px;
-}
-.team-member__name {
-  font-family: var(--font-display); font-size: 16px;
-  line-height: 1.1; letter-spacing: -0.01em;
-  text-transform: lowercase; margin-bottom: 4px;
-}
-.team-member__affiliation { font-size: 12px; line-height: 1.45; color: var(--ink-soft); }
-
-.cta-r {
-  background: var(--cream); color: var(--ink);
-  text-align: center; padding: 48px var(--page-padding);
-}
-.cta-r__title {
-  font-family: var(--font-display);
-  font-size: clamp(30px, 8vw, 44px);
-  line-height: 0.95; letter-spacing: -0.02em;
-  text-transform: lowercase; margin-bottom: 16px;
-}
-.cta-r__title span { color: var(--pink); }
-.cta-r__btn {
-  display: inline-block;
-  background: var(--ink); color: var(--lime);
-  font-family: var(--font-display); font-size: 15px;
-  text-transform: uppercase; padding: 12px 18px;
-  border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--pink);
-  letter-spacing: 0.03em; margin: 0 4px 8px 0;
-}
-.cta-r__btn:active { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--pink); }
-
-/* Figura científica */
-.fig-block {
-  margin: 24px 0;
-  border: 2px solid var(--ink);
-  background: var(--paper);
-  box-shadow: 6px 6px 0 rgba(11,11,11,0.08);
-}
-.fig-block img {
-  width: 100%; display: block;
-  border-bottom: 1px solid #e0e0e0;
-}
-.fig-block__caption {
-  padding: 10px 14px;
-  font-family: var(--font-mono); font-size: 11px;
-  line-height: 1.55; color: var(--ink-soft);
-  letter-spacing: 0.02em;
-}
-.fig-block__caption strong { color: var(--ink); }
-
-/* Grid de processos hexaflex */
-.hex-processes {
-  display: grid; gap: 10px; margin: 18px 0;
-  grid-template-columns: 1fr;
-}
-.hex-process {
-  border-left: 4px solid var(--pink);
-  padding: 10px 14px;
-  background: #fafafa;
-}
-.hex-process--open   { border-color: #4DA3D8; }
-.hex-process--aware  { border-color: #B8E63C; }
-.hex-process--active { border-color: var(--pink); }
-.hex-process__pillar {
-  font-family: var(--font-mono); font-size: 9px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--ink-soft); margin-bottom: 4px;
-}
-.hex-process__name {
-  font-family: var(--font-display); font-size: 15px;
-  line-height: 1; text-transform: lowercase;
-  letter-spacing: -0.01em; margin-bottom: 4px;
-}
-.hex-process__desc {
-  font-size: 13px; line-height: 1.5; color: var(--ink-soft);
-}
-@media (min-width: 600px) {
-  .hex-processes { grid-template-columns: 1fr 1fr; }
-}
-@media (min-width: 960px) {
-  .hex-processes { grid-template-columns: repeat(3, 1fr); }
-}
-
-.subheading-mono {
-  font-family: var(--font-display);
-  font-size: 20px;
-  margin: 22px 0 10px;
-  text-transform: lowercase;
-  letter-spacing: -0.01em;
-}
-
-@media (min-width: 720px) {
-  .meta-institucional { grid-template-columns: repeat(3, 1fr); }
-  .theorist-grid { grid-template-columns: 1fr 1fr; }
-  .team-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (min-width: 960px) {
-  .team-grid { grid-template-columns: repeat(3, 1fr); }
-}
-</style>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
 <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<style>
+body { background: var(--paper); }
+.ph { padding: 64px var(--page-padding) 48px; border-bottom: 3px solid var(--ink); position: relative; }
+.ph::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--pink); }
+.ph__kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink-deep); margin-bottom: 14px; }
+.ph__title { font-family: var(--font-display); font-size: clamp(40px, 10vw, 76px); line-height: 0.93; letter-spacing: -0.02em; color: var(--ink); text-transform: lowercase; margin: 0 0 24px; }
+.ph__title em { font-style: normal; color: var(--pink); }
+.ph__lede { font-size: 16px; line-height: 1.65; max-width: 560px; color: var(--ink-soft); border-top: 1px solid #ccc; padding-top: 20px; }
+.inst-bar { background: var(--ink); color: var(--cream); padding: 16px var(--page-padding); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; display: flex; flex-wrap: wrap; gap: 24px; }
+.inst-bar__item { display: flex; flex-direction: column; gap: 3px; }
+.inst-bar__label { color: var(--pink); }
+.ps { padding: 52px var(--page-padding); border-top: 1px solid #e0e0e0; }
+.ps--alt { background: #fafafa; }
+.ps--dark { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.ps__num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink); margin-bottom: 6px; }
+.ps__title { font-family: var(--font-display); font-size: clamp(26px, 6vw, 38px); line-height: 0.95; letter-spacing: -0.02em; text-transform: lowercase; margin-bottom: 6px; color: inherit; }
+.ps__sub { font-size: 14px; line-height: 1.55; color: var(--ink-soft); max-width: 540px; margin-bottom: 28px; }
+.ps--dark .ps__sub { color: var(--cream-halftone); }
+.ps p { font-size: 15px; line-height: 1.72; max-width: 640px; margin-bottom: 14px; }
+.ps p strong { color: var(--pink-deep); font-weight: 700; }
+.ps--dark p strong { color: var(--lime); }
+.ps-h3 { font-family: var(--font-display); font-size: 19px; line-height: 1; text-transform: lowercase; letter-spacing: -0.01em; margin: 28px 0 10px; color: inherit; }
+.ps-h4 { font-family: var(--font-display); font-size: 15px; text-transform: lowercase; letter-spacing: -0.01em; margin: 20px 0 8px; color: var(--pink-deep); }
+.fig { margin: 24px 0; border: 2px solid var(--ink); background: #fff; }
+.fig img { width: 100%; display: block; }
+.fig__cap { padding: 10px 14px; font-family: var(--font-mono); font-size: 11px; line-height: 1.55; color: var(--ink-soft); border-top: 1px solid #e0e0e0; }
+.fig__cap strong { color: var(--ink); }
+.hex-grid { display: grid; gap: 10px; margin: 20px 0; grid-template-columns: 1fr; }
+.hex-card { padding: 12px 14px; background: #fafafa; border-left: 4px solid var(--pink); }
+.hex-card--a { border-color: #4DA3D8; }
+.hex-card--b { border-color: #B8E63C; }
+.hex-card--c { border-color: var(--pink); }
+.hex-card__pillar { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 4px; }
+.hex-card__name { font-family: var(--font-display); font-size: 15px; text-transform: lowercase; letter-spacing: -0.01em; margin-bottom: 4px; }
+.hex-card__desc { font-size: 13px; line-height: 1.5; color: #555; }
+.theorists { display: grid; gap: 14px; margin: 20px 0; }
+.th-card { border: 2px solid var(--ink); padding: 16px; background: var(--paper); }
+.th-card__name { font-family: var(--font-display); font-size: 17px; text-transform: lowercase; letter-spacing: -0.01em; margin-bottom: 2px; }
+.th-card__years { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink-deep); margin-bottom: 10px; }
+.th-card__text { font-size: 13px; line-height: 1.55; color: #555; }
+.th-card__text strong { color: var(--ink); }
+.ref { background: #f5f5f5; border-left: 4px solid var(--pink); padding: 12px 16px; margin: 12px 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: #555; }
+.ps--dark .ref { background: rgba(255,255,255,0.06); color: var(--cream-halftone); }
+.ref strong { color: var(--ink); font-family: var(--font-body); }
+.ps--dark .ref strong { color: var(--cream); }
+.ref a { color: var(--pink-deep); text-decoration: underline; text-underline-offset: 3px; }
+.ref--more { border-color: var(--lime); background: rgba(184,230,60,0.06); }
+.instruments { display: grid; gap: 10px; margin-top: 16px; }
+.instr { display: grid; grid-template-columns: 42px 1fr auto; gap: 14px; align-items: center; border: 2px solid var(--ink); padding: 14px; background: var(--paper); }
+.instr__icon { width: 42px; height: 42px; background: var(--ink); color: var(--pink); display: grid; place-items: center; font-family: var(--font-display); font-size: 17px; }
+.instr__name { font-family: var(--font-display); font-size: 15px; text-transform: lowercase; letter-spacing: -0.01em; margin-bottom: 3px; }
+.instr__desc { font-size: 12px; line-height: 1.45; color: #666; }
+.instr__link { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink); white-space: nowrap; }
+.team { display: grid; gap: 12px; margin-top: 16px; }
+.team-card { background: var(--paper); border: 2px solid var(--ink); padding: 14px 16px; }
+.team-card__role { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink-deep); margin-bottom: 4px; }
+.team-card__name { font-family: var(--font-display); font-size: 15px; text-transform: lowercase; letter-spacing: -0.01em; margin-bottom: 4px; }
+.team-card__aff { font-size: 12px; line-height: 1.45; color: #666; }
+.cite-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 16px; margin: 14px 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.7; color: var(--cream-halftone); position: relative; }
+.cite-box__label { position: absolute; top: -10px; left: 12px; background: var(--pink); color: #fff; font-size: 9px; letter-spacing: 0.12em; padding: 2px 8px; text-transform: uppercase; }
+.cite-box pre { white-space: pre-wrap; word-break: break-word; font-family: inherit; color: inherit; margin: 0; }
+.ps-cta { background: var(--cream); color: var(--ink); text-align: center; padding: 52px var(--page-padding); border-top: 3px solid var(--ink); }
+.ps-cta__title { font-family: var(--font-display); font-size: clamp(28px, 7vw, 42px); line-height: 0.95; letter-spacing: -0.02em; text-transform: lowercase; margin-bottom: 20px; }
+.ps-cta__title span { color: var(--pink); }
+.ps-cta__btn { display: inline-block; background: var(--ink); color: var(--lime); font-family: var(--font-display); font-size: 14px; text-transform: uppercase; padding: 12px 18px; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--pink); letter-spacing: 0.03em; margin: 0 4px 8px; }
+@media (min-width: 600px) { .hex-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .hex-grid { grid-template-columns: repeat(3, 1fr); } .theorists { grid-template-columns: 1fr 1fr; } .team { grid-template-columns: repeat(3, 1fr); } }
+</style>
 </head>
-
 <body>
 
 <div class="topbar">
   <span class="topbar__brand"><a href="../index.html">HEXAVERSO</a></span>
-  <span class="topbar__meta">pesquisa · criacom<span class="topbar__blink"></span></span>
+  <span class="topbar__meta">pesquisa &middot; criacom<span class="topbar__blink"></span></span>
 </div>
 
 <nav class="nav" aria-label="Navegação principal">
   <ul class="nav__list">
-    <li class="nav__item"><a href="../index.html">◆ quick play</a></li>
-    <li class="nav__item"><a href="../jogadores/index.html">▲ jogadores</a></li>
-    <li class="nav__item"><a href="../mestres/index.html">◇ mestres</a></li>
-    <li class="nav__item"><a href="../downloads/index.html">▸ downloads</a></li>
-    <li class="nav__item nav__item--active"><a href="./index.html">✺ pesquisa</a></li>
+    <li class="nav__item"><a href="../index.html">&#9670; quick play</a></li>
+    <li class="nav__item"><a href="../jogadores/index.html">&#9650; jogadores</a></li>
+    <li class="nav__item"><a href="../mestres/index.html">&#9671; mestres</a></li>
+    <li class="nav__item"><a href="../downloads/index.html">&#9656; downloads</a></li>
+    <li class="nav__item nav__item--active"><a href="./index.html">&#10042; pesquisa</a></li>
   </ul>
 </nav>
 
-<header class="hero-r">
-  <div class="hero-r__kicker">área de pesquisa e aplicação</div>
-  <h1 class="hero-r__title">hexaverso como<br><em>objeto</em> e <em>instrumento</em><br>de pesquisa.</h1>
-  <p class="hero-r__lede">
-    Esta é a área para <strong>aplicadores, pesquisadores, bolsistas e parceiros institucionais</strong>. Aqui estão os referenciais teóricos, a lógica metodológica, os instrumentos padronizados e o canal direto com o CRIACOM para quem quer aplicar, contribuir ou colaborar.
-  </p>
+<header class="ph">
+  <div class="ph__kicker">área científica &middot; UEL &middot; CNPq</div>
+  <h1 class="ph__title">hexaverso como<br><em>objeto</em> e <em>instrumento</em><br>de pesquisa.</h1>
+  <p class="ph__lede">Referenciais teóricos, lógica metodológica, instrumentos padronizados e informações sobre a equipe para pesquisadores, bolsistas e parceiros institucionais.</p>
 </header>
 
-<div class="meta-institucional">
-  <div class="meta-institucional__cell">
-    <span class="meta-institucional__label">› financiamento</span>
-    <span class="meta-institucional__value">CNPq/MCTI n. 10/2023<br>Processo 408699/2023-0</span>
+<div class="inst-bar">
+  <div class="inst-bar__item">
+    <span class="inst-bar__label">financiamento</span>
+    <span>CNPq/MCTI n. 10/2023 &middot; Processo 408699/2023-0</span>
   </div>
-  <div class="meta-institucional__cell">
-    <span class="meta-institucional__label">› vínculo institucional</span>
-    <span class="meta-institucional__value">Universidade Estadual<br>de Londrina (UEL)</span>
+  <div class="inst-bar__item">
+    <span class="inst-bar__label">instituição</span>
+    <span>Universidade Estadual de Londrina &mdash; UEL</span>
   </div>
-  <div class="meta-institucional__cell">
-    <span class="meta-institucional__label">› licença</span>
-    <span class="meta-institucional__value">CC BY 4.0<br>todo material liberado</span>
+  <div class="inst-bar__item">
+    <span class="inst-bar__label">licença</span>
+    <span>CC BY 4.0 &middot; material aberto</span>
   </div>
 </div>
 
-<section class="toc">
-  <h2 class="toc__title">neste documento</h2>
-  <ol class="toc__list">
-    <li><a href="#apresentacao">Apresentação do projeto</a></li>
-    <li><a href="#referenciais">Referenciais teóricos</a></li>
-    <li><a href="#metodologia">Lógica metodológica</a></li>
-    <li><a href="#instrumentos">Instrumentos padronizados</a></li>
-    <li><a href="#convocacao">Convocação CRIACOM</a></li>
-    <li><a href="#equipe">Equipe &amp; CRIACOM</a></li>
-    <li><a href="#citar">Como citar</a></li>
-  </ol>
-</section>
-
 <main>
 
-<section class="r-section" id="apresentacao">
-  <div class="r-sec-head">
-    <div class="r-sec-head__num">01</div>
-    <h2 class="r-sec-head__title">apresentação do projeto</h2>
-    <p class="r-sec-head__subtitle">
-      O que é o Hexaverso do ponto de vista científico, para além da camada de RPG.
-    </p>
-  </div>
-
-  <p>
-    <strong>Hexaverso</strong> é um RPG narrativo-comportamental desenvolvido na Universidade Estadual de Londrina, com financiamento do CNPq (Chamada Universal MCTI n. 10/2023, Processo 408699/2023-0). Embora funcione como jogo, sua estrutura foi desenhada como <strong>artefato de intervenção e observação</strong>: cada escolha de design foi tomada para permitir que a experiência lúdica produza dados comportamentais analisáveis.
-  </p>
-
-  <p>
-    A premissa central é que ambientes estruturados de ficção cooperativa podem funcionar como <strong>ambientes de contingência</strong> — espaços em que comportamentos-alvo emergem, podem ser observados sistematicamente, e podem ser consequenciados de maneira funcional sem que o participante se sinta em contexto avaliativo. Isso abre uma janela incomum para estudar repertórios individuais e coletivos em tempo real, em condições que escapam dos limites clássicos do laboratório e das vinhetas escritas.
-  </p>
-
-  <p>
-    Do ponto de vista aplicado, o jogo pode ser utilizado como <strong>intervenção socioeducativa</strong> em contextos escolares, clínicos e comunitários, com foco no desenvolvimento de repertórios sociocognitivos complexos. Do ponto de vista da pesquisa, o Hexaverso oferece uma plataforma padronizável para estudos sobre metacontingências, flexibilidade psicológica e comportamento cooperativo em grupo.
-  </p>
+<section class="ps" id="apresentacao">
+  <div class="ps__num">01</div>
+  <h2 class="ps__title">apresentação do projeto</h2>
+  <p class="ps__sub">O que é o Hexaverso do ponto de vista científico, para além da camada de RPG.</p>
+  <p><strong>Hexaverso</strong> é um RPG narrativo-comportamental desenvolvido na Universidade Estadual de Londrina, com financiamento do CNPq (Chamada Universal MCTI n. 10/2023). Embora funcione como jogo, sua estrutura foi desenhada como <strong>artefato de intervenção e observação</strong>: cada escolha de design foi tomada para que a experiência lúdica produza dados comportamentais analisáveis.</p>
+  <p>A premissa central é que ambientes estruturados de ficção cooperativa podem funcionar como <strong>ambientes de contingência</strong> &mdash; espaços em que comportamentos-alvo emergem, são observados sistematicamente e consequenciados funcionalmente sem que o participante se sinta em contexto avaliativo. Isso abre uma janela para estudar repertórios individuais e coletivos em tempo real, fora dos limites do laboratório clássico.</p>
+  <p>Do ponto de vista aplicado, o jogo funciona como <strong>intervenção socioeducativa</strong> em contextos escolares, clínicos e comunitários. Do ponto de vista científico, oferece uma plataforma padronizável para estudos sobre metacontingências, flexibilidade psicológica e comportamento cooperativo.</p>
 </section>
 
-<section class="r-section r-section--alt" id="referenciais">
-  <div class="r-sec-head">
-    <div class="r-sec-head__num">02</div>
-    <h2 class="r-sec-head__title">referenciais teóricos</h2>
-    <p class="r-sec-head__subtitle">
-      Duas lentes complementares estruturam o Hexaverso: uma individual (Hexaflex/ACT), outra coletiva (Metacontingência).
-    </p>
-  </div>
+<section class="ps ps--alt" id="referenciais">
+  <div class="ps__num">02</div>
+  <h2 class="ps__title">referenciais teóricos</h2>
+  <p class="ps__sub">Duas lentes complementares: uma individual (Hexaflex/ACT) e uma coletiva (Metacontingência).</p>
+  <p>O Hexaverso articula duas tradições da Análise do Comportamento: a abordagem <strong>contextual-individual</strong> da Acceptance and Commitment Therapy (ACT), centrada no modelo Hexaflex, e a abordagem <strong>cultural-coletiva</strong> das metacontingências e culturantes.</p>
 
-  <p>
-    Hexaverso articula duas tradições contemporâneas da Análise do Comportamento: a abordagem <strong>contextual-individual</strong> da Acceptance and Commitment Therapy (ACT), centrada no modelo Hexaflex de flexibilidade psicológica, e a abordagem <strong>cultural-coletiva</strong> derivada da teoria das metacontingências e culturantes.
-  </p>
+  <h3 class="ps-h3">a lente individual &mdash; hexaflex e ACT</h3>
+  <p>O <strong>Hexaflex</strong> é um modelo desenvolvido por Steven C. Hayes e colaboradores. Organiza seis processos psicológicos interdependentes &mdash; aceitação, desfusão cognitiva, eu-como-contexto, momento presente, valores e ação comprometida &mdash; como componentes da flexibilidade psicológica. Cada personagem jogável representa operacionalmente um desses processos.</p>
 
-  <h3 class="subheading-mono">a lente individual — hexaflex / act</h3>
-
-  <p>
-    O <strong>Hexaflex</strong> é um modelo desenvolvido por Steven C. Hayes e colaboradores no âmbito da ACT. Organiza seis processos psicológicos interdependentes — aceitação, desfusão cognitiva, eu-como-contexto, contato com o momento presente, valores e ação comprometida — como componentes da flexibilidade psicológica. Cada um dos seis personagens jogáveis do Hexaverso foi desenhado para representar, operacionalmente, um desses processos.
-  </p>
-
-  <figure class="fig-block">
-    <img src="../assets/images/hexaflex.png" alt="Diagrama do modelo Hexaflex — ACT: Flexibilidade Psicológica e seus seis processos organizados em três pilares (Aberto, Consciente, Ativamente Engajado) dentro dos eixos Contexto e Corpo">
-    <figcaption class="fig-block__caption">
-      <strong>Figura 1.</strong> Modelo Hexaflex expandido (versão brasileira). Os seis processos da flexibilidade psicológica organizados em três pilares — Aberto, Consciente e Ativamente Engajado — e ancorados nos eixos Corpo e Relacionamentos e Cultura. Adaptado de Perez &amp; Hayes (2025).
-    </figcaption>
+  <figure class="fig">
+    <img src="../assets/images/hexaflex.png" alt="Diagrama do modelo Hexaflex com seis processos organizados em três pilares: Aberto, Consciente e Ativamente Engajado">
+    <div class="fig__cap"><strong>Figura 1.</strong> Modelo Hexaflex expandido (versão brasileira). Os seis processos organizados em três pilares &mdash; Aberto, Consciente e Ativamente Engajado. Adaptado de Perez e Hayes (2025).</div>
   </figure>
 
-  <p>
-    Os seis processos do Hexaflex estão organizados em <strong>três pilares funcionais</strong> (Perez &amp; Hayes, 2025). O pilar <strong>Aberto</strong> reúne aceitação e desfusão — processos que permitem ao indivíduo se relacionar de forma mais flexível com experiências internas difíceis, sem evitá-las ou ser dominado por elas. O pilar <strong>Consciente</strong> agrupa o eu-como-contexto e o contato com o momento presente — processos atencionais e perspectivos que ancoram o comportamento no aqui-e-agora. O pilar <strong>Ativamente Engajado</strong> compreende valores e ação comprometida — processos motivacionais que direcionam o comportamento para escolhas significativas.
-  </p>
+  <p>Os seis processos estão organizados em <strong>três pilares funcionais</strong>. O pilar <strong>Aberto</strong> reúne aceitação e desfusão. O pilar <strong>Consciente</strong> agrupa eu-como-contexto e momento presente. O pilar <strong>Ativamente Engajado</strong> compreende valores e ação comprometida.</p>
 
-  <div class="hex-processes">
-    <div class="hex-process hex-process--open">
-      <div class="hex-process__pillar">◼ pilar aberto</div>
-      <div class="hex-process__name">Aceitação</div>
-      <div class="hex-process__desc">Abertura às próprias experiências — pensamentos, emoções, sensações — sem tentar controlá-las ou evitá-las quando isso é desnecessário ou ineficaz.</div>
+  <div class="hex-grid">
+    <div class="hex-card hex-card--a">
+      <div class="hex-card__pillar">pilar aberto</div>
+      <div class="hex-card__name">Aceitação</div>
+      <div class="hex-card__desc">Abertura às próprias experiências sem tentar controlá-las quando isso é desnecessário ou ineficaz.</div>
     </div>
-    <div class="hex-process hex-process--open">
-      <div class="hex-process__pillar">◼ pilar aberto</div>
-      <div class="hex-process__name">Desfusão Cognitiva</div>
-      <div class="hex-process__desc">Interagir com os próprios pensamentos de forma funcional, sem se fundir literalmente ao seu conteúdo — perceber o pensamento como pensamento, não como fato.</div>
+    <div class="hex-card hex-card--a">
+      <div class="hex-card__pillar">pilar aberto</div>
+      <div class="hex-card__name">Desfusão Cognitiva</div>
+      <div class="hex-card__desc">Interagir com os próprios pensamentos de forma funcional, percebendo-os como pensamentos &mdash; não como fatos.</div>
     </div>
-    <div class="hex-process hex-process--aware">
-      <div class="hex-process__pillar">◼ pilar consciente</div>
-      <div class="hex-process__name">Eu-como-Contexto</div>
-      <div class="hex-process__desc">Perspectiva do observador: notar os diferentes aspectos da própria experiência sem se identificar rigidamente com nenhum conteúdo ou narrativa sobre si mesmo.</div>
+    <div class="hex-card hex-card--b">
+      <div class="hex-card__pillar">pilar consciente</div>
+      <div class="hex-card__name">Eu-como-Contexto</div>
+      <div class="hex-card__desc">Perspectiva do observador: notar os aspectos da própria experiência sem se identificar rigidamente com nenhum conteúdo.</div>
     </div>
-    <div class="hex-process hex-process--aware">
-      <div class="hex-process__pillar">◼ pilar consciente</div>
-      <div class="hex-process__name">Momento Presente</div>
-      <div class="hex-process__desc">Atenção flexível e curiosa ao aqui-e-agora, capaz de flutuar entre diferentes aspectos da experiência sem ser capturada por ruminações passadas ou antecipações futuras.</div>
+    <div class="hex-card hex-card--b">
+      <div class="hex-card__pillar">pilar consciente</div>
+      <div class="hex-card__name">Momento Presente</div>
+      <div class="hex-card__desc">Atenção flexível e curiosa ao aqui-e-agora, capaz de flutuar entre diferentes aspectos da experiência.</div>
     </div>
-    <div class="hex-process hex-process--active">
-      <div class="hex-process__pillar">◼ pilar ativamente engajado</div>
-      <div class="hex-process__name">Valores</div>
-      <div class="hex-process__desc">Qualidades de ação livremente escolhidas que dão sentido ao comportamento — não metas a alcançar, mas direções contínuas de vida: ser corajoso, cuidadoso, presente.</div>
+    <div class="hex-card hex-card--c">
+      <div class="hex-card__pillar">pilar ativamente engajado</div>
+      <div class="hex-card__name">Valores</div>
+      <div class="hex-card__desc">Qualidades de ação livremente escolhidas que dão sentido ao comportamento: direções contínuas de vida.</div>
     </div>
-    <div class="hex-process hex-process--active">
-      <div class="hex-process__pillar">◼ pilar ativamente engajado</div>
-      <div class="hex-process__name">Ação Comprometida</div>
-      <div class="hex-process__desc">Construção de padrões de comportamento e hábitos alinhados aos valores escolhidos — agir de forma coerente mesmo diante de obstáculos internos ou externos.</div>
+    <div class="hex-card hex-card--c">
+      <div class="hex-card__pillar">pilar ativamente engajado</div>
+      <div class="hex-card__name">Ação Comprometida</div>
+      <div class="hex-card__desc">Padrões de comportamento alinhados aos valores escolhidos &mdash; agir de forma coerente diante de obstáculos.</div>
     </div>
   </div>
 
-  <div class="theorist-grid">
-    <div class="theorist">
-      <div class="theorist__name">steven c. hayes</div>
-      <div class="theorist__years">1948– · universidade de nevada</div>
-      <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> formulação da ACT e da Teoria das Relações Derivadas (RFT). Autor de referência para o modelo Hexaflex e para a compreensão de flexibilidade psicológica como processo transdiagnóstico.
-      </div>
+  <div class="theorists">
+    <div class="th-card">
+      <div class="th-card__name">steven c. hayes</div>
+      <div class="th-card__years">1948&ndash; &middot; universidade de nevada</div>
+      <div class="th-card__text"><strong>Contribuição central:</strong> formulação da ACT e da Teoria das Relações Derivadas (RFT). Referência para o modelo Hexaflex e a flexibilidade psicológica como processo transdiagnóstico.</div>
     </div>
-    <div class="theorist">
-      <div class="theorist__name">will perez</div>
-      <div class="theorist__years">· colaborador hayes · brasil</div>
-      <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> difusão e desenvolvimento da ACT no contexto brasileiro, em colaboração direta com Steven C. Hayes. Referência central para a aproximação entre ACT e a tradição analítico-comportamental brasileira.
-      </div>
+    <div class="th-card">
+      <div class="th-card__name">will perez</div>
+      <div class="th-card__years">colaborador hayes &middot; brasil</div>
+      <div class="th-card__text"><strong>Contribuição central:</strong> difusão e desenvolvimento da ACT no Brasil em colaboração com Steven C. Hayes. Referência para a aproximação entre ACT e a tradição analítico-comportamental brasileira.</div>
     </div>
   </div>
 
-  <div class="ref-block">
-    <strong>Hayes, S. C., Strosahl, K. D., &amp; Wilson, K. G.</strong> (2012). <em>Acceptance and Commitment Therapy: The Process and Practice of Mindful Change</em> (2nd ed.). New York: Guilford Press.
+  <div class="ref">
+    <strong>Hayes, S. C., Strosahl, K. D., e Wilson, K. G.</strong> (2012). <em>Acceptance and Commitment Therapy: The Process and Practice of Mindful Change</em> (2&ordf; ed.). New York: Guilford Press.
+  </div>
+  <div class="ref ref--more">
+    <strong>Para saber mais &mdash;</strong> Perez, W. F., e Hayes, S. C. (2025). Terapia de Aceitação e Compromisso (ACT): um guia rápido. <em>Perspectivas em Análise do Comportamento</em>, 005&ndash;017. <a href="https://doi.org/10.18761/PAC.ACT.00EN" target="_blank" rel="noopener">doi.org/10.18761/PAC.ACT.00EN</a>
   </div>
 
-  <div class="ref-block">
-    <strong>Saban, M.</strong> (2019). O que seria esse tal de "Hexaflex"? <em>comportese.com</em>. Disponível em: <a href="https://comportese.com" target="_blank" rel="noopener">comportese.com</a>. [introdução didática em português]
-  </div>
+  <h3 class="ps-h3" style="margin-top:36px;">a lente coletiva &mdash; metacontingência</h3>
+  <p>O conceito de <strong>metacontingência</strong>, formulado por Sigrid S. Glenn (1986; 1988), propõe uma unidade de análise para fenômenos sociais e culturais além do comportamento individual. Uma metacontingência descreve a relação entre um <strong>culturante</strong> &mdash; composto por Contingências Comportamentais Entrelaçadas (CCEs) e seu produto agregado (PA) &mdash; e uma <strong>consequência cultural</strong>, que aumenta ou diminui a probabilidade futura desse padrão (Angelo et al., 2024).</p>
 
-  <div class="ref-block">
-    <strong>▸ para saber mais</strong><br>
-    <strong>Perez, W. F., &amp; Hayes, S. C.</strong> (2025). Terapia de Aceitação e Compromisso (ACT): um guia rápido. <em>Perspectivas em Análise do Comportamento</em>, 005–017. <a href="https://doi.org/10.18761/PAC.ACT.00EN" target="_blank" rel="noopener">https://doi.org/10.18761/PAC.ACT.00EN</a>
-  </div>
+  <h4 class="ps-h4">contingências comportamentais entrelaçadas (CCEs)</h4>
+  <p>CCEs são conjuntos de contingências de reforçamento que ocorrem em interação social. O comportamento de cada pessoa funciona simultaneamente como consequência para o outro e como antecedente para a próxima resposta &mdash; tornando as contingências <em>interdependentes</em>. A Figura 2 ilustra esse entrelaçamento em um diálogo.</p>
 
-  <h3 class="subheading-mono" style="margin-top: 28px;">a lente coletiva — metacontingência</h3>
-
-  <p>
-    O conceito de <strong>metacontingência</strong>, formulado por Sigrid S. Glenn (1986; 1988), propõe uma unidade de análise para fenômenos sociais e culturais que vai além do comportamento individual. Uma metacontingência descreve a relação de contingência entre um <strong>culturante</strong> — composto por Contingências Comportamentais Entrelaçadas (CCEs) e seu produto agregado (PA) — e uma <strong>consequência cultural</strong>, que aumenta ou diminui a probabilidade futura desse padrão de interação (Angelo et al., 2024; Glenn et al., 2016). A metacontingência se insere no terceiro nível de seleção por consequências descrito por Skinner (1981): assim como a filogênese seleciona características físicas de espécies e a ontogênese seleciona operantes individuais, as metacontingências explicariam a variação e seleção de padrões culturais.
-  </p>
-
-  <h4 class="subheading-mono" style="font-size:16px; margin: 20px 0 8px;">contingências comportamentais entrelaçadas (CCEs)</h4>
-
-  <p>
-    CCEs são um conjunto de contingências de reforçamento que ocorrem quando há interação social entre duas ou mais pessoas. O que as distingue de uma simples cadeia de respostas individuais é o <strong>entrelaçamento</strong>: o comportamento de cada pessoa funciona simultaneamente como consequência para o outro e como antecedente para a próxima resposta — tornando as contingências <em>interdependentes</em>. A Figura 1 abaixo ilustra esse entrelaçamento em um diálogo simples entre Pedro e Ana: a resposta de Pedro é antecedente para a resposta de Ana, que é ao mesmo tempo consequência de Pedro e antecedente para sua próxima fala.
-  </p>
-
-  <figure class="fig-block">
-    <img src="../assets/images/figura_1_cce_metacontingencias.png" alt="Figura 1 — Exemplo de contingências comportamentais entrelaçadas: diálogo entre Pedro e Ana mostrando antecedentes, respostas e consequências interdependentes">
-    <figcaption class="fig-block__caption">
-      <strong>Figura 1.</strong> Exemplo de contingências comportamentais entrelaçadas. O comportamento de cada participante funciona como antecedente, resposta e consequência de forma interdependente. Fonte: Angelo et al. (2024, p. 146).
-    </figcaption>
+  <figure class="fig">
+    <img src="../assets/images/figura_1_cce_metacontingencias.png" alt="Exemplo de contingências comportamentais entrelaçadas em um diálogo, mostrando relações de antecedente, resposta e consequência entre dois participantes">
+    <div class="fig__cap"><strong>Figura 2.</strong> Exemplo de contingências comportamentais entrelaçadas. O comportamento de cada participante funciona como antecedente, resposta e consequência de forma interdependente. Fonte: Angelo et al. (2024, p. 146).</div>
   </figure>
 
-  <p>
-    CCEs podem envolver desde duas pessoas movendo um objeto pesado até centenas de trabalhadores numa linha de produção, legisladores implementando uma lei ou jogadores coordenando uma jogada. O que importa analiticamente não é o número de pessoas, mas o padrão de interdependência entre suas contingências. Esse padrão coordenado produz um efeito no ambiente que nenhum indivíduo isolado produziria: o <strong>produto agregado (PA)</strong>. O PA é o efeito direto do entrelaçamento — um carro produzido, um evento realizado, uma lei aprovada, uma partida ganha. Importante: o PA não precisa funcionar como reforçador para todos os indivíduos cujos comportamentos o compõem; cada um pode ter seus próprios reforçadores particulares ao longo do processo.
-  </p>
+  <p>O padrão coordenado produz um efeito que nenhum indivíduo isolado produziria: o <strong>produto agregado (PA)</strong>. O PA é o efeito direto do entrelaçamento &mdash; um evento realizado, uma lei aprovada, uma partida ganha.</p>
 
-  <h4 class="subheading-mono" style="font-size:16px; margin: 20px 0 8px;">o culturante e a consequência cultural</h4>
+  <h4 class="ps-h4">culturante e consequência cultural</h4>
+  <p>O conjunto formado pelas CCEs e pelo PA é chamado de <strong>culturante</strong> &mdash; unidade básica da metacontingência. O culturante é selecionado em função de uma <strong>consequência cultural</strong>: um evento externo que retroage sobre ele, alterando sua probabilidade futura. O culturante pode <em>persistir mesmo com substituição de participantes</em>: novos membros são expostos às mesmas contingências e moldados ao padrão existente.</p>
 
-  <p>
-    O conjunto formado pelas CCEs e pelo PA é chamado de <strong>culturante</strong> — a unidade básica da metacontingência. O culturante é selecionado (ou sofre variação) em função de uma <strong>consequência cultural</strong>: um evento externo ao culturante que retroage sobre ele, aumentando ou diminuindo a probabilidade de sua recorrência futura. Consequências culturais podem ter função análoga a reforçadores (aumentando a probabilidade do culturante) ou a punidores (reduzindo-a). Uma característica fundamental do culturante é que ele pode <em>persistir mesmo com a substituição de participantes</em>: quando um novo membro entra num grupo, as contingências às quais é exposto são semelhantes às que já existiam, moldando seu comportamento ao padrão anterior.
-  </p>
-
-  <figure class="fig-block">
-    <img src="../assets/images/figura_2_metacontingencia.png" alt="Figura 2 — Representação gráfica genérica de uma metacontingência: CCEs geram o Produto Agregado (PA), formando o Culturante, que produz uma Consequência Cultural que retroage sobre o Culturante">
-    <figcaption class="fig-block__caption">
-      <strong>Figura 2.</strong> Representação gráfica genérica de uma metacontingência. As CCEs (contingências comportamentais entrelaçadas) geram o Produto Agregado (PA). Juntos, formam o Culturante. A Consequência Cultural retroage sobre o Culturante, aumentando ou diminuindo sua probabilidade futura. Fonte: Angelo et al. (2024, p. 149).
-    </figcaption>
+  <figure class="fig">
+    <img src="../assets/images/figura_2_metacontingencia.png" alt="Representação gráfica de uma metacontingência com CCEs, Produto Agregado e Consequência Cultural">
+    <div class="fig__cap"><strong>Figura 3.</strong> Representação gráfica de uma metacontingência. CCEs geram o Produto Agregado (PA); juntos formam o Culturante. A Consequência Cultural retroage sobre o Culturante. Fonte: Angelo et al. (2024, p. 149).</div>
   </figure>
 
-  <p>
-    No <strong>Hexaverso</strong>, essa lógica se traduz diretamente na mecânica de jogo. O grupo de jogadores produz CCEs a cada cena — escolhas coordenadas de proteção, mediação, escalada ou omissão. Essas interações geram um produto agregado narrativo (o desfecho da cena), que compõe um culturante observado e registrado pelo mestre-auxiliar. O Medidor de Integridade, operado de forma oculta, funciona como a consequência cultural: retroage sobre o culturante do grupo, tornando o mundo ficcional mais aberto ou mais hostil nas sessões seguintes — sem que os jogadores vejam o número, mas sentindo suas consequências na trama.
-  </p>
+  <p>No <strong>Hexaverso</strong>, o Medidor de Integridade traduz essa lógica em jogo: o grupo produz CCEs a cada cena, que geram um produto agregado narrativo. O Medidor funciona como consequência cultural &mdash; tornando o mundo ficcional mais aberto ou mais hostil nas sessões seguintes.</p>
 
-  <div class="theorist-grid">
-    <div class="theorist">
-      <div class="theorist__name">sigrid s. glenn</div>
-      <div class="theorist__years">1942– · unt</div>
-      <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> proposição e refinamento do conceito de metacontingência (1986–2016), incluindo os termos CCE, produto agregado e culturante. Articulação entre seleção por consequências nos níveis biológico, operante e cultural.
-      </div>
+  <div class="theorists">
+    <div class="th-card">
+      <div class="th-card__name">sigrid s. glenn</div>
+      <div class="th-card__years">1942&ndash; &middot; universidade do norte do texas</div>
+      <div class="th-card__text"><strong>Contribuição central:</strong> proposição e refinamento do conceito de metacontingência, incluindo CCE, produto agregado e culturante.</div>
     </div>
-    <div class="theorist">
-      <div class="theorist__name">b. f. skinner</div>
-      <div class="theorist__years">1904–1990</div>
-      <div class="theorist__contrib">
-        <strong>Contribuição central:</strong> modelo de seleção por consequências em três níveis (filogênese, ontogênese e cultura), base conceitual sobre a qual Glenn desenvolveu o conceito de metacontingência.
-      </div>
+    <div class="th-card">
+      <div class="th-card__name">b. f. skinner</div>
+      <div class="th-card__years">1904&ndash;1990</div>
+      <div class="th-card__text"><strong>Contribuição central:</strong> modelo de seleção por consequências em três níveis (filogênese, ontogênese e cultura), base sobre a qual Glenn desenvolveu a metacontingência.</div>
     </div>
   </div>
 
-  <div class="ref-block">
-    <strong>Glenn, S. S.</strong> (1988). Contingencies and metacontingencies: Toward a synthesis of behavior analysis and cultural materialism. <em>The Behavior Analyst</em>, 11(2), 161–179.
+  <div class="ref">
+    <strong>Glenn, S. S.</strong> (1988). Contingencies and metacontingencies: Toward a synthesis of behavior analysis and cultural materialism. <em>The Behavior Analyst</em>, 11(2), 161&ndash;179.
   </div>
-
-  <div class="ref-block">
-    <strong>Skinner, B. F.</strong> (1981). Selection by consequences. <em>Science</em>, 213(4507), 501–504.
+  <div class="ref">
+    <strong>Skinner, B. F.</strong> (1981). Selection by consequences. <em>Science</em>, 213(4507), 501&ndash;504.
   </div>
-
-  <div class="ref-block">
-    <strong>▸ para saber mais</strong><br>
-    <strong>Angelo, H. V. B. R., Souza, V. P., Izbicki, S., &amp; Bissoli, E. B.</strong> (2024). Metacontingência: uma ferramenta conceitual para análises sociais e culturais. <em>Revista Brasileira de Análise do Comportamento (REBAC)</em>, 20(Supl. 1), 144–155. <a href="https://doi.org/10.18542/REBAC.V20I0.16460" target="_blank" rel="noopener">doi:10.18542/REBAC.V20I0.16460</a> [introdução didática em português, com exemplos e figuras]
+  <div class="ref ref--more">
+    <strong>Para saber mais &mdash;</strong> Angelo, H. V. B. R., Souza, V. P., Izbicki, S., e Bissoli, E. B. (2024). Metacontingência: uma ferramenta conceitual para análises sociais e culturais. <em>Revista Brasileira de Análise do Comportamento (REBAC)</em>, 20(Supl. 1), 144&ndash;155. <a href="https://doi.org/10.18542/REBAC.V20I0.16460" target="_blank" rel="noopener">doi.org/10.18542/REBAC.V20I0.16460</a> &mdash; introdução didática em português.
   </div>
 </section>
 
-<section class="r-section" id="metodologia">
-  <div class="r-sec-head">
-    <div class="r-sec-head__num">03</div>
-    <h2 class="r-sec-head__title">lógica metodológica</h2>
-    <p class="r-sec-head__subtitle">
-      Como o jogo funciona, ao mesmo tempo, como intervenção e como ambiente observável.
-    </p>
-  </div>
-
-  <p>
-    A arquitetura de <strong>dois mestres</strong> é a escolha de design que torna tudo isso possível. O mestre principal conduz a ficção e sustenta imersão; o mestre-auxiliar ocupa o papel de observador sistemático, registrando eventos comportamentais em fichas padronizadas e operando o Medidor de Integridade como variável dependente do sistema.
-  </p>
-
-  <p>
-    Essa divisão reduz um problema clássico de intervenções lúdicas: a sobrecarga do facilitador. Quando uma única pessoa tenta narrar e observar simultaneamente, a qualidade do registro tende a degradar. Ao desdobrar os papéis, <strong>cada função é executada com a atenção que lhe é devida</strong>, e os dados gerados têm maior fidedignidade.
-  </p>
-
-  <p>
-    A campanha completa ocorre ao longo de <strong>10 a 11 sessões</strong> estruturadas, cada uma com momentos críticos previstos para convocar processos específicos do Hexaflex. As sessões são ancoradas por medidas de linha de base aplicadas antes e depois da intervenção, permitindo avaliações pré-pós em desenhos de pesquisa aplicada.
-  </p>
-
-  <p>
-    O sistema de <strong>Companion Logs</strong> e o <strong>follow-up gamificado</strong> acrescentam uma camada de generalização: o que emerge na ficção é convidado a aparecer com nome próprio na vida do participante, sob a forma de reflexões escritas, leituras orientadas e tarefas aplicáveis entre sessões. Essas produções tornam-se elas mesmas fontes de dado qualitativo.
-  </p>
+<section class="ps" id="metodologia">
+  <div class="ps__num">03</div>
+  <h2 class="ps__title">lógica metodológica</h2>
+  <p class="ps__sub">Como o jogo funciona como intervenção e como ambiente observável ao mesmo tempo.</p>
+  <p>A arquitetura de <strong>dois mestres</strong> é a escolha central de design. O mestre principal conduz a ficção; o mestre-auxiliar é o observador sistemático, registrando eventos comportamentais em fichas padronizadas e operando o Medidor de Integridade.</p>
+  <p>Com papéis separados, <strong>cada função recebe a atenção que lhe é devida</strong> e os dados têm maior fidedignidade. A campanha abrange <strong>10 a 11 sessões</strong> estruturadas, ancoradas por medidas aplicadas antes e depois da intervenção.</p>
+  <p>O sistema de <strong>Companion Logs</strong> e o <strong>follow-up gamificado</strong> acrescentam uma camada de generalização: o que emerge na ficção é convidado a aparecer na vida do participante sob a forma de reflexões e tarefas entre sessões.</p>
 </section>
 
-<section class="r-section r-section--alt" id="instrumentos">
-  <div class="r-sec-head">
-    <div class="r-sec-head__num">04</div>
-    <h2 class="r-sec-head__title">instrumentos padronizados</h2>
-    <p class="r-sec-head__subtitle">
-      Fichas, protocolos e medidas. Todo o material é liberado sob CC BY 4.0.
-    </p>
-  </div>
-
+<section class="ps ps--alt" id="instrumentos">
+  <div class="ps__num">04</div>
+  <h2 class="ps__title">instrumentos padronizados</h2>
+  <p class="ps__sub">Fichas, protocolos e medidas. Todo o material está liberado sob CC BY 4.0.</p>
   <div class="instruments">
-    <a href="../downloads/index.html" class="instrument">
-      <div class="instrument__icon">L</div>
-      <div>
-        <div class="instrument__name">linha de base</div>
-        <div class="instrument__desc">Medidas aplicadas antes da campanha. Questionário estruturado com itens sobre repertórios sociocognitivos e flexibilidade psicológica percebida.</div>
-      </div>
-      <span class="instrument__link">→ baixar</span>
+    <a href="../downloads/index.html" class="instr">
+      <div class="instr__icon">L</div>
+      <div><div class="instr__name">linha de base</div><div class="instr__desc">Medidas pré-campanha sobre repertórios sociocognitivos e flexibilidade psicológica percebida.</div></div>
+      <span class="instr__link">ver</span>
     </a>
-
-    <a href="../downloads/index.html" class="instrument">
-      <div class="instrument__icon">F</div>
-      <div>
-        <div class="instrument__name">follow-up / pós-intervenção</div>
-        <div class="instrument__desc">Mesma estrutura da linha de base, aplicada após o encerramento da campanha. Permite comparação pré-pós com itens pareados.</div>
-      </div>
-      <span class="instrument__link">→ baixar</span>
+    <a href="../downloads/index.html" class="instr">
+      <div class="instr__icon">F</div>
+      <div><div class="instr__name">follow-up e pós-intervenção</div><div class="instr__desc">Mesma estrutura da linha de base, aplicada após a campanha. Permite comparação pré-pós com itens pareados.</div></div>
+      <span class="instr__link">ver</span>
     </a>
-
-    <a href="../downloads/index.html" class="instrument">
-      <div class="instrument__icon">S</div>
-      <div>
-        <div class="instrument__name">ficha de sessão · mestre-auxiliar</div>
-        <div class="instrument__desc">Registro de CCEs, produto agregado, culturante predominante, vértices observáveis do Hexaflex e impacto no Índice de Integridade para cada cena crítica.</div>
-      </div>
-      <span class="instrument__link">→ baixar</span>
+    <a href="../downloads/index.html" class="instr">
+      <div class="instr__icon">S</div>
+      <div><div class="instr__name">ficha de sessão &mdash; mestre-auxiliar</div><div class="instr__desc">Registro de CCEs, produto agregado e impacto no Medidor de Integridade por cena crítica.</div></div>
+      <span class="instr__link">ver</span>
     </a>
-
-    <a href="../downloads/index.html" class="instrument">
-      <div class="instrument__icon">H</div>
-      <div>
-        <div class="instrument__name">ficha individual hexaflex</div>
-        <div class="instrument__desc">Uma por participante. Acompanhamento longitudinal dos vértices observados ao longo da campanha, com notas qualitativas do observador.</div>
-      </div>
-      <span class="instrument__link">→ baixar</span>
+    <a href="../downloads/index.html" class="instr">
+      <div class="instr__icon">H</div>
+      <div><div class="instr__name">ficha individual hexaflex</div><div class="instr__desc">Uma por participante. Acompanhamento longitudinal dos vértices observáveis ao longo da campanha.</div></div>
+      <span class="instr__link">ver</span>
     </a>
-
-    <a href="../downloads/index.html" class="instrument">
-      <div class="instrument__icon">C</div>
-      <div>
-        <div class="instrument__name">roteiro do companion log</div>
-        <div class="instrument__desc">Disparadores sugeridos para as anotações dos participantes entre sessões. Permite análise qualitativa posterior do material produzido.</div>
-      </div>
-      <span class="instrument__link">→ baixar</span>
+    <a href="../downloads/index.html" class="instr">
+      <div class="instr__icon">C</div>
+      <div><div class="instr__name">companion log</div><div class="instr__desc">Disparadores para anotações dos participantes entre sessões. Fonte de dado qualitativo para análise posterior.</div></div>
+      <span class="instr__link">ver</span>
     </a>
-
-    <a href="../downloads/index.html" class="instrument">
-      <div class="instrument__icon">P</div>
-      <div>
-        <div class="instrument__name">protocolo de aplicação</div>
-        <div class="instrument__desc">Documento-guia com recomendações metodológicas, considerações éticas, critérios de inclusão/exclusão e orientações para contextos escolares.</div>
-      </div>
-      <span class="instrument__link">→ baixar</span>
+    <a href="../downloads/index.html" class="instr">
+      <div class="instr__icon">P</div>
+      <div><div class="instr__name">protocolo de aplicação</div><div class="instr__desc">Guia com recomendações metodológicas, considerações éticas e orientações para contextos escolares.</div></div>
+      <span class="instr__link">ver</span>
     </a>
-  </div>
-
-  <p style="margin-top: 20px; font-size: 13px; color: var(--ink-soft); font-family: var(--font-mono); line-height: 1.6;">
-    Arquivos disponíveis na área de <a href="../downloads/index.html" style="color: var(--pink-deep); border-bottom: 1px dotted var(--pink);">downloads</a>. Em caso de dúvidas ou urgência, <a href="#contato" style="color: var(--pink-deep); border-bottom: 1px dotted var(--pink);">contate o CRIACOM</a>.
-  </p>
-</section>
-
-<section class="call" id="convocacao">
-  <div class="call__label">★ convocatória aberta ★</div>
-  <h2 class="call__title">aplique. registre.<br>nos mande os dados.</h2>
-
-  <p class="call__body">
-    Estamos ativamente buscando <strong>aplicadores, escolas, grupos clínicos e pesquisadores</strong> interessados em rodar o Hexaverso em contextos reais e partilhar os dados coletados. Cada aplicação que chega ao CRIACOM ajuda a refinar o jogo, validar os instrumentos e ampliar a base empírica do projeto.
-  </p>
-
-  <p class="call__body">
-    A participação é <strong>colaborativa e creditada</strong>. Aplicadores que contribuem com dados são reconhecidos em publicações decorrentes, conforme diretrizes éticas padronizadas. O material todo está sob CC BY 4.0 — você pode usar, adaptar e redistribuir, desde que atribua a autoria.
-  </p>
-
-  <div class="call__checklist">
-    <h4>◇ o que nos ajuda a receber</h4>
-    <ul>
-      <li><strong>Medidas de linha de base</strong> e pós-intervenção preenchidas</li>
-      <li><strong>Fichas de sessão</strong> do mestre-auxiliar, uma por cena crítica</li>
-      <li><strong>Fichas individuais</strong> dos participantes, ao longo da campanha</li>
-      <li><strong>Notas livres</strong> do mestre principal (funcionou / travou / surpreendeu)</li>
-      <li><strong>Companion Logs</strong> dos participantes, com autorização expressa deles</li>
-      <li>Qualquer <strong>relato qualitativo</strong>, feedback, crítica ou sugestão</li>
-      <li>Informações de <strong>contexto</strong>: perfil do grupo, duração real, adaptações feitas</li>
-    </ul>
   </div>
 </section>
 
-<section class="r-section" id="equipe">
-  <div class="r-sec-head">
-    <div class="r-sec-head__num">06</div>
-    <h2 class="r-sec-head__title">equipe &amp; criacom</h2>
-    <p class="r-sec-head__subtitle">Quem está por trás do projeto.</p>
-  </div>
+<section class="ps" id="colaboracao">
+  <div class="ps__num">05</div>
+  <h2 class="ps__title">colaboração científica</h2>
+  <p class="ps__sub">O Hexaverso é um projeto aberto. Pesquisadores e aplicadores são bem-vindos.</p>
+  <p>O projeto está em fase de aplicação e validação. Pesquisadores interessados em utilizar o Hexaverso como plataforma de investigação são convidados a entrar em contato com o CRIACOM por meio dos canais institucionais da UEL.</p>
+  <p>A participação é <strong>colaborativa e creditada</strong>. Pesquisadores que contribuem com dados são reconhecidos em publicações decorrentes, conforme diretrizes éticas padronizadas. Todo o material está disponível sob <strong>CC BY 4.0</strong>.</p>
+  <p>Para acesso aos instrumentos e ao manual completo, acesse a <a href="../downloads/index.html" style="color:var(--pink-deep);text-decoration:underline;text-underline-offset:3px;">área de downloads</a>.</p>
+</section>
 
-  <p>
-    O Hexaverso é desenvolvido no âmbito do <strong>CRIACOM — Centro de Referência de Inovação em Análise do Comportamento</strong>, na Universidade Estadual de Londrina, com financiamento do CNPq.
-  </p>
-
-  <div class="team-grid">
-    <div class="team-member">
-      <div class="team-member__role">◆ coordenação</div>
-      <div class="team-member__name">Prof. Dr. Hernando Borges Neves Filho</div>
-      <div class="team-member__affiliation">
-        Programa de Pós-Graduação em Análise do Comportamento<br>Universidade Estadual de Londrina (UEL)
-      </div>
+<section class="ps ps--alt" id="equipe">
+  <div class="ps__num">06</div>
+  <h2 class="ps__title">equipe e CRIACOM</h2>
+  <p class="ps__sub">Quem está por trás do projeto.</p>
+  <p>O Hexaverso é desenvolvido no âmbito do <strong>CRIACOM &mdash; Centro de Referência de Inovação em Análise do Comportamento</strong>, na Universidade Estadual de Londrina, com financiamento do CNPq.</p>
+  <div class="team">
+    <div class="team-card">
+      <div class="team-card__role">coordenação</div>
+      <div class="team-card__name">Prof. Dr. Hernando Borges Neves Filho</div>
+      <div class="team-card__aff">Programa de Pós-Graduação em Análise do Comportamento<br>Universidade Estadual de Londrina (UEL)</div>
     </div>
-    <div class="team-member">
-      <div class="team-member__role">◆ mestrado · história e mecânicas</div>
-      <div class="team-member__name">Beatriz Landim Fabri</div>
-      <div class="team-member__affiliation">
-        Mestranda · Programa de Pós-Graduação em Análise do Comportamento — UEL.<br>Desenvolvedora da história e mecânicas do Hexaverso.
-      </div>
+    <div class="team-card">
+      <div class="team-card__role">mestrado &middot; história e mecânicas</div>
+      <div class="team-card__name">Beatriz Landim Fabri</div>
+      <div class="team-card__aff">Mestranda &mdash; PPG em Análise do Comportamento / UEL.<br>Desenvolvedora da história e mecânicas do Hexaverso.</div>
     </div>
-    <div class="team-member">
-      <div class="team-member__role">◆ arte e ilustração</div>
-      <div class="team-member__name">Amanda Galdino</div>
-      <div class="team-member__affiliation">
-        Ilustrações oficiais dos personagens, NPCs e cenários.
-      </div>
+    <div class="team-card">
+      <div class="team-card__role">arte e ilustração</div>
+      <div class="team-card__name">Amanda Galdino</div>
+      <div class="team-card__aff">Ilustrações dos personagens, NPCs e cenários. Projeto gráfico da identidade visual.</div>
     </div>
   </div>
-
 </section>
 
-<section class="r-section r-section--dark" id="citar">
-  <div class="r-sec-head">
-    <div class="r-sec-head__num">07</div>
-    <h2 class="r-sec-head__title">como citar</h2>
-    <p class="r-sec-head__subtitle">
-      Se você usa o Hexaverso em pesquisa, aula, ensaio ou aplicação, queremos ser citados. Abaixo, dois formatos prontos para colar.
-    </p>
+<section class="ps ps--dark" id="citar">
+  <div class="ps__num">07</div>
+  <h2 class="ps__title">como citar</h2>
+  <p class="ps__sub">Se você usa o Hexaverso em pesquisa, aula ou aplicação, cite o projeto.</p>
+  <div class="cite-box">
+    <span class="cite-box__label">abnt</span>
+    <pre>NEVES FILHO, H. B. et al. Hexaverso: RPG narrativo-comportamental. Universidade Estadual de Londrina / CRIACOM, 2026. Financiamento CNPq/MCTI 10/2023, Processo 408699/2023-0. Licença CC BY 4.0.</pre>
   </div>
-
-  <div class="citation-box">
-    <span class="citation-box__tag">abnt</span>
-    <pre>NEVES FILHO, H. B. et al. <em>Hexaverso: RPG narrativo-comportamental</em>. Universidade Estadual de Londrina / CRIACOM, 2026. Financiamento CNPq/MCTI 10/2023, Processo 408699/2023-0. Licença CC BY 4.0.</pre>
-  </div>
-
-  <div class="citation-box">
-    <span class="citation-box__tag">bibtex</span>
-    <pre>@misc{hexaverso2026,
-  author       = {Neves Filho, H. B. and others},
-  title        = {Hexaverso: RPG narrativo-comportamental},
-  year         = {2026},
-  institution  = {Universidade Estadual de Londrina, CRIACOM},
-  note         = {CNPq/MCTI 10/2023, Processo 408699/2023-0},
-  license      = {CC BY 4.0}
-}</pre>
+  <div class="cite-box" style="margin-top:24px;">
+    <span class="cite-box__label">apa</span>
+    <pre>Neves Filho, H. B. et al. (2026). Hexaverso: RPG narrativo-comportamental. Universidade Estadual de Londrina / CRIACOM. CC BY 4.0. CNPq Processo 408699/2023-0.</pre>
   </div>
 </section>
 
-<section class="cta-r">
-  <h2 class="cta-r__title">obrigado por<br>querer <span>contribuir.</span></h2>
-  <a href="../downloads/index.html" class="cta-r__btn">▸ baixar instrumentos</a>
-  <a href="../index.html" class="cta-r__btn">◆ conhecer o jogo</a>
+<section class="ps-cta">
+  <h2 class="ps-cta__title">explore o <span>hexaverso.</span></h2>
+  <a href="../downloads/index.html" class="ps-cta__btn">&#9656; baixar instrumentos</a>
+  <a href="../index.html" class="ps-cta__btn">&#9670; conhecer o jogo</a>
 </section>
 
 </main>
@@ -801,9 +358,9 @@ body { background: var(--paper); }
     <a href="./index.html">pesquisa</a>
   </div>
   <div class="footer__body">
-    HEXAVERSO © 2026 · Neves Filho et al. / UEL-CNPq<br>
-    Processo 408699/2023-0 · Chamada Universal CNPq/MCTI n. 10/2023<br>
-    Licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    HEXAVERSO &copy; 2026 &middot; Neves Filho et al. / UEL-CNPq<br>
+    Processo 408699/2023-0 &middot; Chamada Universal CNPq/MCTI n. 10/2023<br>
+    Licenciado sob <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>
   </div>
 </footer>
 
